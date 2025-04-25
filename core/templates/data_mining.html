@@ -1,0 +1,202 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Academic Excellence in Data Mining
+{% endblock %}
+
+{% block content %}
+<style>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+/* Container Styles */
+.data-mining-container {
+    background: back;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1100px;
+}
+
+/* Section Title and Description */
+.section-title {
+    font-size: 2.5em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.section-description {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Services Section */
+.services {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.service-item {
+    background:black;
+    color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.service-item h2 {
+    font-size: 1.8em;
+    color: #1E90FF;
+    margin-bottom: 15px;
+}
+
+/* Resources Section */
+.resources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.resources-item {
+    background: #f0f0f0;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.resources-item h2 {
+    font-size: 1.8em;
+    color: #1E90FF;
+    margin-bottom: 15px;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    background-color: #28a745;
+    color: #ffffff;
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.cta-button:hover {
+    background-color: #007bff;
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em;
+    }
+
+    .section-description {
+        font-size: 1em;
+    }
+
+    .services, .resources {
+        flex-direction: column;
+    }
+
+    .service-item, .resources-item {
+        max-width: 100%;
+    }
+}
+</style>
+
+<div class="data-mining-container">
+    <!-- Introduction Section -->
+    <section id="data-mining-intro">
+        <h1 class="section-title">Achieve Excellence in Data Mining</h1>
+        <p class="section-description">
+            Harness the power of WEKA and Orange for insightful data analysis, or utilize Python and R for advanced data mining techniques. We support your projects and research to drive impactful results.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="data-mining-services">
+        <h2 class="section-title">Our Data Mining Services</h2>
+        
+        <div class="services">
+            <div class="service-item">
+                <h2>Data Mining with WEKA</h2>
+                <p>Utilize WEKA for powerful data mining techniques, enabling you to analyze large datasets effectively.</p>
+            </div>
+            <div class="service-item">
+                <h2>Data Mining with Orange</h2>
+                <p>Explore data visualization and analysis tools in Orange to enhance your data mining skills.</p>
+            </div>
+            <div class="service-item">
+                <h2>Python for Data Mining</h2>
+                <p>Leverage Python's libraries to implement data mining algorithms and techniques for various applications.</p>
+            </div>
+            <div class="service-item">
+                <h2>R for Data Mining</h2>
+                <p>Utilize R for statistical analysis and data mining, providing advanced tools for data manipulation and visualization.</p>
+            </div>
+            <div class="service-item">
+                <h2>Projects</h2>
+                <p>Engage in hands-on projects that allow you to apply data mining techniques in real-world scenarios.</p>
+            </div>
+            <div class="service-item">
+                <h2>Research</h2>
+                <p>Conduct research projects that contribute to advancements in data mining and analytics.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Section -->
+    <section id="data-mining-resources">
+        <!-- <h2 class="section-title">Available Projects</h2> -->
+        <!-- <p class="section-description">Access important resources and materials to assist with your data mining journey.</p> -->
+
+        <div class="resources">
+            {% for resource in documents %}
+            <div class="resources-item">
+                <h2>{{ resource.title }}</h2>
+                <p>{{ resource.description }}</p>
+                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
+            </div>
+            {% empty %}
+            <p>No resources available at the moment. Please check back later.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="data-mining-cta">
+        <h2 class="section-title">Get Expert Data Mining Support Today</h2>
+        <p class="section-description">
+            Connect with us to explore our data mining services and take your academic and research projects to the next level.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Data%20mining%3F" class="cta-button">
+            <i class="fab fa-whatsapp"></i>
+            Chat with an expert
+        </a>
+    </section>
+</div>
+{% endblock %}

@@ -1,0 +1,302 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    .content-container {
+        padding: 20px;
+    }
+
+    .background-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{% static "images/computer_bg.jpg" %}') no-repeat center center/cover;
+        color: white;
+        padding: 80px 20px;
+        text-align: center;
+        animation: fadeIn 2s ease-in-out;
+        border-radius: 12px;
+        margin-bottom: 40px;
+    }
+
+    .background-title {
+        font-size: 48px;
+        margin-bottom: 20px;
+        animation: slideDown 1s ease-in-out;
+    }
+
+    .background-description {
+        font-size: 18px;
+        max-width: 800px;
+        margin: auto;
+    }
+
+    .services-section {
+        text-align: center;
+        margin-bottom: 50px;
+    }
+
+    .services-title {
+        font-size: 36px;
+        margin-bottom: 10px;
+        color: #2c3e50;
+        animation: fadeInUp 1s ease;
+    }
+
+    .services-subtitle {
+        font-size: 20px;
+        margin-bottom: 40px;
+        color: #34495e;
+    }
+
+    .services-items {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    .services-item {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 15px;
+        box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        width: 280px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: zoomIn 1s ease;
+    }
+
+    .services-item:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .services-item-title {
+        font-size: 22px;
+        color: #2980b9;
+        margin-bottom: 10px;
+    }
+
+    .services-item-description {
+        font-size: 16px;
+        color: #555;
+    }
+
+    .resources-section, .document-list-section {
+        text-align: center;
+        margin: 60px 0;
+        animation: fadeIn 2s;
+    }
+
+    .resources-title, .document-list-title {
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: #2c3e50;
+    }
+
+    .resources-description {
+        font-size: 16px;
+        max-width: 700px;
+        margin: auto;
+        color: #666;
+    }
+
+    .document-list {
+        list-style: none;
+        padding: 0;
+        max-width: 800px;
+        margin: 30px auto;
+    }
+
+    .document-list li {
+        background: #f1f1f1;
+        margin-bottom: 15px;
+        padding: 15px;
+        border-left: 5px solid #3498db;
+        border-radius: 8px;
+        text-align: left;
+    }
+
+    .document-list a {
+        font-weight: bold;
+        color: #2c3e50;
+        text-decoration: none;
+    }
+
+    .document-list a:hover {
+        text-decoration: underline;
+    }
+
+    #data-mining-cta-section {
+        text-align: center;
+        margin-top: 40px;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background-color: #25D366;
+        color: white;
+        padding: 15px 30px;
+        border-radius: 50px;
+        text-decoration: none;
+        font-size: 18px;
+        font-weight: bold;
+        transition: background 0.3s;
+        animation: bounce 2s infinite;
+    }
+
+    .cta-button:hover {
+        background-color: #1ebe57;
+    }
+
+    .cta-button i {
+        margin-right: 10px;
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        0% {opacity: 0;}
+        100% {opacity: 1;}
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes slideDown {
+        0% {
+            opacity: 0;
+            transform: translateY(-30px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes zoomIn {
+        0% {
+            opacity: 0;
+            transform: scale(0.9);
+        }
+        100% {
+            opacity: 1;
+            transform: scale(1);
+        }
+    }
+
+    @keyframes bounce {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-8px);
+        }
+    }
+
+    /* Responsive */
+    @media screen and (max-width: 768px) {
+        .services-items {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .background-title {
+            font-size: 32px;
+        }
+
+        .services-item {
+            width: 90%;
+        }
+    }
+</style>
+
+<div class="content-container">
+    <!-- Background Image Section -->
+    <section class="background-section">
+        <div class="background-content">
+            <h1 class="background-title">Explore the World of Computer Science</h1>
+            <p class="background-description">
+                Unlock academic excellence. From mastering programming languages like Python, Java, and C++ to advanced software and web development, database management, and algorithm design, we provide comprehensive support for your projects.
+            </p>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section">
+        <h2 class="services-title">Computer Science</h2>
+        <h3 class="services-subtitle">Your Path to Academic Excellence in Computer Science</h3>
+
+        <div class="services-items">
+            <div class="services-item">
+                <h4 class="services-item-title">Programming Languages</h4>
+                <p class="services-item-description">Python, Java, C++</p>
+            </div>
+            <div class="services-item">
+                <h4 class="services-item-title">Software Development</h4>
+                <p class="services-item-description">Advanced development techniques and tools.</p>
+            </div>
+            <div class="services-item">
+                <h4 class="services-item-title">Web Development</h4>
+                <p class="services-item-description">Design and develop dynamic web applications.</p>
+            </div>
+            <div class="services-item">
+                <h4 class="services-item-title">Database Management</h4>
+                <p class="services-item-description">Organize and manage databases effectively.</p>
+            </div>
+            <div class="services-item">
+                <h4 class="services-item-title">Algorithms</h4>
+                <p class="services-item-description">Study and implement complex algorithms.</p>
+            </div>
+            <div class="services-item">
+                <h4 class="services-item-title">Reports</h4>
+                <p class="services-item-description">Comprehensive reports on various Computer Science topics.</p>
+            </div>
+            <div class="services-item">
+                <h4 class="services-item-title">Projects</h4>
+                <p class="services-item-description">Support for your Computer Science projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section class="resources-section">
+        <h2 class="resources-title">Resources</h2>
+        <p class="resources-description">
+            Find the best study materials, guides, and articles to excel in Computer Science.
+        </p>
+    </section>
+
+    <!-- Document Listing Section -->
+    <section class="document-list-section">
+        <!-- <h2 class="document-list-title">Available Projects</h2> -->
+        <ul class="document-list">
+            {% for document in documents %}
+                <li>
+                    <a href="{{ document.file.url }}" download>{{ document.title }}</a> - Uploaded on {{ document.upload_date }}
+                    <p>{{ document.description }}</p>
+                </li>
+            {% empty %}
+                <!-- <p>No documents available for Computer Science.</p> -->
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- CTA -->
+    <div id="data-mining-cta-section">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Computer%20Science%20projects%3F" class="cta-button">
+            <i class="fab fa-whatsapp"></i>
+            Get Expert Assistance
+        </a>
+    </div>
+</div>
+{% endblock %}

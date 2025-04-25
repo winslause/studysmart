@@ -1,0 +1,333 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Expert Marketing Services
+{% endblock %}
+
+{% block content %}
+<style>
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern font for better aesthetics */
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+}
+
+/* Container Styles */
+.marketing-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background: #000000; /* Black background */
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+/* Introduction Section */
+#marketing-intro {
+    background: #1a1a1a; /* Dark gray for contrast */
+    color: #ffffff;
+    padding: 50px 20px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.marketing-intro-heading {
+    font-size: 2.8em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.marketing-intro-description {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #cccccc; /* Light gray for contrast */
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Services Section */
+#marketing-services {
+    padding: 40px 20px;
+}
+
+.marketing-services-heading {
+    font-size: 2.5em;
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.marketing-services-subheading {
+    font-size: 1.5em;
+    color: #cccccc; /* Light gray for contrast */
+    margin-bottom: 30px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.marketing-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.marketing-service-card {
+    background: #1a1a1a; /* Dark gray card background */
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+.marketing-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
+}
+
+.marketing-service-title {
+    font-size: 1.6em;
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.marketing-service-description {
+    font-size: 1.1em;
+    color: #ffffff; /* White text */
+    line-height: 1.6;
+}
+
+/* Documents Section */
+#marketing-documents {
+    padding: 40px 20px;
+    text-align: center;
+}
+
+.marketing-documents-heading {
+    font-size: 2.5em;
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 20px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.marketing-documents-description {
+    font-size: 1.2em;
+    color: #cccccc; /* Light gray for contrast */
+    margin-bottom: 30px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.marketing-documents-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.marketing-document-item {
+    background: #1a1a1a; /* Dark gray card background */
+    padding: 20px;
+    border-radius: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.marketing-document-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.marketing-document-title {
+    font-size: 1.5em;
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 10px;
+}
+
+.marketing-document-description {
+    font-size: 1em;
+    color: #ffffff; /* White text */
+    margin-bottom: 15px;
+}
+
+.download-button {
+    background-color: #28a745; /* Green button */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+}
+
+.download-button:hover {
+    background-color: #4682B4; /* Blue on hover */
+    transform: translateY(-3px);
+}
+
+/* Contact Section */
+#marketing-cta {
+    background: #1a1a1a; /* Dark gray for contrast */
+    color: #ffffff;
+    padding: 50px 20px;
+    border-radius: 12px;
+    text-align: center;
+    margin-top: 40px;
+}
+
+.marketing-cta-heading {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+}
+
+.marketing-cta-description {
+    font-size: 1.2em;
+    line-height: 1.7;
+    color: #cccccc; /* Light gray for contrast */
+    max-width: 800px;
+    margin: 0 auto 20px;
+}
+
+.marketing-cta-button {
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.marketing-cta-button:hover {
+    background-color: #4682B4; /* Blue on hover */
+    transform: translateY(-3px);
+}
+
+.marketing-cta-button i {
+    font-size: 1.4em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .marketing-intro-heading, .marketing-services-heading, .marketing-documents-heading, .marketing-cta-heading {
+        font-size: 2.2em;
+    }
+
+    .marketing-services-subheading {
+        font-size: 1.3em;
+    }
+
+    .marketing-intro-description, .marketing-documents-description, .marketing-cta-description {
+        font-size: 1em;
+    }
+
+    .marketing-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .marketing-document-item {
+        text-align: center;
+    }
+
+    .download-button {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="marketing-container">
+    <!-- Introduction Section -->
+    <section id="marketing-intro">
+        <h1 class="marketing-intro-heading">Elevate Your Brand with Expert Marketing Services</h1>
+        <p class="marketing-intro-description">
+            We offer strategic marketing solutions, digital marketing expertise, and in-depth market research. Understand consumer behavior, enhance your approach with detailed reports, and analyze successful case studies to drive your business forward.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="marketing-services">
+        <h2 class="marketing-services-heading">Our Marketing Services</h2>
+        <h3 class="marketing-services-subheading">Strategic Solutions for Brand Success</h3>
+        
+        <div class="marketing-services-grid">
+            <div class="marketing-service-card">
+                <h4 class="marketing-service-title">Strategic Marketing Solutions</h4>
+                <p class="marketing-service-description">Tailored marketing strategies to position your brand for success in the competitive market.</p>
+            </div>
+            <div class="marketing-service-card">
+                <h4 class="marketing-service-title">Digital Marketing Expertise</h4>
+                <p class="marketing-service-description">Advanced digital marketing techniques to enhance your online presence and engagement.</p>
+            </div>
+            <div class="marketing-service-card">
+                <h4 class="marketing-service-title">Market Research</h4>
+                <p class="marketing-service-description">In-depth market research to understand consumer behavior and market trends.</p>
+            </div>
+            <div class="marketing-service-card">
+                <h4 class="marketing-service-title">Consumer Behavior Analysis</h4>
+                <p class="marketing-service-description">Insights into consumer behavior to refine your marketing approach and strategies.</p>
+            </div>
+            <div class="marketing-service-card">
+                <h4 class="marketing-service-title">Detailed Reports</h4>
+                <p class="marketing-service-description">Comprehensive reports providing actionable insights and analysis for strategic decisions.</p>
+            </div>
+            <div class="marketing-service-card">
+                <h4 class="marketing-service-title">Successful Case Studies</h4>
+                <p class="marketing-service-description">Analyze successful case studies to learn from industry leaders and drive your business forward.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Documents Section (Downloads) -->
+    <section id="marketing-documents">
+        <h2 class="marketing-documents-heading">Marketing Projects</h2>
+        <p class="marketing-documents-description">
+            Download our reports, case studies, and other valuable resources to help improve your marketing strategy.
+        </p>
+        
+        <div class="marketing-documents-list">
+            {% for document in documents %}
+                <div class="marketing-document-item">
+                    <h4 class="marketing-document-title">{{ document.title }}</h4>
+                    <p class="marketing-document-description">{{ document.description }}</p>
+                    <a href="{{ document.file.url }}" download class="download-button">Download</a>
+                </div>
+            {% empty %}
+                <div class="marketing-document-item">
+                    <p>No resources available at the moment. Please check back later.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="marketing-cta">
+        <h2 class="marketing-cta-heading">Transform Your Marketing Strategy Today</h2>
+        <p class="marketing-cta-description">
+            Get in touch with us to explore our expert marketing services and elevate your brand to new heights.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20marketing%20projects%3F" class="marketing-cta-button">
+            <i class="fab fa-whatsapp"></i>
+            Chat with Experts
+        </a>
+    </section>
+</div>
+{% endblock %}

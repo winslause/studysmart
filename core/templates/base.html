@@ -1,0 +1,114 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>StudySmart | AI & Data Solutions</title>
+
+  <!-- Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
+  <!-- Icon Font Stylesheet -->
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" href="{% static 'images/sTUdysmart.png' %}" type="image/png" sizes="16x16">
+
+  <!-- Bootstrap CSS (CDN) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+
+  <!-- Template Stylesheet -->
+  <link href="{% static 'css/styles.css' %}" rel="stylesheet">
+</head>
+<body>
+  <!-- Spider-Web Background -->
+  <canvas id="spider-web-bg"></canvas>
+
+  <!-- Matrix Overlay -->
+  <div id="matrix-overlay"></div>
+  <button id="skip-matrix" class="btn btn-wens">
+    Skip Demo <i class="fas fa-forward"></i>
+  </button>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="/"><h2><i class="fas fa-robot me-2" style="color: var(--wens-blue);"></i>StudySmart</h2></a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="custom-toggler-icon">
+          <span class="toggler-node"></span>
+          <span class="toggler-node"></span>
+          <span class="toggler-node"></span>
+        </span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="/" class="nav-item nav-link">Home</a></li>
+          <li class="nav-item"><a href="/about/" class="nav-item nav-link">About</a></li>
+          <li class="nav-item"><a href="{% url 'services' %}" class="nav-item nav-link">Services</a></li>
+          <li class="nav-item"><a href="{% url 'register' %}" class="nav-item nav-link">Register</a></li>
+          <li class="nav-item"><a href="{% url 'login' %}" class="nav-item nav-link">Login</a></li>
+        </ul>
+        <div class="navbar-buttons ms-3 d-flex">
+          <button id="voice-search" class="btn btn-wens">
+            <i class="fas fa-microphone"></i> Voice AI
+          </button>
+          <button id="toggle-web" class="btn btn-wens ms-2">
+            <i class="fas fa-atom"></i> Toggle 3D
+          </button>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Content Block -->
+  {% block content %}
+  {% endblock %}
+
+  <!-- Footer -->
+  <footer class="footer py-4 text-center">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-3">
+          <h5>About StudySmart</h5>
+          <p>Leading the way in AI, data analytics, and innovative solutions for a smarter future.</p>
+        </div>
+        <div class="col-md-3">
+          <h5>Quick Links</h5>
+          <a href="/">Home</a>
+          <a href="/about/">About</a>
+          <a href="{% url 'services' %}">Services</a>
+          <a href="{% url 'register' %}">Register</a>
+          <a href="{% url 'login' %}">Login</a>
+        </div>
+        <div class="col-md-3">
+          <h5>Contact Us</h5>
+          <a href="mailto:info@studysmart.com">info@studysmart.com</a>
+          <a href="tel:+254769525570">+254 769 525570</a>
+          <a href="#">Nairobi, Kenya</a>
+        </div>
+        <div class="col-md-3">
+          <h5>Follow Us</h5>
+          <div class="hightech-link d-flex">
+            <a href="https://x.com/wenslause5" class="btn btn-outline-light me-2"><i class="fab fa-x"></i></a>
+            <a href="#" class="btn btn-outline-light me-2"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" class="btn btn-outline-light"><i class="fab fa-instagram"></i></a>
+          </div>
+        </div>
+      </div>
+      <hr>
+      <p>© 2025 <strong>StudySmart</strong>. All rights reserved.</p>
+      <p class="text-muted">Transforming businesses with AI and data.</p>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js" integrity="sha512-f8mwTB+Bs8a5c46DEm7HQLcJuHMBaH/UFlcgyetMqqkvTcYg4g5VXsYR71b3qC82lZytjNYvBj2pf0VekA9/FuA==" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/ScrollTrigger.min.js" integrity="sha512-A64Nik4Ql7/W/PJk2RNOmVyC/Chobn5TY08CiKEX50Sdw+33WTOCosAcK3fmKnDI5mS6xN+6zVmL0T7l+Wis4w==" crossorigin="anonymous"></script>
+  <script src="{% static 'js/main.js' %}"></script>
+</body>
+</html>

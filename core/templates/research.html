@@ -1,0 +1,341 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Master Your Academic Journey
+{% endblock %}
+
+{% block content %}
+<style>
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern, clean font */
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+}
+
+/* Container Styles */
+.academic-work-container {
+    max-width: 1100px; /* Slightly reduced for compactness */
+    margin: 30px auto;
+    padding: 30px 15px;
+    background: #000000; /* Black background */
+    border-radius: 12px;
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+/* Introduction Section */
+#academic-intro {
+    background: #1a1a1a; /* Dark gray card */
+    color: #ffffff;
+    padding: 30px 15px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.academic-intro-heading {
+    font-size: 1.8em; /* Further reduced from 2em */
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.academic-intro-description {
+    font-size: 1em; /* Reduced from 1.1em */
+    line-height: 1.6;
+    color: #cccccc; /* Light gray for contrast */
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Services Section */
+#academic-services {
+    padding: 30px 15px;
+}
+
+.academic-services-heading {
+    font-size: 1.8em; /* Reduced from 2em */
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+.academic-services-subheading {
+    font-size: 1.2em; /* Reduced from 1.3em */
+    color: #cccccc; /* Light gray for contrast */
+    margin-bottom: 20px;
+    text-align: center;
+    font-weight: 400;
+}
+
+.academic-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 15px;
+    padding: 0 10px;
+}
+
+.academic-service-card {
+    background: #1a1a1a; /* Dark gray card */
+    border-radius: 10px;
+    padding: 20px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.academic-service-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.academic-service-title {
+    font-size: 1.3em; /* Reduced from 1.4em */
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 10px;
+    font-weight: 600;
+}
+
+.academic-service-description {
+    font-size: 0.95em; /* Reduced from 1em */
+    color: #ffffff; /* White text */
+    line-height: 1.5;
+}
+
+/* Resources Section */
+#academic-resources {
+    padding: 30px 15px;
+    text-align: center;
+    background: #1a1a1a; /* Dark gray card */
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+.academic-resources-heading {
+    font-size: 1.8em; /* Reduced from 2em */
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.academic-resources-description {
+    font-size: 1em; /* Reduced from 1.1em */
+    color: #cccccc; /* Light gray for contrast */
+    line-height: 1.6;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+/* Download Resources Section */
+#academic-downloads {
+    padding: 30px 15px;
+    text-align: center;
+}
+
+.academic-downloads-heading {
+    font-size: 1.8em; /* Reduced from 2em */
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 12px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+
+.academic-downloads-description {
+    font-size: 1em; /* Reduced from 1.1em */
+    color: #cccccc; /* Light gray for contrast */
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.academic-downloads-list {
+    list-style: none;
+    padding: 0;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.academic-downloads-list li {
+    background: #1a1a1a; /* Dark gray card */
+    border-radius: 10px;
+    padding: 12px;
+    margin-bottom: 12px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.academic-downloads-list li:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.academic-downloads-link {
+    color: #ffffff; /* White text */
+    text-decoration: none;
+    font-size: 1em; /* Reduced for compactness */
+    display: inline-block;
+    padding: 8px 18px;
+    background-color: #28a745; /* Green button */
+    border-radius: 20px;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.academic-downloads-link:hover {
+    background-color: #4682B4; /* Blue on hover */
+    transform: translateY(-2px);
+}
+
+/* Contact Section */
+#academic-cta {
+    padding: 30px 15px;
+    background: #1a1a1a; /* Dark gray card */
+    border-radius: 10px;
+    text-align: center;
+}
+
+.academic-cta-heading {
+    font-size: 1.8em; /* Reduced from 2em */
+    font-weight: 700;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.academic-cta-description {
+    font-size: 1em; /* Reduced from 1.1em */
+    color: #cccccc; /* Light gray for contrast */
+    margin-bottom: 20px;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.cta-button {
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1em; /* Reduced from 1.1em */
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.cta-button:hover {
+    background-color: #4682B4; /* Blue on hover */
+    transform: translateY(-2px);
+}
+
+.cta-button i {
+    font-size: 1.2em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .academic-intro-heading, .academic-services-heading, .academic-resources-heading, .academic-downloads-heading, .academic-cta-heading {
+        font-size: 1.6em;
+    }
+
+    .academic-services-subheading {
+        font-size: 1.1em;
+    }
+
+    .academic-intro-description, .academic-resources-description, .academic-downloads-description, .academic-cta-description {
+        font-size: 0.95em;
+    }
+
+    .academic-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .academic-downloads-list li {
+        text-align: center;
+    }
+
+    .academic-downloads-link {
+        width: 100%;
+    }
+}
+</style>
+
+<div class="academic-work-container">
+    <!-- Introduction Section -->
+    <section id="academic-intro">
+        <h1 class="academic-intro-heading">Master Your Academic Journey</h1>
+        <p class="academic-intro-description">
+            Whether you’re working on a thesis, dissertation, capstone project, or term paper, we offer expert guidance and resources to help you succeed. Explore our comprehensive support services tailored to meet the demands of your academic work.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="academic-services">
+        <h2 class="academic-services-heading">Our Academic Services</h2>
+        <h3 class="academic-services-subheading">Comprehensive Support for Your Academic Endeavors</h3>
+        
+        <div class="academic-services-grid">
+            <div class="academic-service-card">
+                <h4 class="academic-service-title">Thesis Development</h4>
+                <p class="academic-service-description">Expert assistance in crafting a well-researched thesis that meets your academic requirements. From topic selection to final revisions, we guide you through every step of the process.</p>
+            </div>
+            <div class="academic-service-card">
+                <h4 class="academic-service-title">Dissertation Support</h4>
+                <p class="academic-service-description">Receive comprehensive support for your dissertation, including research design, data analysis, and writing. Our experts help ensure your dissertation stands out in academic circles.</p>
+            </div>
+            <div class="academic-service-card">
+                <h4 class="academic-service-title">Capstone Projects</h4>
+                <p class="academic-service-description">Get tailored assistance for your capstone project, combining practical and theoretical knowledge. We help you create a compelling project that demonstrates your expertise and skills.</p>
+            </div>
+            <div class="academic-service-card">
+                <h4 class="academic-service-title">Term Papers</h4>
+                <p class="academic-service-description">Support for writing impactful term papers, including research, structure, and presentation. Our guidance ensures your term papers are well-organized and academically rigorous.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="academic-resources">
+        <h2 class="academic-resources-heading">Resources & Tools</h2>
+        <p class="academic-resources-description">
+            Access a wide range of resources, including research tools, writing guides, and sample papers, to support your academic work. Equip yourself with the best tools and knowledge to excel in your projects.
+        </p>
+    </section>
+
+    <!-- Download Resources Section -->
+    <section id="academic-downloads">
+        <h2 class="academic-downloads-heading">Available Projects</h2>
+        <p class="academic-downloads-description">
+            Below are the downloadable resources you can use to assist you in your academic endeavors. Click on the links to download.
+        </p>
+        <ul class="academic-downloads-list">
+            {% for resource in resources %}
+                <li>
+                    <a href="{{ resource.file.url }}" class="academic-downloads-link" download>{{ resource.title }}</a>
+                </li>
+            {% empty %}
+                <li>No resources available for download at the moment.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="academic-cta">
+        <h2 class="academic-cta-heading">Start Your Academic Journey with Us</h2>
+        <p class="academic-cta-description">
+            Connect with us today to receive expert guidance and support for your academic work. Let’s work together to achieve excellence in your thesis, dissertation, capstone, or term paper.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Research%3F" class="cta-button">
+            <i class="fab fa-whatsapp"></i>
+            Chat With Experts
+        </a>
+    </section>
+</div>
+{% endblock %}

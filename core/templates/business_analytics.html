@@ -1,0 +1,198 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Business Analytics Excellence
+{% endblock %}
+
+{% block content %}
+<style>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Changed to black */
+    color: #ffffff; /* Changed to white */
+}
+
+/* Container Styles */
+.analytics-container {
+    background: #000000; /* Changed to black */
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Adjusted shadow for contrast */
+    margin: 40px auto;
+    max-width: 1100px;
+}
+
+/* Section Title and Description */
+.section-title {
+    font-size: 2.5em;
+    color: #ffffff; /* Changed to white */
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.section-description {
+    font-size: 1.2em;
+    color: #cccccc; /* Light gray for contrast */
+    line-height: 1.6;
+    margin-bottom: 40px;
+}
+
+/* Services Section */
+.services, .resources {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.service-item, .resources-item {
+    background: #1a1a1a; /* Dark gray for contrast */
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Adjusted shadow */
+    padding: 20px;
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
+}
+
+.service-item h2, .resources-item h2 {
+    font-size: 1.8em;
+    color: #1E90FF; /* Kept blue for emphasis */
+    margin-bottom: 15px;
+}
+
+.service-item ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    font-size: 1.1em;
+    color: #ffffff; /* Changed to white */
+}
+
+.service-item li {
+    margin-bottom: 10px;
+}
+
+/* Call-to-Action Button */
+.cta-button {
+    background-color: #28a745; /* Kept green for visibility */
+    color: #ffffff; /* Already white */
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    margin-top: 30px;
+}
+
+.cta-button:hover {
+    background-color: #4682B4; /* Kept hover color for consistency */
+    transform: translateY(-3px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .section-title {
+        font-size: 2em;
+    }
+
+    .section-description {
+        font-size: 1em;
+    }
+
+    .services, .resources {
+        flex-direction: column;
+    }
+
+    .service-item, .resources-item {
+        max-width: 100%;
+    }
+}
+</style>
+
+<div class="analytics-container">
+    <!-- Introduction Section -->
+    <section id="analytics-intro">
+        <h1 class="section-title">Achieve Excellence in Business Analytics</h1>
+        <p class="section-description">
+            Unlock the power of data to drive business success. Our comprehensive services are designed to enhance your analytics capabilities and insights.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="analytics-services">
+        <h2 class="section-title">Our Business Analytics Services</h2>
+        
+        <div class="services">
+            <!-- Service Cards -->
+            <div class="service-item">
+                <h2>Data Analysis</h2>
+                <p>Transform raw data into actionable insights to improve business performance.</p>
+            </div>
+            <div class="service-item">
+                <h2>Predictive Modeling</h2>
+                <p>Utilize statistical techniques to forecast future trends and behaviors.</p>
+            </div>
+            <div class="service-item">
+                <h2>Dashboard Development</h2>
+                <p>Create interactive dashboards for real-time data visualization and decision-making.</p>
+            </div>
+            <div class="service-item">
+                <h2>Market Analysis</h2>
+                <p>Analyze market trends to identify opportunities and threats for your business.</p>
+            </div>
+            <div class="service-item">
+                <h2>Performance Metrics</h2>
+                <p>Establish key performance indicators to measure and enhance business outcomes.</p>
+            </div>
+            <div class="service-item">
+                <h2>Data Warehousing</h2>
+                <p>Implement robust data warehousing solutions for efficient data management.</p>
+            </div>
+            <div class="service-item">
+                <h2>Business Intelligence</h2>
+                <p>Leverage business intelligence tools to make informed decisions and drive growth.</p>
+            </div>
+            <div class="service-item">
+                <h2>Workshops and Training</h2>
+                <p>Participate in our workshops to enhance your analytics skills and knowledge.</p>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Resources Section -->
+    <section id="analytics-resources">
+        <h2 class="section-title">Available Resources</h2>
+        <p class="section-description">Access essential resources to support your business analytics journey.</p>
+
+        <div class="resources">
+            {% for resource in documents %}
+            <div class="resources-item">
+                <h2>{{ resource.title }}</h2>
+                <p>{{ resource.description }}</p>
+                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
+            </div>
+            {% empty %}
+            <p>No resources available at the moment. Please check back later.</p>
+            {% endfor %}
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="analytics-cta">
+        <h2 class="section-title">Get Expert Business Analytics Support Today</h2>
+        <p class="section-description">
+            Connect with us to explore our business analytics services and take your business to the next level.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Business%20Analytics%20projects%3F" class="cta-button">
+            <i class="fab fa-whatsapp"></i>
+            Chat With Our Experts
+        </a>
+    </section>
+</div>
+{% endblock %}

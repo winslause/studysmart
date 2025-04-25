@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif; /* Modern font for better aesthetics */
+    margin: 0;
+    padding: 0;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
+}
+
+/* Container Styles */
+.reports-container {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px 20px;
+    background: #000000; /* Black background */
+    border-radius: 16px;
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+/* Section Headings and Descriptions */
+.reports-intro-heading, .reports-services-heading, .reports-resources-heading {
+    font-size: 2.8em;
+    font-weight: 700;
+    color: #ffffff; /* White text */
+    text-align: center;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.reports-services-subheading {
+    font-size: 1.5em;
+    font-weight: 400;
+    color: #cccccc; /* Light gray for contrast */
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.reports-intro-description, .reports-resources-description {
+    font-size: 1.2em;
+    color: #cccccc; /* Light gray for readability */
+    line-height: 1.7;
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 40px;
+}
+
+/* Services Grid */
+.reports-services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    padding: 0 20px;
+}
+
+.reports-service-card {
+    background: #1a1a1a; /* Dark gray card background */
+    border-radius: 12px;
+    padding: 30px;
+    text-align: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 6px 12px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
+}
+
+.reports-service-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.2); /* Enhanced shadow on hover */
+}
+
+.reports-service-title {
+    font-size: 1.6em;
+    color: #1E90FF; /* Blue for emphasis */
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.reports-service-description {
+    font-size: 1.1em;
+    color: #ffffff; /* White text */
+    line-height: 1.6;
+}
+
+/* Resources Section */
+.resources-list {
+    list-style: none;
+    padding: 0;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.resource-item {
+    background: #1a1a1a; /* Dark gray card background */
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+}
+
+.resource-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+}
+
+.resource-item strong {
+    font-size: 1.2em;
+    color: #ffffff; /* White text */
+}
+
+.resource-item a {
+    background-color: #28a745; /* Green button */
+    color: #ffffff;
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.resource-item a:hover {
+    background-color: #4682B4; /* Blue on hover */
+}
+
+/* CTA Section */
+#data-mining-cta-section {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.cta-button {
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
+    padding: 15px 30px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 1.2em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.cta-button:hover {
+    background-color: #4682B4; /* Blue on hover */
+    transform: translateY(-3px);
+}
+
+.cta-button i {
+    font-size: 1.4em;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .reports-intro-heading, .reports-services-heading, .reports-resources-heading {
+        font-size: 2.2em;
+    }
+
+    .reports-services-subheading {
+        font-size: 1.3em;
+    }
+
+    .reports-intro-description, .reports-resources-description {
+        font-size: 1em;
+    }
+
+    .reports-services-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .resource-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+
+    .resource-item a {
+        width: 100%;
+        text-align: center;
+    }
+}
+</style>
+
+<div class="reports-container">
+    <!-- Introduction Section -->
+    <section id="reports-intro">
+        <h1 class="reports-intro-heading">Enhance Your Academic and Professional Success</h1>
+        <p class="reports-intro-description">
+            With our expert report services. We specialize in crafting detailed research, business, technical, project, and academic reports, including case studies, accounting reports, theses, and dissertations. Trust us to deliver insights and analysis tailored to your needs.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="reports-services">
+        <h2 class="reports-services-heading">Reports</h2>
+        <h3 class="reports-services-subheading">Your Path to Academic Excellence in Report Writing</h3>
+        
+        <div class="reports-services-grid">
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Research Reports</h4>
+                <p class="reports-service-description">Comprehensive research reports tailored to your academic or professional needs.</p>
+            </div>
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Business Reports</h4>
+                <p class="reports-service-description">Detailed business reports with actionable insights and analysis.</p>
+            </div>
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Technical Reports</h4>
+                <p class="reports-service-description">Accurate and detailed technical reports for your specific requirements.</p>
+            </div>
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Project Reports</h4>
+                <p class="reports-service-description">In-depth project reports to help you manage and analyze project outcomes.</p>
+            </div>
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Academic Reports</h4>
+                <p class="reports-service-description">Precise academic reports that meet your educational needs.</p>
+            </div>
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Case Studies</h4>
+                <p class="reports-service-description">Well-researched and meticulously prepared case studies for academic and business purposes.</p>
+            </div>
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Accounting Reports</h4>
+                <p class="reports-service-description">Detailed accounting reports that provide clear financial insights and analysis.</p>
+            </div>
+            <div class="reports-service-card">
+                <h4 class="reports-service-title">Thesis & Dissertation</h4>
+                <p class="reports-service-description">Expertly written theses and dissertations to support your academic journey.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Resources Section -->
+    <section id="reports-resources">
+        <h2 class="reports-resources-heading">Downloadable Resources</h2>
+        <p class="reports-resources-description">
+            Access valuable study materials and reports available for download.
+        </p>
+
+        <!-- List of downloadable resources -->
+        <ul class="resources-list">
+            {% for resource in resources %}
+                <li class="resource-item">
+                    <strong>{{ resource.title }}</strong> - 
+                    <a href="{{ resource.file.url }}" download>Download</a>
+                </li>
+            {% empty %}
+                <li class="resource-item">No resources available at the moment. Please check back later.</li>
+            {% endfor %}
+        </ul>
+    </section>
+
+    <!-- CTA Section -->
+    <div id="data-mining-cta-section">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Reports%3F" class="cta-button">
+            <i class="fab fa-whatsapp"></i>
+            Contact an Expert
+        </a>
+    </div>
+</div>
+{% endblock %}

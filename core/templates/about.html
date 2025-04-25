@@ -1,0 +1,52 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<!-- About Start -->
+<div class="container-fluid py-5 my-5">
+  <div class="container pt-5">
+    <div class="row g-5">
+      <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
+        <div class="h-100 position-relative">
+          <img
+            src="{% static 'images/about-2.jpg' %}"
+            class="img-fluid w-75 rounded"
+            alt=""
+            style="margin-bottom: 25%"
+          />
+          <div class="position-absolute w-75" style="top: 35%; left: 25%">
+            <img
+              src="{% static 'images/about-3.jpg' %}"
+              class="img-fluid w-100 rounded"
+              alt=""
+            />
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
+        <h5 class="text-primary">About Us</h5>
+        <h1 class="mb-4">
+          About StudySmart and Its Expert Solutions
+        </h1>
+        <p>
+            StudySmart is dedicated to providing high-quality academic assistance to students at all levels. Whether you're struggling with complex topics, need help with assignments, or looking to excel in your studies, we're here to support you. Our services span a wide range of subjects, including Economics, Finance, Data Analysis, Business Analytics, Computer Science, and more. Our team of experts is committed to your academic success, offering personalized tutoring, comprehensive study materials, and insightful guides. Join us at StudySmart and take the first step towards achieving your academic goals. Explore our subjects below to get started.
+        </p>
+
+        <p class="mb-4">
+          Whether you're a student striving for academic excellence, a researcher seeking insights, or a professional advancing your knowledge, Study Smart is dedicated to supporting your educational journey. We’re here to help you achieve your academic goals.
+        </p>
+
+        <div class="text-center">
+          <a
+            href="/about/"
+            class="btn btn-secondary rounded-pill px-5 py-3 text-white"
+            >More Details</a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- About End -->
+{% endblock %}

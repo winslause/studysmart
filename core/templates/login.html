@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login Page</title>
+  
+  <!-- Google Fonts Import -->
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600&display=swap');
+  </style>
+
+  <!-- Inline CSS Styles -->
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
+    }
+
+    body {
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #26d48c, #3498db); /* Green and Blue */
+    }
+
+    .login-container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 10px;
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+      width: 350px;
+    }
+
+    .login-container .title {
+      font-size: 28px;
+      font-weight: 600;
+      text-align: center;
+      color: #333;
+      margin-bottom: 20px;
+      position: relative;
+    }
+
+    .login-container .title::before {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -8px;
+      height: 3px;
+      width: 40px;
+      background-color: #26d48c; /* Green */
+    }
+
+    .login-container form .input-box {
+      margin-bottom: 20px;
+    }
+
+    .login-container form .input-box span {
+      display: block;
+      font-weight: 500;
+      margin-bottom: 5px;
+    }
+
+    .login-container form .input-box input {
+      width: 100%;
+      padding: 12px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      outline: none;
+      font-size: 16px;
+      transition: border 0.3s ease;
+    }
+
+    .login-container form .input-box input:focus {
+      border-color: #26d48c; /* Green */
+    }
+
+    .login-container form .button input {
+      width: 100%;
+      padding: 12px;
+      border: none;
+      border-radius: 5px;
+      background: linear-gradient(135deg, #26d48c, #3498db); /* Green to Blue */
+      color: #fff;
+      font-size: 18px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    .login-container form .button input:hover {
+      background: linear-gradient(135deg, #3498db, #26d48c); /* Blue to Green */
+    }
+
+    .login-container .footer-text {
+      text-align: center;
+      margin-top: 15px;
+      font-size: 14px;
+      color: #666;
+    }
+
+    .login-container .footer-text a {
+      color: #26d48c;
+      text-decoration: none;
+    }
+
+    .login-container .footer-text a:hover {
+      text-decoration: underline;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 400px) {
+      .login-container {
+        width: 100%;
+        padding: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+    <div class="login-container">
+      <div class="title">Login</div>
+      <form method="POST">
+        {% csrf_token %}
+        <div class="input-box">
+          <span>Username</span>
+          <input type="text" name="username" placeholder="Enter your username" required>
+        </div>
+        <div class="input-box">
+          <span>Password</span>
+          <input type="password" name="password" placeholder="Enter your password" required>
+        </div>
+        <div class="button">
+          <input type="submit" value="Login">
+        </div>
+      </form>
+      <div class="footer-text">
+        Don't have an account? <a href="#">Sign Up</a>
+      </div>
+      <!-- Displaying error message -->
+      {% if messages %}
+        <div class="messages">
+          {% for message in messages %}
+            <p>{{ message }}</p>
+          {% endfor %}
+        </div>
+      {% endif %}
+    </div>
+  </body>
+</html>

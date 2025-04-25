@@ -1,0 +1,250 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    body {
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background-color: black;
+        margin: 0;
+        padding: 0;
+    }
+
+    .machine-learning-container {
+        max-width: 1200px;
+        margin: auto;
+        padding: 40px 20px;
+        animation: fadeIn 1s ease-in;
+    }
+
+    section {
+        margin-bottom: 60px;
+    }
+
+    h1.ml-intro-heading,
+    h2.ml-services-heading,
+    h2.ml-cta-heading {
+        text-align: center;
+        font-size: 2.5rem;
+        color: #333;
+        margin-bottom: 20px;
+        animation: slideInDown 0.8s ease;
+    }
+
+    h3.ml-services-subheading {
+        text-align: center;
+        color: #777;
+        font-size: 1.2rem;
+        margin-bottom: 40px;
+        animation: slideInUp 0.8s ease;
+    }
+
+    p.ml-intro-description,
+    p.ml-cta-description {
+        text-align: center;
+        font-size: 1.1rem;
+        color: #555;
+        max-width: 800px;
+        margin: auto;
+        line-height: 1.6;
+    }
+
+    .ml-services-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+        gap: 25px;
+    }
+
+    .ml-service-card {
+        background: transparent;
+        padding: 25px;
+        border-radius: 15px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.07);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        animation: fadeInUp 0.8s ease;
+    }
+
+    .ml-service-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+
+    .ml-service-title {
+        font-size: 1.3rem;
+        color: #1e3a8a;
+        margin-bottom: 10px;
+    }
+
+    .ml-service-description {
+        font-size: 1rem;
+        color: #444;
+        line-height: 1.5;
+    }
+
+    .cta-button {
+        display: inline-block;
+        background: #25d366;
+        color: white;
+        padding: 15px 25px;
+        border-radius: 50px;
+        font-size: 1.1rem;
+        text-decoration: none;
+        transition: background 0.3s ease;
+        margin-top: 20px;
+        animation: pulse 2s infinite;
+    }
+
+    .cta-button:hover {
+        background: #1ebe5d;
+    }
+
+    .cta-button i {
+        margin-right: 10px;
+    }
+
+    #ml-cta {
+        text-align: center;
+    }
+
+    @keyframes fadeIn {
+        from {
+            opacity: 0;
+        }
+
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInDown {
+        from {
+            transform: translateY(-20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes slideInUp {
+        from {
+            transform: translateY(20px);
+            opacity: 0;
+        }
+
+        to {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes fadeInUp {
+        0% {
+            transform: translateY(30px);
+            opacity: 0;
+        }
+
+        100% {
+            transform: translateY(0);
+            opacity: 1;
+        }
+    }
+
+    @keyframes pulse {
+        0% {
+            transform: scale(1);
+        }
+
+        50% {
+            transform: scale(1.05);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+
+    @media (max-width: 600px) {
+        .ml-intro-heading, .ml-cta-heading {
+            font-size: 1.8rem;
+        }
+
+        .ml-services-subheading {
+            font-size: 1rem;
+        }
+    }
+</style>
+
+<div class="machine-learning-container">
+    <!-- Introduction Section -->
+    <section id="ml-intro">
+        <h1 class="ml-intro-heading">Elevate Your Academic Journey in Machine Learning</h1>
+        <p class="ml-intro-description">
+            Dive into machine learning using Python and R, enhance your data analysis skills, and advance your projects and research.
+            We’re here to guide you to academic excellence in the ever-evolving field of Machine Learning.
+        </p>
+    </section>
+
+    <!-- Services Section -->
+    <section id="ml-services">
+        <h2 class="ml-services-heading">Our Machine Learning Services</h2>
+        <h3 class="ml-services-subheading">Empowering Your Machine Learning Journey</h3>
+
+        <div class="ml-services-grid">
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">Machine Learning with Python</h4>
+                <p class="ml-service-description">Explore machine learning algorithms and techniques using Python for powerful data analysis and model building.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">Machine Learning with R</h4>
+                <p class="ml-service-description">Leverage R for statistical analysis and machine learning, enhancing your data processing and visualization skills.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">Data Analysis Skills</h4>
+                <p class="ml-service-description">Develop advanced data analysis skills to interpret complex data and derive actionable insights.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">Project and Research Support</h4>
+                <p class="ml-service-description">Get expert guidance and support for your machine learning projects and research to achieve outstanding results.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">Academic Excellence</h4>
+                <p class="ml-service-description">Receive tailored support to excel in your machine learning coursework and academic endeavors.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">Cutting-Edge Techniques</h4>
+                <p class="ml-service-description">Stay ahead with the latest advancements in machine learning techniques and methodologies.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">SAS Analytics</h4>
+                <p class="ml-service-description">Utilize SAS for advanced analytics, multivariate analysis, business intelligence, and data management.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">WEKA</h4>
+                <p class="ml-service-description">Leverage WEKA's collection of machine learning algorithms for data mining tasks and build predictive models.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">Orange</h4>
+                <p class="ml-service-description">Explore data visualization and machine learning workflows with Orange's user-friendly interface and rich set of features.</p>
+            </div>
+            <div class="ml-service-card">
+                <h4 class="ml-service-title">KNIME</h4>
+                <p class="ml-service-description">Create data science workflows with KNIME's open-source platform, which supports data integration, transformation, and modeling.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="ml-cta">
+        <h2 class="ml-cta-heading">Advance Your Machine Learning Skills Today</h2>
+        <p class="ml-cta-description">
+            Connect with us to explore our machine learning services and take your academic and research projects to the next level.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Machine%20Learning%3F" class="cta-button">
+            <i class="fab fa-whatsapp"></i>
+            Chat with ML Expert!
+        </a>
+    </section>
+</div>
+{% endblock %}

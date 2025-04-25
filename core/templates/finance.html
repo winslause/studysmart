@@ -1,0 +1,248 @@
+{% extends 'base.html' %}
+
+{% block title %}
+    Academic Excellence in Finance
+{% endblock %}
+
+{% block content %}
+<style>
+/* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: black;
+    color: white;
+}
+
+/* Container Styles */
+.finance-content-container {
+    background: black;
+    padding: 60px 20px;
+    text-align: center;
+    border-radius: 12px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    margin: 40px auto;
+    max-width: 1200px;
+}
+
+/* Finance Background Section */
+.finance-background-section {
+    background: #1E90FF;
+    color: #ffffff;
+    padding: 40px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin-bottom: 40px;
+}
+
+.finance-background-title {
+    font-size: 2.5em;
+    color: white;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.finance-background-description {
+    font-size: 1.2em;
+    line-height: 1.6;
+}
+
+/* Finance Services Section */
+.finance-services-section {
+    padding: 40px 20px;
+}
+
+.finance-services-title {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+.finance-services-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.finance-services-item {
+    background: black;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    color: white;
+    flex: 1;
+    min-width: 300px;
+    max-width: 400px;
+}
+
+.finance-services-item-title {
+    font-size: 1.8em;
+    color: #1E90FF;
+    margin-bottom: 15px;
+}
+
+.finance-services-item-description {
+    font-size: 1.1em;
+    color: white;
+}
+
+/* Finance Resources Section */
+.finance-resources-section {
+    background: #f9f9f9;
+    padding: 40px 20px;
+    border-radius: 8px;
+    color: black;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.finance-resources-title {
+    font-size: 2.2em;
+    color: #333;
+    margin-bottom: 15px;
+    font-weight: 700;
+}
+
+.finance-resources-description {
+    font-size: 1.2em;
+    color: #555;
+    line-height: 1.6;
+}
+
+.finance-resources-list {
+    margin-top: 20px;
+}
+
+.finance-resource-item {
+    background: #f0f0f0;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    text-align: left;
+    color: black;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.finance-resource-item a {
+    color: #1E90FF;
+    text-decoration: none;
+    font-size: 1.1em;
+    font-weight: 600;
+}
+
+.finance-resource-item a:hover {
+    text-decoration: underline;
+}
+
+/* Download Button Styles */
+.download-btn {
+    padding: 8px 16px;
+    background-color: #ffffff;;
+    color: black;
+    border: none;
+    border-radius: 4px;
+    font-size: 1em;
+    cursor: pointer;
+    text-decoration: none;
+}
+
+.download-btn:hover {
+    background-color: #1c7ed6;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .finance-background-title {
+        font-size: 2em;
+    }
+
+    .finance-background-description {
+        font-size: 1em;
+    }
+
+    .finance-services-title, .finance-resources-title {
+        font-size: 1.8em;
+    }
+
+    .finance-services-item, .finance-resources-section {
+        max-width: 100%;
+    }
+}
+</style>
+
+<div class="finance-content-container">
+    <!-- Finance Background Section -->
+    <section class="finance-background-section">
+        <div class="finance-background-content">
+            <h1 class="finance-background-title">Master Finance with Expert Guidance</h1>
+            <p class="finance-background-description">
+                Unlock your potential in corporate finance, investment analysis, financial markets, and more. Let us support your academic journey with expert insights and tailored resources.
+            </p>
+        </div>
+    </section>
+
+    <!-- Finance Services Section -->
+    <section class="finance-services-section">
+        <h2 class="finance-services-title">Our Finance Services</h2>
+        <div class="finance-services-items">
+            <div class="finance-services-item">
+                <h4 class="finance-services-item-title">Corporate Finance</h4>
+                <p class="finance-services-item-description">Expertise in managing corporate finances and making strategic financial decisions.</p>
+            </div>
+            <div class="finance-services-item">
+                <h4 class="finance-services-item-title">Investment Analysis</h4>
+                <p class="finance-services-item-description">Analyze investments and build a strong portfolio with our guidance.</p>
+            </div>
+            <div class="finance-services-item">
+                <h4 class="finance-services-item-title">Financial Markets</h4>
+                <p class="finance-services-item-description">Understand and navigate the complexities of financial markets.</p>
+            </div>
+            <div class="finance-services-item">
+                <h4 class="finance-services-item-title">Managerial Accounting</h4>
+                <p class="finance-services-item-description">Master the principles of managerial accounting to enhance business decision-making.</p>
+            </div>
+            <div class="finance-services-item">
+                <h4 class="finance-services-item-title">Financial Modeling</h4>
+                <p class="finance-services-item-description">Develop advanced financial models to support your academic and professional goals.</p>
+            </div>
+            <div class="finance-services-item">
+                <h4 class="finance-services-item-title">Risk Management</h4>
+                <p class="finance-services-item-description">Identify and mitigate financial risks in various scenarios.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Finance Resources Section -->
+    <section class="finance-resources-section">
+        <h2 class="finance-resources-title" style="color: black !important;">Resources</h2>
+        <p class="finance-resources-description">
+            Explore our extensive library of study materials, guides, and articles to excel in finance and managerial accounting.
+        </p>
+
+        <!-- Dynamic list of downloadable resources with download button -->
+        <div class="finance-resources-list">
+            {% for resource in documents %}
+                <div class="finance-resource-item">
+                    <span>{{ resource.title }}</span>
+                    <a href="{{ resource.file.url }}" class="download-btn" download>Download</a>
+                </div>
+            {% empty %}
+                <p>No resources available at the moment.</p>
+            {% endfor %}
+        </div>
+    </section>
+</div>
+
+<div id="data-mining-cta-section">
+    <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Finance%3F" class="cta-button">
+        <i class="fab fa-whatsapp"></i>
+        Contact Finance Experts
+    </a>
+</div>
+<br>
+
+{% endblock %}
