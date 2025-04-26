@@ -2,113 +2,150 @@
 <html lang="en" dir="ltr">
 <head>
   <meta charset="UTF-8">
-  <title>Responsive Registration Form</title>
+  <title>High-Tech Registration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <!-- Google Fonts Import -->
-  <style>
-    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
-  </style>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
   
-  <!-- Inline CSS Styles -->
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  
+  <!-- Inline CSS for High-Tech Styling -->
   <style>
-    /* Existing styles */
     * {
       margin: 0;
       padding: 0;
       box-sizing: border-box;
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Orbitron', sans-serif;
     }
 
     body {
-      height: 100vh;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      padding: 10px;
-      background: linear-gradient(135deg, #71b7e6, #9b59b6);
+      min-height: 100vh;
+      background: #0a0a0a;
+      color: #ffffff;
+      overflow-x: hidden;
+      padding: 0;
+      margin: 0; /* Explicitly remove body margin */
     }
 
+    /* Navbar Styles */
+    .navbar {
+      background: rgba(10, 10, 10, 0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(113, 183, 230, 0.3);
+      padding: 15px 15px;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-brand {
+      color: #71b7e6 !important;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+    }
+
+    .nav-link {
+      color: #ffffff !important;
+      font-weight: 500;
+      margin: 0 15px;
+      transition: color 0.3s ease, text-shadow 0.3s ease;
+    }
+
+    .nav-link:hover,
+    .nav-link.active {
+      color: #9b59b6 !important;
+      text-shadow: 0 0 10px rgba(155, 89, 182, 0.7);
+    }
+
+    /* Ensure toggler icon is visible */
+    .navbar-toggler {
+      border: 1px solid #71b7e6;
+      padding: 5px;
+      z-index: 1001; /* Ensure toggler is above other elements */
+    }
+
+    .navbar-toggler-icon {
+      background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(113, 183, 230, 1)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+    }
+
+    /* Form Container */
     .container {
-      max-width: 700px;
-      width: 100%;
-      background-color: #fff;
-      padding: 25px 30px;
-      border-radius: 5px;
-      box-shadow: 0 5px 10px rgba(0,0,0,0.15);
-    }
-
-    .container .title {
-      font-size: 25px;
-      font-weight: 500;
+      max-width: 800px;
+      background: rgba(20, 20, 20, 0.85);
+      border: 1px solid rgba(113, 183, 230, 0.3);
+      border-radius: 15px;
+      padding: 30px;
+      margin: 120px auto 20px;
+      box-shadow: 0 0 20px rgba(113, 183, 230, 0.2);
       position: relative;
-    }
-
-    .container .title::before {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: 0;
-      height: 3px;
-      width: 30px;
-      border-radius: 5px;
-      background: linear-gradient(135deg, #71b7e6, #9b59b6);
-    }
-
-    .content form .user-details {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: space-between;
-      margin: 20px 0 12px 0;
-    }
-
-    form .user-details .input-box {
-      margin-bottom: 15px;
-      width: calc(100% / 2 - 20px);
-    }
-
-    form .input-box span.details {
-      display: block;
-      font-weight: 500;
-      margin-bottom: 5px;
-    }
-
-    .user-details .input-box input {
-      height: 45px;
+      z-index: 10;
       width: 100%;
-      outline: none;
-      font-size: 16px;
-      border-radius: 5px;
-      padding-left: 15px;
-      border: 1px solid #ccc;
-      border-bottom-width: 2px;
-      transition: all 0.3s ease;
+      /* Temporary outline for debugging (remove after testing) */
+      outline: 1px solid red;
     }
 
-    .user-details .input-box input:focus,
-    .user-details .input-box input:valid {
-      border-color: #9b59b6;
+    .title {
+      font-size: 28px;
+      font-weight: 700;
+      color: #71b7e6;
+      text-align: center;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      letter-spacing: 2px;
+      text-shadow: 0 0 10px rgba(113, 183, 230, 0.5);
     }
 
-    form .gender-details .gender-title {
-      font-size: 20px;
+    /* Form Styling */
+    .form-label {
+      color: #ffffff;
       font-weight: 500;
+      margin-bottom: 8px;
     }
 
-    form .category {
+    .form-control {
+      background: rgba(255, 255, 255, 0.1);
+      border: 1px solid #71b7e6;
+      color: #ffffff;
+      border-radius: 8px;
+      padding: 10px;
+      transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .form-control:focus {
+      border-color: #9b59b6;
+      box-shadow: 0 0 10px rgba(155, 89, 182, 0.5);
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    /* Gender Selection */
+    .gender-details {
+      margin: 20px 0;
+    }
+
+    .gender-title {
+      font-size: 20px;
+      color: #71b7e6;
+      margin-bottom: 15px;
+    }
+
+    .category {
       display: flex;
-      width: 80%;
-      margin: 14px 0;
-      justify-content: space-between;
+      gap: 20px;
     }
 
-    form .category label {
+    .category label {
+      color: #ffffff;
+      cursor: pointer;
       display: flex;
       align-items: center;
-      cursor: pointer;
+      font-size: 16px;
     }
 
-    form .category label .dot {
+    .category .dot {
       height: 18px;
       width: 18px;
       border-radius: 50%;
@@ -123,131 +160,277 @@
     #dot-3:checked ~ .category label .three {
       background: #9b59b6;
       border-color: #d9d9d9;
+      box-shadow: 0 0 8px rgba(155, 89, 182, 0.7);
     }
 
-    form input[type="radio"] {
+    input[type="radio"] {
       display: none;
     }
 
-    form .button {
-      height: 45px;
-      margin: 35px 0;
-    }
-
-    form .button input {
-      height: 100%;
+    /* Submit Button */
+    .btn-submit {
       width: 100%;
-      border-radius: 5px;
-      border: none;
-      color: #fff;
-      font-size: 18px;
-      font-weight: 500;
-      letter-spacing: 1px;
-      cursor: pointer;
-      transition: all 0.3s ease;
+      padding: 12px;
+      border-radius: 8px;
       background: linear-gradient(135deg, #71b7e6, #9b59b6);
+      border: none;
+      color: #ffffff;
+      font-size: 18px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
     }
 
-    form .button input:hover {
+    .btn-submit:hover {
       background: linear-gradient(-135deg, #71b7e6, #9b59b6);
+      box-shadow: 0 0 15px rgba(155, 89, 182, 0.7);
     }
 
-    @media (max-width: 584px) {
+    /* WebGL Canvas */
+    #galaxyCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      .navbar {
+        padding: 10px 10px;
+      }
+
+      .navbar-nav {
+        background: rgba(10, 10, 10, 0.95);
+        padding: 15px;
+        border-radius: 8px;
+        text-align: center;
+      }
+
+      .nav-link {
+        margin: 10px 0;
+      }
+
       .container {
+        margin: 100px 0 20px; /* No side margins */
+        padding: 20px 15px;
         max-width: 100%;
-      }
-
-      form .user-details .input-box {
-        margin-bottom: 15px;
-        width: 100%;
-      }
-
-      form .category {
-        width: 100%;
-      }
-
-      .content form .user-details {
-        max-height: 300px;
-        overflow-y: scroll;
-      }
-
-      .user-details::-webkit-scrollbar {
-        width: 5px;
+        width: calc(100% - 10px); /* Account for minimal padding */
       }
     }
 
-    @media (max-width: 459px) {
-      .container .content .category {
+    @media (max-width: 576px) {
+      .container {
+        margin: 80px 0 10px; /* Zero side margins for small screens */
+        padding: 15px; /* Equal padding on both sides */
+        width: 100%; /* Full width */
+        box-sizing: border-box;
+      }
+
+      .navbar {
+        padding: 8px 5px;
+      }
+
+      .category {
         flex-direction: column;
+        gap: 10px;
+      }
+
+      .form-label {
+        font-size: 14px;
+      }
+
+      .form-control {
+        font-size: 14px;
+      }
+
+      .title {
+        font-size: 22px;
       }
     }
   </style>
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid px-2 px-sm-3">
+      <a class="navbar-brand" href="/">StudySmart</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a href="/" class="nav-link">Home</a></li>
+          <li class="nav-item"><a href="/about/" class="nav-link">About</a></li>
+          <li class="nav-item"><a href="{% url 'services' %}" class="nav-link">Services</a></li>
+          <li class="nav-item"><a href="{% url 'register' %}" class="nav-link active">Register</a></li>
+          <li class="nav-item"><a href="{% url 'login' %}" class="nav-link">Login</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- WebGL Canvas -->
+  <canvas id="galaxyCanvas"></canvas>
+
+  <!-- Registration Form -->
   <div class="container">
     <div class="title">Registration</div>
-    <div class="content">
-      <!-- Use Django form here -->
-      <form method="POST" action="{% url 'register' %}">
-        {% csrf_token %}
-        <div class="user-details">
+    <form method="POST" action="{% url 'register' %}">
+      {% csrf_token %}
+      <div class="row g-3">
+        <!-- Full Name -->
+        <div class="col-md-6">
           {{ form.full_name.errors }}
-          <div class="input-box">
-            <span class="details">Full Name</span>
-            {{ form.full_name }}
-          </div>
+          <label for="{{ form.full_name.id_for_label }}" class="form-label">Full Name</label>
+          <input type="text" name="{{ form.full_name.name }}" id="{{ form.full_name.id_for_label }}" class="form-control" value="{{ form.full_name.value|default_if_none:'' }}" required>
+        </div>
+        <!-- Username -->
+        <div class="col-md-6">
           {{ form.username.errors }}
-          <div class="input-box">
-            <span class="details">Username</span>
-            {{ form.username }}
-          </div>
+          <label for="{{ form.username.id_for_label }}" class="form-label">Username</label>
+          <input type="text" name="{{ form.username.name }}" id="{{ form.username.id_for_label }}" class="form-control" value="{{ form.username.value|default_if_none:'' }}" required>
+        </div>
+        <!-- Email -->
+        <div class="col-md-6">
           {{ form.email.errors }}
-          <div class="input-box">
-            <span class="details">Email</span>
-            {{ form.email }}
-          </div>
+          <label for="{{ form.email.id_for_label }}" class="form-label">Email</label>
+          <input type="email" name="{{ form.email.name }}" id="{{ form.email.id_for_label }}" class="form-control" value="{{ form.email.value|default_if_none:'' }}" required>
+        </div>
+        <!-- Phone Number -->
+        <div class="col-md-6">
           {{ form.phone_number.errors }}
-          <div class="input-box">
-            <span class="details">Phone Number</span>
-            {{ form.phone_number }}
-          </div>
+          <label for="{{ form.phone_number.id_for_label }}" class="form-label">Phone Number</label>
+          <input type="tel" name="{{ form.phone_number.name }}" id="{{ form.phone_number.id_for_label }}" class="form-control" value="{{ form.phone_number.value|default_if_none:'' }}">
+        </div>
+        <!-- Password -->
+        <div class="col-md-6">
           {{ form.password1.errors }}
-          <div class="input-box">
-            <span class="details">Password</span>
-            {{ form.password1 }}
-          </div>
+          <label for="{{ form.password1.id_for_label }}" class="form-label">Password</label>
+          <input type="password" name="{{ form.password1.name }}" id="{{ form.password1.id_for_label }}" class="form-control" required>
+        </div>
+        <!-- Confirm Password -->
+        <div class="col-md-6">
           {{ form.password2.errors }}
-          <div class="input-box">
-            <span class="details">Confirm Password</span>
-            {{ form.password2 }}
-          </div>
+          <label for="{{ form.password2.id_for_label }}" class="form-label">Confirm Password</label>
+          <input type="password" name="{{ form.password2.name }}" id="{{ form.password2.id_for_label }}" class="form-control" required>
         </div>
-        <div class="gender-details">
-          {{ form.gender.errors }}
-          <input type="radio" name="gender" id="dot-1" value="Male">
-          <input type="radio" name="gender" id="dot-2" value="Female">
-          <input type="radio" name="gender" id="dot-3" value="Prefer not to say">
-          <span class="gender-title">Gender</span>
-          <div class="category">
-            <label for="dot-1">
-              <span class="dot one"></span>
-              <span class="gender">Male</span>
-            </label>
-            <label for="dot-2">
-              <span class="dot two"></span>
-              <span class="gender">Female</span>
-            </label>
-            <label for="dot-3">
-              <span class="dot three"></span>
-              <span class="gender">Prefer not to say</span>
-            </label>
-          </div>
+      </div>
+
+      <!-- Gender Selection -->
+      <div class="gender-details">
+        {{ form.gender.errors }}
+        <div class="gender-title">Gender</div>
+        <input type="radio" name="gender" id="dot-1" value="Male" {% if form.gender.value == "Male" %}checked{% endif %}>
+        <input type="radio" name="gender" id="dot-2" value="Female" {% if form.gender.value == "Female" %}checked{% endif %}>
+        <input type="radio" name="gender" id="dot-3" value="Prefer not to say" {% if form.gender.value == "Prefer not to say" %}checked{% endif %}>
+        <div class="category">
+          <label for="dot-1">
+            <span class="dot one"></span>
+            <span class="gender">Male</span>
+          </label>
+          <label for="dot-2">
+            <span class="dot two"></span>
+            <span class="gender">Female</span>
+          </label>
+          <label for="dot-3">
+            <span class="dot three"></span>
+            <span class="gender">Prefer not to say</span>
+          </label>
         </div>
-        <div class="button">
-          <input type="submit" value="Register">
-        </div>
-      </form>
-    </div>
+      </div>
+
+      <!-- Submit Button -->
+      <div class="mt-4">
+        <button type="submit" class="btn btn-submit">Register</button>
+      </div>
+    </form>
   </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+  <script>
+    // WebGL Galaxy Background
+    const canvas = document.getElementById('galaxyCanvas');
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true });
+    
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    renderer.setPixelRatio(window.devicePixelRatio);
+    
+    // Create colorful stars
+    const starsGeometry = new THREE.BufferGeometry();
+    const starCount = 10000;
+    const positions = new Float32Array(starCount * 3);
+    const colors = new Float32Array(starCount * 3);
+    
+    for (let i = 0; i < starCount; i++) {
+      positions[i * 3] = (Math.random() - 0.5) * 2000;
+      positions[i * 3 + 1] = (Math.random() - 0.5) * 2000;
+      positions[i * 3 + 2] = (Math.random() - 0.5) * 2000;
+      
+      // Random colors (blue, purple, white)
+      const color = new THREE.Color(
+        Math.random() * 0.5 + 0.5, // R
+        Math.random() * 0.3 + 0.3, // G
+        Math.random() * 0.7 + 0.3  // B
+      );
+      colors[i * 3] = color.r;
+      colors[i * 3 + 1] = color.g;
+      colors[i * 3 + 2] = color.b;
+    }
+    
+    starsGeometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+    starsGeometry.setAttribute('color', new THREE.BufferAttribute(colors, 3));
+    
+    const starsMaterial = new THREE.PointsMaterial({
+      size: 0.1,
+      sizeAttenuation: true,
+      vertexColors: true,
+      transparent: true,
+      opacity: 0.8
+    });
+    
+    const stars = new THREE.Points(starsGeometry, starsMaterial);
+    scene.add(stars);
+    
+    // Add nebula-like effect
+    const nebulaGeometry = new THREE.SphereGeometry(500, 32, 32);
+    const nebulaMaterial = new THREE.MeshBasicMaterial({
+      color: 0x9b59b6,
+      transparent: true,
+      opacity: 0.1,
+      side: THREE.BackSide
+    });
+    const nebula = new THREE.Mesh(nebulaGeometry, nebulaMaterial);
+    scene.add(nebula);
+    
+    camera.position.z = 5;
+    
+    // Animation
+    function animate() {
+      requestAnimationFrame(animate);
+      
+      stars.rotation.y += 0.0002;
+      stars.rotation.x += 0.0001;
+      nebula.rotation.y += 0.0001;
+      
+      renderer.render(scene, camera);
+    }
+    
+    animate();
+    
+    // Handle window resize
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
 </body>
 </html>
