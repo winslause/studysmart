@@ -8,7 +8,7 @@ document.addEventListener('DOMContentLoaded', function() {
         const target = parseInt(counter.getAttribute('data-value'));
         let current = 0;
         const increment = Math.ceil(target / 10); // 50 steps
-        const duration = 2000; // 1 second
+        const duration = 4000; // 1 second
         const stepTime = duration / (target / increment);
 
         const updateCounter = () => {
