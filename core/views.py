@@ -1,40 +1,38 @@
-from django.shortcuts import render
-from .models import Document
 from django.shortcuts import render, redirect
+from .models import Document, Question, PerformanceMetric, PAGE_CHOICES
 from django.contrib import messages
 from .forms import UserRegisterForm
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.decorators import login_required, user_passes_test
+from django.utils import timezone
+from django.contrib.auth import update_session_auth_hash
+from django.contrib.auth.forms import PasswordChangeForm
+from django.core.exceptions import ObjectDoesNotExist
+import logging
 
+# Set up logging
+logger = logging.getLogger(__name__)
 
-# View for Index Page Documents
 def index(request):
     documents = Document.objects.filter(page='index')
     return render(request, 'index.html', {'documents': documents})
 
-# View for About Page Documents
 def about(request):
     documents = Document.objects.filter(page='about')
     return render(request, 'about.html', {'documents': documents})
 
-# View for Services Page Documents
 def services(request):
     documents = Document.objects.filter(page='services')
     return render(request, 'services.html', {'documents': documents})
-
-# View for Register Page Documents
-# def register(request):
-#     documents = Document.objects.filter(page='register')
-#     return render(request, 'register.html', {'documents': documents})
-
 
 def register(request):
     if request.method == 'POST':
         form = UserRegisterForm(request.POST)
         if form.is_valid():
-            form.save()  # Save the user to the database
+            form.save()
             username = form.cleaned_data.get('username')
             messages.success(request, f'Account created for {username}!')
-            return redirect('index')  # Redirect to login page after successful registration
+            return redirect('index')
     else:
         form = UserRegisterForm()
     return render(request, 'register.html', {'form': form})
@@ -44,83 +42,63 @@ def login_page(request):
         username = request.POST.get('username')
         password = request.POST.get('password')
         user = authenticate(request, username=username, password=password)
-
         if user is not None:
             login(request, user)
             if user.is_superuser:
-                return redirect('/admin/')
+                return redirect('admin_portal')
             else:
-                return redirect('index')  # Redirect to the home page if login is successful
-
-                
-                
+                return redirect('index')
         else:
-            messages.error(request, 'Invalid username or password')  # Show an error message
-
+            messages.error(request, 'Invalid username or password')
     return render(request, 'login.html')
 
-# View for Reports Page Documents
 def reports(request):
     documents = Document.objects.filter(page='reports')
     return render(request, 'reports.html', {'documents': documents})
 
-# View for CS Page Documents
 def cs(request):
     documents = Document.objects.filter(page='cs')
     return render(request, 'cs.html', {'documents': documents})
 
-# View for ML Page Documents
 def ml(request):
     documents = Document.objects.filter(page='ml')
     return render(request, 'ml.html', {'documents': documents})
 
-# View for Economics Page Documents
 def economics(request):
     documents = Document.objects.filter(page='economics')
     return render(request, 'economics.html', {'documents': documents})
 
-# View for Data Analysis Page Documents
 def data_analysis(request):
     documents = Document.objects.filter(page='data_analysis')
     return render(request, 'data_analysis.html', {'documents': documents})
 
-# View for Data Mining Page Documents
 def data_mining(request):
     documents = Document.objects.filter(page='data_mining')
     return render(request, 'data_mining.html', {'documents': documents})
 
-# View for Finance Page Documents
 def finance(request):
     documents = Document.objects.filter(page='finance')
     return render(request, 'finance.html', {'documents': documents})
 
-# View for Business Analytics Page Documents
 def business_analytics(request):
     documents = Document.objects.filter(page='business_analytics')
     return render(request, 'business_analytics.html', {'documents': documents})
 
-# View for Case Studies Page Documents
 def case_studies(request):
     documents = Document.objects.filter(page='case_studies')
     return render(request, 'case_studies.html', {'documents': documents})
 
-# View for Business Page Documents
 def business(request):
     documents = Document.objects.filter(page='business')
     return render(request, 'business.html', {'documents': documents})
 
-# View for Marketing Page Documents
 def marketing(request):
     documents = Document.objects.filter(page='marketing')
     return render(request, 'marketing.html', {'documents': documents})
 
-# View for Research Page Documents
 def research(request):
     documents = Document.objects.filter(page='research')
     return render(request, 'research.html', {'documents': documents})
-
-
-# View for the technical writing section
 
 def technical_writing(request):
     return render(request, 'technical_writing.html', {})
@@ -128,7 +106,83 @@ def technical_writing(request):
 def exams(request):
     return render(request, 'exams.html', {})
 
-
-
 def assignment(request):
     return render(request, 'assignment.html', {})
+
+def past_solutions(request):
+    questions = Question.objects.filter(page='past_solutions').order_by('-created_at')
+    return render(request, 'past_solutions.html', {'questions': questions})
+
+def logout_view(request):
+    logout(request)
+    messages.success(request, 'Logged out successfully!')
+    return redirect('login')
+
+@login_required
+@user_passes_test(lambda u: u.is_superuser)
+def admin_portal(request):
+    questions = Question.objects.filter(page='past_solutions').order_by('-created_at')
+    # Get or create single PerformanceMetric object
+    metric, created = PerformanceMetric.objects.get_or_create(id=1, defaults={
+        'question_count': 0,
+        'avg_load_time': 0.0,
+        'last_updated': timezone.now()
+    })
+    metric.question_count = Question.objects.count()
+    metric.avg_load_time = 1.5  # Placeholder
+    metric.last_updated = timezone.now()
+    metric.save()
+
+    if request.method == 'POST':
+        action = request.POST.get('action')
+        logger.debug(f"POST action received: {action}, POST data: {request.POST}")
+        if action == 'post_question':
+            title = request.POST.get('title')
+            description = request.POST.get('description')
+            page = request.POST.get('page', 'past_solutions')
+            try:
+                Question.objects.create(
+                    title=title,
+                    description=description,
+                    posted_by=request.user,
+                    page=page
+                )
+                messages.success(request, 'Question posted successfully!')
+            except Exception as e:
+                logger.error(f"Error posting question: {str(e)}")
+                messages.error(request, f'Error posting question: {str(e)}')
+            return redirect('admin_portal')
+        elif action == 'delete_question':
+            question_id = request.POST.get('question_id')
+            logger.debug(f"Attempting to delete question ID: {question_id}")
+            if not question_id:
+                logger.error("Delete request failed: question_id is missing")
+                messages.error(request, 'Invalid request: Question ID is missing.')
+                return redirect('admin_portal')
+            try:
+                question = Question.objects.get(id=question_id)
+                question.delete()
+                logger.info(f"Question ID {question_id} deleted by {request.user.username}")
+                messages.success(request, 'Question deleted successfully!')
+            except ObjectDoesNotExist:
+                logger.warning(f"Question ID {question_id} not found")
+                messages.error(request, 'Question not found.')
+            except Exception as e:
+                logger.error(f"Error deleting question ID {question_id}: {str(e)}")
+                messages.error(request, f'Error deleting question: {str(e)}')
+            return redirect('admin_portal')
+        elif action == 'change_password':
+            form = PasswordChangeForm(user=request.user, data=request.POST)
+            if form.is_valid():
+                user = form.save()
+                update_session_auth_hash(request, user)
+                messages.success(request, 'Password changed successfully!')
+            else:
+                messages.error(request, 'Password change failed. Please check your inputs.')
+            return redirect('admin_portal')
+
+    return render(request, 'admin_portal.html', {
+        'questions': questions,
+        'metric': metric,
+        'question_page_choices': PAGE_CHOICES
+    })

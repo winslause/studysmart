@@ -19,8 +19,10 @@ urlpatterns = [
     path('marketing/', views.marketing, name='marketing'),
     path('research/', views.research, name='research'),
     path('login/', views.login_page, name='login'),
+    path('logout/', views.logout_view, name='logout'),  # Added
     path('exams/', views.exams, name='exams'),
     path('assignment/', views.assignment, name='assignment'),
     path('technical_writing/', views.technical_writing, name='technical_writing'),
-
+    path('past-solutions/', views.past_solutions, name='past_solutions'),
+    path('admin-portal/', views.admin_portal, name='admin_portal'),
 ]

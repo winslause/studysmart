@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="past-solutions py-5">
+  <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+  <div class="container">
+    <h2 class="text-center mb-4" style="color: var(--wens-blue);">Past Solutions</h2>
+    <div class="row g-4">
+      {% for question in questions %}
+      <div class="col-md-6">
+        <div class="question-card">
+          <h4>{{ question.title }}</h4>
+          <p>{{ question.description|linebreaks }}</p>
+          <a href="https://wa.me/+18438437046?text=Requesting%20solution:%20{{ question.description|urlencode }}"
+             target="_blank" class="btn btn-wens">
+            Solution <i class="fab fa-whatsapp ms-1"></i>
+          </a>
+        </div>
+      </div>
+      {% empty %}
+      <div class="col-12 text-center">
+        <p>No questions available yet.</p>
+      </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+<script src="{% static 'js/past_solutions.js' %}"></script>
+{% endblock %}

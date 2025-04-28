@@ -1,0 +1,269 @@
+{% extends 'base.html' %}
+{% load static i18n %}
+
+{% block content %}
+<section class="admin-portal py-5">
+  <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+  <div class="container-fluid">
+    <div class="row">
+      <!-- Sidebar -->
+      <nav class="col-md-3 col-lg-2 sidebar">
+        <div class="sidebar-sticky pt-3">
+          <ul class="nav flex-column">
+            <li class="nav-item">
+              <a class="nav-link active" href="#" data-bs-toggle="modal" data-bs-target="#postQuestionModal">
+                <i class="fas fa-plus"></i> {% trans "Post Question" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#questions">
+                <i class="fas fa-list"></i> {% trans "View Questions" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#performance">
+                <i class="fas fa-chart-bar"></i> {% trans "Performance" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#changePasswordModal">
+                <i class="fas fa-key"></i> {% trans "Change Password" %}
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="{% url 'logout' %}">
+                <i class="fas fa-sign-out-alt"></i> {% trans "Logout" %}
+              </a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <!-- Main Content -->
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+        <!-- Messages -->
+        {% if messages %}
+          {% for message in messages %}
+            <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+              {{ message }}
+              <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+          {% endfor %}
+        {% endif %}
+
+        <!-- Questions Section -->
+        <section id="questions" class="mt-5">
+          <h2 class="mb-4" style="color: var(--wens-blue);">{% trans "Posted Questions" %}</h2>
+          <div class="card">
+            <div class="card-body">
+              <table class="table table-hover">
+                <thead>
+                  <tr>
+                    <th>{% trans "Title" %}</th>
+                    <th>{% trans "Description" %}</th>
+                    <th>{% trans "Posted By" %}</th>
+                    <th>{% trans "Actions" %}</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {% for question in questions %}
+                  <tr>
+                    <td>{{ question.title }}</td>
+                    <td>{{ question.description|truncatewords:20 }}</td>
+                    <td>{{ question.posted_by.username }}</td>
+                    <td>
+                      <button class="btn btn-danger btn-sm delete-question"
+                              data-bs-toggle="modal"
+                              data-bs-target="#deleteQuestionModal"
+                              data-question-id="{{ question.id|escape }}"
+                              data-question-title="{{ question.title|escapejs }}">
+                        {% trans "Delete" %}
+                      </button>
+                    </td>
+                  </tr>
+                  {% empty %}
+                  <tr>
+                    <td colspan="4" class="text-center">{% trans "No questions posted yet." %}</td>
+                  </tr>
+                  {% endfor %}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- Performance Metrics -->
+        <section id="performance" class="mt-5">
+          <h2 class="mb-4" style="color: var(--wens-blue);">{% trans "Performance Metrics" %}</h2>
+          <div class="card">
+            <div class="card-body">
+              {% if metric %}
+              <ul class="list-group list-group-flush">
+                <li class="list-group-item">{% trans "Total Questions" %}: {{ metric.question_count }}</li>
+                <li class="list-group-item">{% trans "Average Load Time" %}: {{ metric.avg_load_time }} {% trans "seconds" %}</li>
+                <li class="list-group-item">{% trans "Last Updated" %}: {{ metric.last_updated }}</li>
+              </ul>
+              {% else %}
+              <p>{% trans "No performance metrics available." %}</p>
+              {% endif %}
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Post Question Modal -->
+  <div class="modal fade" id="postQuestionModal" tabindex="-1" aria-labelledby="postQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="postQuestionModalLabel">{% trans "Post New Question" %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="POST" action="{% url 'admin_portal' %}">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="post_question">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="title" class="form-label" style="color: #333;">{% trans "Title" %}</label>
+              <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label" style="color: #333;">{% trans "Description" %}</label>
+              <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+            <button type="submit" class="btn btn-wens">{% trans "Post Question" %}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Delete Question Modal -->
+  <div class="modal fade" id="deleteQuestionModal" tabindex="-1" aria-labelledby="deleteQuestionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteQuestionModalLabel">{% trans "Delete Question" %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form id="deleteQuestionForm" method="POST" action="{% url 'admin_portal' %}">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="delete_question">
+          <input type="hidden" name="question_id" id="delete_question_id" value="">
+          <div class="modal-body">
+            {% trans "Are you sure you want to delete the question" %} "<span id="delete_question_title"></span>"?
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Cancel" %}</button>
+            <button type="submit" class="btn btn-danger">{% trans "Delete" %}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- Change Password Modal -->
+  <div class="modal fade" id="changePasswordModal" tabindex="-1" aria-labelledby="changePasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="changePasswordModalLabel">{% trans "Change Password" %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="POST" action="{% url 'admin_portal' %}">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="change_password">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="current_password" class="form-label" style="color: #333;">{% trans "Current Password" %}</label>
+              <input type="password" class="form-control" id="current_password" name="current_password" required>
+            </div>
+            <div class="mb-3">
+              <label for="new_password" class="form-label" style="color: #333;">{% trans "New Password" %}</label>
+              <input type="password" class="form-control" id="new_password" name="new_password" required>
+            </div>
+            <div class="mb-3">
+              <label for="confirm_password" class="form-label" style="color: #333;">{% trans "Confirm New Password" %}</label>
+              <input type="password" class="form-control" id="confirm_password" name="confirm_password" required>
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+            <button type="submit" class="btn btn-wens">{% trans "Change Password" %}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    console.log('admin_portal.js loaded successfully');
+
+    const deleteButtons = document.querySelectorAll('.delete-question');
+    console.log(`Found ${deleteButtons.length} delete buttons`);
+
+    if (deleteButtons.length === 0) {
+      console.warn('No delete buttons found. Check if questions are rendered and buttons have .delete-question class.');
+    }
+
+    deleteButtons.forEach((button, index) => {
+      const questionId = button.getAttribute('data-question-id');
+      const questionTitle = button.getAttribute('data-question-title');
+
+      console.log(`Button ${index + 1}: ID=${questionId}, Title=${questionTitle}`);
+
+      if (!questionId || !questionTitle) {
+        console.error(`Button ${index + 1} has invalid attributes: ID=${questionId}, Title=${questionTitle}`);
+        return;
+      }
+
+      button.addEventListener('click', () => {
+        console.log(`Delete button clicked: ID=${questionId}, Title=${questionTitle}`);
+
+        const questionIdInput = document.getElementById('delete_question_id');
+        const questionTitleSpan = document.getElementById('delete_question_title');
+
+        if (!questionIdInput || !questionTitleSpan) {
+          console.error('Modal elements missing: delete_question_id or delete_question_title not found');
+          return;
+        }
+
+        questionIdInput.value = questionId;
+        questionTitleSpan.textContent = questionTitle;
+        console.log(`Modal populated: ID=${questionId}, Title=${questionTitle}`);
+      });
+    });
+
+    const deleteForm = document.getElementById('deleteQuestionForm');
+    if (deleteForm) {
+      deleteForm.addEventListener('submit', (e) => {
+        const formData = new FormData(deleteForm);
+        const formEntries = Object.fromEntries(formData);
+        console.log('Delete form submitted with data:', formEntries);
+
+        if (!formEntries.question_id) {
+          console.error('Form submission failed: question_id is missing');
+          e.preventDefault();
+        }
+        if (!formEntries.action) {
+          console.error('Form submission failed: action is missing');
+          e.preventDefault();
+        }
+        if (!formEntries.csrfmiddlewaretoken) {
+          console.error('Form submission failed: csrfmiddlewaretoken is missing');
+          e.preventDefault();
+        }
+      });
+    } else {
+      console.error('Delete form not found: #deleteQuestionForm');
+    }
+  });
+</script>
+<script src="{% static 'js/admin_portal.js' %}" defer></script>
+{% endblock %}
