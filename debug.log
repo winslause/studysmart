@@ -569,3 +569,16 @@ INFO 2025-04-28 15:36:04,412 views Question ID 7 deleted by admin
 DEBUG 2025-04-28 15:36:12,486 views POST action received: delete_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['A8dEPXWGmgV5oj5Bzp6O4bPKkEefcYK58kbWqjaO9Q78G6uQiMnSzkehSRBDwDe9'], 'action': ['delete_question'], 'question_id': ['3']}>
 DEBUG 2025-04-28 15:36:12,488 views Attempting to delete question ID: 3
 INFO 2025-04-28 15:36:12,517 views Question ID 3 deleted by admin
+INFO 2025-04-28 17:09:47,865 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:10:18,267 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:25:22,559 autoreload C:\Users\wenbu\Documents\studysmart\Study\settings.py changed, reloading.
+INFO 2025-04-28 17:25:26,433 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:30:13,725 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:30:44,345 autoreload C:\Users\wenbu\Documents\studysmart\Study\settings.py changed, reloading.
+INFO 2025-04-28 17:30:46,053 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:31:31,172 autoreload C:\Users\wenbu\Documents\studysmart\Study\urls.py changed, reloading.
+INFO 2025-04-28 17:31:33,472 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:34:09,589 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:35:06,109 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:41:45,743 autoreload Watching for file changes with StatReloader
+INFO 2025-04-28 17:42:10,334 autoreload Watching for file changes with StatReloader
