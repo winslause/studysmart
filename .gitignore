@@ -1,2 +1,3 @@
 /.env
 /Study/settings.py
+/db.sqlite3
