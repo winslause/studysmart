@@ -674,3 +674,4 @@ DEBUG 2025-04-29 20:51:21,122 views Attempting to delete question ID: 9
 INFO 2025-04-29 20:51:21,182 views Question ID 9 deleted by admin
 INFO 2025-04-29 20:53:32,507 autoreload Watching for file changes with StatReloader
 INFO 2025-04-29 20:57:13,815 autoreload Watching for file changes with StatReloader
+DEBUG 2025-04-29 21:28:39,222 views POST action received: post_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['9BZ4laX449FNGaanQ3lWBzlYM0rllyaodJf7VoQSYzjBRqiSLBxDplJj1OGm3DQv'], 'action': ['post_question'], 'title': ['test'], 'description': ['test1']}>
