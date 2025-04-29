@@ -2,83 +2,17 @@
 {% load static i18n %}
 
 {% block content %}
-<!-- Embedded CSS for Sidebar Toggler -->
-<style>
-  /* Sidebar default styles (for larger screens) */
-  .sidebar {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    z-index: 100;
-    padding-top: 56px; /* Adjust based on assumed navbar height in base.html */
-    background-color: #f8f9fa;
-    transition: transform 0.3s ease-in-out;
-    width: 250px; /* Fixed sidebar width */
-  }
-
-  /* Main content padding to account for sidebar */
-  main {
-    margin-left: 250px; /* Match sidebar width */
-  }
-
-  /* Toggler button (hidden by default) */
-  .sidebar-toggler {
-    display: none;
-    position: fixed;
-    top: 60px; /* Below navbar to avoid overlap */
-    left: 10px;
-    z-index: 101;
-    background-color: var(--wens-blue, #007bff); /* Use theme color with fallback */
-    color: white;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 16px;
-  }
-
-  /* Media query for smaller screens */
-  @media (max-width: 767px) {
-    .sidebar {
-      transform: translateX(-100%); /* Hide sidebar off-screen */
-    }
-
-    .sidebar.active {
-      transform: translateX(0); /* Show sidebar when active */
-    }
-
-    main {
-      margin-left: 0; /* Remove margin when sidebar is hidden */
-    }
-
-    .sidebar-toggler {
-      display: block; /* Show toggler button */
-    }
-
-    /* Add padding to avoid toggler overlap with content */
-    .container-fluid {
-      padding-top: 50px;
-    }
-  }
-
-  /* Ensure modals appear above sidebar */
-  .modal {
-    z-index: 1050; /* Higher than sidebar and toggler */
-  }
-</style>
-
 <section class="admin-portal py-5">
-  <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+  <link href="{% static 'css/admin.css' %}?v=6" rel="stylesheet">
   <!-- Sidebar Toggler Button -->
-  <button class="sidebar-toggler" aria-label="Toggle Sidebar">
-    <i class="fas fa-bars"></i> Menu
+  <button class="sidebar-toggler" id="sidebar-toggler" aria-label="Toggle Sidebar">
+    <i class="fas fa-bars"></i>
   </button>
 
   <div class="container-fluid">
     <div class="row">
       <!-- Sidebar -->
-      <nav class="col-md-3 col-lg-2 sidebar">
+      <nav class="col-md-3 col-lg-2 sidebar" id="sidebar">
         <div class="sidebar-sticky pt-3">
           <ul class="nav flex-column">
             <li class="nav-item">
@@ -111,7 +45,7 @@
       </nav>
 
       <!-- Main Content -->
-      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4">
+      <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4" id="main">
         <!-- Messages -->
         {% if messages %}
           {% for message in messages %}
@@ -273,7 +207,7 @@
   </div>
 </section>
 
-<!-- Embedded JavaScript for Sidebar Toggler and Delete Functionality -->
+<!-- Embedded JavaScript for Sidebar Toggler, Delete Functionality, and Modal Fix -->
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     // Sidebar Toggler Logic
@@ -283,23 +217,46 @@
     if (toggler && sidebar) {
       toggler.addEventListener('click', () => {
         sidebar.classList.toggle('active');
+        toggler.classList.toggle('toggler-active'); // Toggle animation state
       });
 
-      // Close sidebar when clicking outside on mobile
+      // Close sidebar when clicking outside
       document.addEventListener('click', (event) => {
-        if (window.innerWidth <= 767 && sidebar.classList.contains('active')) {
+        if (sidebar.classList.contains('active')) {
           if (!sidebar.contains(event.target) && !toggler.contains(event.target)) {
             sidebar.classList.remove('active');
+            toggler.classList.remove('toggler-active'); // Reset animation
           }
         }
+      });
+
+      // Close sidebar when modal is opened
+      document.querySelectorAll('.modal').forEach(modal => {
+        modal.addEventListener('show.bs.modal', () => {
+          if (sidebar.classList.contains('active')) {
+            sidebar.classList.remove('active');
+            toggler.classList.remove('toggler-active'); // Reset animation
+          }
+        });
       });
     } else {
       console.error('Sidebar or toggler not found');
     }
 
-    // Existing Delete Button Functionality
-    console.log('admin_portal.js loaded successfully');
+    // Ensure modal inputs are enabled
+    const postQuestionModal = document.getElementById('postQuestionModal');
+    if (postQuestionModal) {
+      postQuestionModal.addEventListener('shown.bs.modal', () => {
+        const inputs = postQuestionModal.querySelectorAll('input, textarea, button');
+        inputs.forEach(input => {
+          input.disabled = false; // Ensure inputs are not disabled
+          input.style.pointerEvents = 'auto'; // Ensure interactivity
+          input.style.opacity = '1'; // Ensure visibility
+        });
+      });
+    }
 
+    // Delete Button Functionality
     const deleteButtons = document.querySelectorAll('.delete-question');
     console.log(`Found ${deleteButtons.length} delete buttons`);
 
@@ -360,5 +317,4 @@
     }
   });
 </script>
-<script src="{% static 'js/admin_portal.js' %}" defer></script>
 {% endblock %}
