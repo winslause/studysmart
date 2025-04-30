@@ -1,10 +1,21 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}StudySmart Computer Science Tutoring | Academic Excellence{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert computer science tutoring in programming (Python, Java, C++), web development, database management, algorithms, and project support for academic success.">
+  <meta name="keywords" content="StudySmart computer science tutoring, programming languages support, web development tutoring, algorithm design, database management, Python tutoring">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/computer-science/">
+{% endblock %}
+
 {% block content %}
 <style>
     body {
         font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        margin: 0;
+        padding: 0;
     }
 
     .content-container {
@@ -19,6 +30,7 @@
         animation: fadeIn 2s ease-in-out;
         border-radius: 12px;
         margin-bottom: 40px;
+        min-height: 300px; /* Ensure visibility if image fails */
     }
 
     .background-title {
@@ -96,7 +108,7 @@
         color: #2c3e50;
     }
 
-    .resources-description {
+    .resources-description, .document-list-description {
         font-size: 16px;
         max-width: 700px;
         margin: auto;
@@ -129,7 +141,7 @@
         text-decoration: underline;
     }
 
-    #data-mining-cta-section {
+    #computer-science-cta-section {
         text-align: center;
         margin-top: 40px;
     }
@@ -224,79 +236,180 @@
     <!-- Background Image Section -->
     <section class="background-section">
         <div class="background-content">
-            <h1 class="background-title">Explore the World of Computer Science</h1>
+            <h1 class="background-title">Excel in Computer Science</h1>
             <p class="background-description">
-                Unlock academic excellence. From mastering programming languages like Python, Java, and C++ to advanced software and web development, database management, and algorithm design, we provide comprehensive support for your projects.
+                Achieve academic excellence with StudySmart’s expert computer science tutoring. Master programming languages like Python, Java, and C++, and excel in web development, database management, algorithms, and project support.
             </p>
+            <meta name="keywords" content="StudySmart computer science tutoring, programming tutoring, academic computer science excellence">
         </div>
     </section>
 
     <!-- Services Section -->
     <section class="services-section">
-        <h2 class="services-title">Computer Science</h2>
-        <h3 class="services-subtitle">Your Path to Academic Excellence in Computer Science</h3>
-
+        <h2 class="services-title">Computer Science Tutoring</h2>
+        <h3 class="services-subtitle">Your Path to Success in Computer Science</h3>
         <div class="services-items">
-            <div class="services-item">
+            <article class="services-item">
                 <h4 class="services-item-title">Programming Languages</h4>
-                <p class="services-item-description">Python, Java, C++</p>
-            </div>
-            <div class="services-item">
+                <p class="services-item-description">Learn Python, Java, and C++ with expert guidance for coding proficiency.</p>
+                <meta name="keywords" content="programming languages tutoring, Python tutoring, Java support, C++ tutoring">
+            </article>
+            <article class="services-item">
                 <h4 class="services-item-title">Software Development</h4>
-                <p class="services-item-description">Advanced development techniques and tools.</p>
-            </div>
-            <div class="services-item">
+                <p class="services-item-description">Master advanced development techniques using modern tools and frameworks.</p>
+                <meta name="keywords" content="software development tutoring, coding frameworks, software engineering support">
+            </article>
+            <article class="services-item">
                 <h4 class="services-item-title">Web Development</h4>
-                <p class="services-item-description">Design and develop dynamic web applications.</p>
-            </div>
-            <div class="services-item">
+                <p class="services-item-description">Design and build dynamic web applications with HTML, CSS, and JavaScript.</p>
+                <meta name="keywords" content="web development tutoring, HTML CSS JavaScript, web application support">
+            </article>
+            <article class="services-item">
                 <h4 class="services-item-title">Database Management</h4>
-                <p class="services-item-description">Organize and manage databases effectively.</p>
-            </div>
-            <div class="services-item">
+                <p class="services-item-description">Organize and manage databases effectively with SQL and NoSQL expertise.</p>
+                <meta name="keywords" content="database management tutoring, SQL tutoring, NoSQL support">
+            </article>
+            <article class="services-item">
                 <h4 class="services-item-title">Algorithms</h4>
-                <p class="services-item-description">Study and implement complex algorithms.</p>
-            </div>
-            <div class="services-item">
+                <p class="services-item-description">Study and implement complex algorithms for efficient problem-solving.</p>
+                <meta name="keywords" content="algorithms tutoring, algorithm design, computer science algorithms">
+            </article>
+            <article class="services-item">
                 <h4 class="services-item-title">Reports</h4>
-                <p class="services-item-description">Comprehensive reports on various Computer Science topics.</p>
-            </div>
-            <div class="services-item">
+                <p class="services-item-description">Craft comprehensive reports on computer science topics with expert support.</p>
+                <meta name="keywords" content="computer science reports, technical report writing, academic report support">
+            </article>
+            <article class="services-item">
                 <h4 class="services-item-title">Projects</h4>
-                <p class="services-item-description">Support for your Computer Science projects.</p>
-            </div>
+                <p class="services-item-description">Get tailored support for your computer science projects and assignments.</p>
+                <meta name="keywords" content="computer science projects, coding project support, academic project tutoring">
+            </article>
         </div>
     </section>
 
     <!-- Resources Section -->
     <section class="resources-section">
-        <h2 class="resources-title">Resources</h2>
+        <h2 class="resources-title">Computer Science Resources</h2>
         <p class="resources-description">
-            Find the best study materials, guides, and articles to excel in Computer Science.
+            Access curated study materials, coding guides, and tutorials to excel in computer science and boost your academic performance.
         </p>
+        <meta name="keywords" content="computer science resources, programming guides, coding tutorials, StudySmart resources">
     </section>
 
     <!-- Document Listing Section -->
     <section class="document-list-section">
-        <!-- <h2 class="document-list-title">Available Projects</h2> -->
+        <h2 class="document-list-title">Available Computer Science Projects</h2>
+        <p class="document-list-description">
+            Download our expertly curated projects and resources to support your computer science studies.
+        </p>
         <ul class="document-list">
             {% for document in documents %}
                 <li>
-                    <a href="{{ document.file.url }}" download>{{ document.title }}</a> - Uploaded on {{ document.upload_date }}
+                    <a href="{{ document.file.url }}" download aria-label="Download {{ document.title }} computer science resource">{{ document.title }}</a> - Uploaded on {{ document.upload_date }}
                     <p>{{ document.description }}</p>
                 </li>
             {% empty %}
-                <!-- <p>No documents available for Computer Science.</p> -->
+                <li>
+                    <p style="color: black;">No computer science projects available currently. Contact us for personalized support or check back soon.</p>
+                </li>
             {% endfor %}
         </ul>
+        <meta name="keywords" content="computer science projects, programming project resources, academic coding resources">
     </section>
 
     <!-- CTA -->
-    <div id="data-mining-cta-section">
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Computer%20Science%20projects%3F" class="cta-button">
+    <section id="computer-science-cta-section">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Computer%20Science%20projects%20or%20tutoring%3F" class="cta-button" aria-label="Contact StudySmart for computer science tutoring">
             <i class="fab fa-whatsapp"></i>
             Get Expert Assistance
         </a>
-    </div>
+        <meta name="keywords" content="StudySmart computer science contact, computer science tutoring, WhatsApp coding support, academic programming help">
+    </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert computer science tutoring in programming languages (Python, Java, C++), web development, database management, algorithms, and project support for academic success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Computer Science Tutoring Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Programming Languages Tutoring",
+          "description": "Learn Python, Java, and C++ with expert guidance for coding proficiency."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Software Development Tutoring",
+          "description": "Master advanced development techniques using modern tools and frameworks."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Web Development Tutoring",
+          "description": "Design and build dynamic web applications with HTML, CSS, and JavaScript."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Database Management Tutoring",
+          "description": "Organize and manage databases effectively with SQL and NoSQL expertise."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Algorithms Tutoring",
+          "description": "Study and implement complex algorithms for efficient problem-solving."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Computer Science Reports Tutoring",
+          "description": "Craft comprehensive reports on computer science topics with expert support."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Computer Science Projects Tutoring",
+          "description": "Get tailored support for computer science projects and assignments."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

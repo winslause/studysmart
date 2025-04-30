@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Expert Business Services
+{% block title %}StudySmart Business Services | Expert Tutoring{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert business tutoring in management, entrepreneurship, strategy, operations, and business plans to drive academic and professional success.">
+  <meta name="keywords" content="StudySmart business services, business management tutoring, entrepreneurship support, business strategy assistance, operations management, business plans">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/business/">
 {% endblock %}
 
 {% block content %}
@@ -233,72 +239,178 @@ body {
     <section id="business-intro">
         <h1 class="business-intro-heading">Elevate Your Business with Expert Services</h1>
         <p class="business-intro-description">
-            Whether you're focusing on Business Management, Entrepreneurship, or Business Strategy, we provide tailored support in Operations Management, Business Plans, and comprehensive reports to drive your success and growth.
+            Master Business Management, Entrepreneurship, and Strategy with StudySmart’s expert tutoring. Our tailored support in Operations Management, Business Plans, and Comprehensive Reports drives academic and professional success.
         </p>
+        <meta name="keywords" content="StudySmart business services, business management tutoring, entrepreneurship support, business strategy tutoring, academic success">
     </section>
 
     <!-- Services Section -->
     <section id="business-services">
         <h2 class="business-services-heading">Our Business Services</h2>
         <h3 class="business-services-subheading">Tailored Solutions for Business Success</h3>
-        
         <div class="business-services-grid">
-            <div class="business-service-card">
+            <article class="business-service-card">
                 <h4 class="business-service-title">Business Management</h4>
-                <p class="business-service-description">Expert support in managing and optimizing business operations for efficiency and growth.</p>
-            </div>
-            <div class="business-service-card">
+                <p class="business-service-description">Expert tutoring to optimize business operations, improve efficiency, and foster organizational growth.</p>
+                <meta name="keywords" content="business management tutoring, business operations support, organizational efficiency">
+            </article>
+            <article class="business-service-card">
                 <h4 class="business-service-title">Entrepreneurship</h4>
-                <p class="business-service-description">Guidance and resources for starting and scaling your entrepreneurial ventures.</p>
-            </div>
-            <div class="business-service-card">
+                <p class="business-service-description">Guidance for launching and scaling ventures, from ideation to execution, for aspiring entrepreneurs.</p>
+                <meta name="keywords" content="entrepreneurship tutoring, startup guidance, entrepreneurial support">
+            </article>
+            <article class="business-service-card">
                 <h4 class="business-service-title">Business Strategy</h4>
-                <p class="business-service-description">Strategic planning and implementation to achieve long-term business objectives.</p>
-            </div>
-            <div class="business-service-card">
+                <p class="business-service-description">Develop and implement strategic plans to achieve long-term business goals and competitive advantage.</p>
+                <meta name="keywords" content="business strategy tutoring, strategic planning support, business goals assistance">
+            </article>
+            <article class="business-service-card">
                 <h4 class="business-service-title">Operations Management</h4>
-                <p class="business-service-description">Support in streamlining operations for better efficiency and performance.</p>
-            </div>
-            <div class="business-service-card">
+                <p class="business-service-description">Streamline processes and enhance performance with expert operations management tutoring.</p>
+                <meta name="keywords" content="operations management tutoring, process optimization, business performance support">
+            </article>
+            <article class="business-service-card">
                 <h4 class="business-service-title">Business Plans</h4>
-                <p class="business-service-description">Custom business plans to guide your business strategy and secure investments.</p>
-            </div>
-            <div class="business-service-card">
+                <p class="business-service-description">Create compelling business plans to guide strategy and attract investors or stakeholders.</p>
+                <meta name="keywords" content="business plans tutoring, business plan creation, investment strategy support">
+            </article>
+            <article class="business-service-card">
                 <h4 class="business-service-title">Comprehensive Reports</h4>
-                <p class="business-service-description">In-depth reports providing insights and analysis for informed decision-making.</p>
-            </div>
-            <div class="business-service-card">
+                <p class="business-service-description">Produce in-depth reports with actionable insights for informed business decision-making.</p>
+                <meta name="keywords" content="comprehensive reports tutoring, business analysis reports, decision-making support">
+            </article>
+            <article class="business-service-card">
                 <h4 class="business-service-title">Business Administration</h4>
-                <p class="business-service-description">Comprehensive administration services to streamline business processes and enhance productivity.</p>
-            </div>
-            <div class="business-service-card">
+                <p class="business-service-description">Streamline administrative processes to boost productivity with expert tutoring support.</p>
+                <meta name="keywords" content="business administration tutoring, administrative process support, productivity enhancement">
+            </article>
+            <article class="business-service-card">
                 <h4 class="business-service-title">Management</h4>
-                <p class="business-service-description">Expert advice on effective management practices to lead teams and projects successfully.</p>
-            </div>
+                <p class="business-service-description">Master effective management techniques to lead teams and projects with confidence.</p>
+                <meta name="keywords" content="management tutoring, leadership training, project management support">
+            </article>
         </div>
     </section>
 
     <!-- Downloadable Resources Section -->
-    <div class="download-section">
-        <h3>Available Projects</h3>
+    <section class="download-section">
+        <h3>Available Business Resources</h3>
         <ul class="download-list">
             {% for resource in resources %}
                 <li class="download-item">
                     <span>{{ resource.title }}</span>
-                    <a href="{{ resource.file.url }}" class="download-btn" download>Download</a>
+                    <a href="{{ resource.file.url }}" class="download-btn" download aria-label="Download {{ resource.title }} resource for business studies">Download</a>
                 </li>
             {% empty %}
-                <li class="download-item">No resources available at the moment.</li>
+                <li class="download-item">
+                    <span>No resources available currently. Contact us for personalized business support.</span>
+                </li>
             {% endfor %}
         </ul>
-    </div>
+        <meta name="keywords" content="business resources, business plan templates, management guides, StudySmart resources">
+    </section>
 
     <!-- Contact Section -->
-    <div id="data-mining-cta-section">
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Business%20projects%3F" class="cta-button">
+    <section id="data-mining-cta-section">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Business%20projects%3F" class="cta-button" aria-label="Contact StudySmart for business tutoring">
             <i class="fab fa-whatsapp"></i>
             Chat with Business Experts
         </a>
-    </div>
+        <meta name="keywords" content="StudySmart contact, business tutoring, WhatsApp business support, academic business help">
+    </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart offers expert business tutoring in management, entrepreneurship, strategy, operations, business plans, and more for academic and professional success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Business Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Management Tutoring",
+          "description": "Expert tutoring to optimize business operations and foster organizational growth."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Entrepreneurship Tutoring",
+          "description": "Guidance for launching and scaling entrepreneurial ventures."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Strategy Tutoring",
+          "description": "Develop strategic plans for long-term business goals and competitive advantage."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Operations Management Tutoring",
+          "description": "Streamline processes and enhance performance with expert tutoring."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Plans Tutoring",
+          "description": "Create compelling business plans to guide strategy and attract investors."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Comprehensive Reports Tutoring",
+          "description": "Produce in-depth reports with actionable insights for decision-making."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Administration Tutoring",
+          "description": "Streamline administrative processes to boost productivity."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Management Tutoring",
+          "description": "Master effective management techniques to lead teams and projects."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

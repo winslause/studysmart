@@ -1,22 +1,30 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block meta %}
+  <title>Past Solutions - Student Questions & Answers</title>
+  <meta name="description" content="Explore past student questions and solutions. Search for academic problems and get answers via WhatsApp.">
+  <meta name="keywords" content="past solutions, student questions, academic help, study resources, homework answers">
+{% endblock %}
+
 {% block content %}
 <section class="past-solutions py-5">
   <link href="{% static 'css/admin.css' %}" rel="stylesheet">
   <div class="container">
-    <h2 class="text-center mb-4" style="color: var(--wens-blue);">Past Solutions</h2>
+    <h1 class="text-center mb-4" style="color: var(--wens-blue);">Past Solutions</h1>
     <div class="row g-4">
       {% for question in questions %}
       <div class="col-md-6">
-        <div class="question-card">
-          <h4>{{ question.title }}</h4>
+        <article class="question-card">
+          <h2>{{ question.title }}</h2>
           <p>{{ question.description|linebreaks }}</p>
+          <!-- Hidden keywords for searchability -->
+          <meta name="keywords" content="{{ question.title }}, {{ question.description|truncatewords:10 }}, academic solution, student question">
           <a href="https://wa.me/+18438437046?text=Requesting%20solution:%20{{ question.description|urlencode }}"
              target="_blank" class="btn btn-wens">
             Solution <i class="fab fa-whatsapp ms-1"></i>
           </a>
-        </div>
+        </article>
       </div>
       {% empty %}
       <div class="col-12 text-center">
@@ -25,6 +33,26 @@
       {% endfor %}
     </div>
   </div>
+
+  <!-- Schema Markup for FAQ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {% for question in questions %}
+      {
+        "@type": "Question",
+        "name": "{{ question.title|escapejs }}",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "{{ question.description|truncatewords:50|escapejs }}"
+        }
+      }{% if not forloop.last %},{% endif %}
+      {% endfor %}
+    ]
+  }
+  </script>
 </section>
 
 <script src="{% static 'js/past_solutions.js' %}"></script>

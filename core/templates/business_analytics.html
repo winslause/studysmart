@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Business Analytics Excellence
+{% block title %}StudySmart Business Analytics | Data-Driven Success{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert business analytics tutoring in data analysis, predictive modeling, dashboard development, and business intelligence for academic and professional success.">
+  <meta name="keywords" content="StudySmart business analytics, data analysis tutoring, predictive modeling, dashboard development, business intelligence, market analysis, data warehousing">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/business-analytics/">
 {% endblock %}
 
 {% block content %}
@@ -11,17 +17,17 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000; /* Changed to black */
-    color: #ffffff; /* Changed to white */
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
 }
 
 /* Container Styles */
 .analytics-container {
-    background: #000000; /* Changed to black */
+    background: #000000; /* Black background */
     padding: 60px 20px;
     text-align: center;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Adjusted shadow for contrast */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     margin: 40px auto;
     max-width: 1100px;
 }
@@ -29,7 +35,7 @@ body {
 /* Section Title and Description */
 .section-title {
     font-size: 2.5em;
-    color: #ffffff; /* Changed to white */
+    color: #ffffff; /* White text */
     margin-bottom: 20px;
     font-weight: 700;
 }
@@ -41,7 +47,7 @@ body {
     margin-bottom: 40px;
 }
 
-/* Services Section */
+/* Services and Resources Sections */
 .services, .resources {
     display: flex;
     flex-wrap: wrap;
@@ -52,35 +58,29 @@ body {
 .service-item, .resources-item {
     background: #1a1a1a; /* Dark gray for contrast */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Adjusted shadow */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle shadow */
     padding: 20px;
     flex: 1;
     min-width: 300px;
     max-width: 500px;
 }
 
-.service-item h2, .resources-item h2 {
+.service-item h3, .resources-item h3 {
     font-size: 1.8em;
-    color: #1E90FF; /* Kept blue for emphasis */
+    color: #1E90FF; /* Blue for emphasis */
     margin-bottom: 15px;
 }
 
-.service-item ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.service-item p, .resources-item p {
     font-size: 1.1em;
-    color: #ffffff; /* Changed to white */
-}
-
-.service-item li {
-    margin-bottom: 10px;
+    color: #ffffff; /* White text */
+    line-height: 1.5;
 }
 
 /* Call-to-Action Button */
 .cta-button {
-    background-color: #28a745; /* Kept green for visibility */
-    color: #ffffff; /* Already white */
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
     padding: 15px 30px;
     border-radius: 30px;
     text-decoration: none;
@@ -91,7 +91,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #4682B4; /* Kept hover color for consistency */
+    background-color: #4682B4; /* Blue on hover */
     transform: translateY(-3px);
 }
 
@@ -120,79 +120,186 @@ body {
     <section id="analytics-intro">
         <h1 class="section-title">Achieve Excellence in Business Analytics</h1>
         <p class="section-description">
-            Unlock the power of data to drive business success. Our comprehensive services are designed to enhance your analytics capabilities and insights.
+            Master data-driven decision-making with StudySmart’s expert business analytics tutoring. Our services in data analysis, predictive modeling, dashboard development, and business intelligence empower students and professionals to drive success.
         </p>
+        <meta name="keywords" content="StudySmart business analytics, data-driven decision-making, business analytics tutoring, academic success">
     </section>
 
     <!-- Services Section -->
     <section id="analytics-services">
         <h2 class="section-title">Our Business Analytics Services</h2>
-        
         <div class="services">
             <!-- Service Cards -->
-            <div class="service-item">
-                <h2>Data Analysis</h2>
-                <p>Transform raw data into actionable insights to improve business performance.</p>
-            </div>
-            <div class="service-item">
-                <h2>Predictive Modeling</h2>
-                <p>Utilize statistical techniques to forecast future trends and behaviors.</p>
-            </div>
-            <div class="service-item">
-                <h2>Dashboard Development</h2>
-                <p>Create interactive dashboards for real-time data visualization and decision-making.</p>
-            </div>
-            <div class="service-item">
-                <h2>Market Analysis</h2>
-                <p>Analyze market trends to identify opportunities and threats for your business.</p>
-            </div>
-            <div class="service-item">
-                <h2>Performance Metrics</h2>
-                <p>Establish key performance indicators to measure and enhance business outcomes.</p>
-            </div>
-            <div class="service-item">
-                <h2>Data Warehousing</h2>
-                <p>Implement robust data warehousing solutions for efficient data management.</p>
-            </div>
-            <div class="service-item">
-                <h2>Business Intelligence</h2>
-                <p>Leverage business intelligence tools to make informed decisions and drive growth.</p>
-            </div>
-            <div class="service-item">
-                <h2>Workshops and Training</h2>
-                <p>Participate in our workshops to enhance your analytics skills and knowledge.</p>
-            </div>
+            <article class="service-item">
+                <h3>Data Analysis</h3>
+                <p>Transform raw data into actionable insights using tools like Power BI, Tableau, and Excel to boost business performance.</p>
+                <meta name="keywords" content="data analysis tutoring, Power BI help, Tableau tutoring, business analytics">
+            </article>
+            <article class="service-item">
+                <h3>Predictive Modeling</h3>
+                <p>Learn statistical techniques and tools like Python and R to forecast trends and behaviors for strategic planning.</p>
+                <meta name="keywords" content="predictive modeling, Python predictive analytics, R programming, business forecasting">
+            </article>
+            <article class="service-item">
+                <h3>Dashboard Development</h3>
+                <p>Create interactive dashboards with Power BI and Tableau for real-time data visualization and decision-making.</p>
+                <meta name="keywords" content="dashboard development, Power BI dashboards, Tableau visualization, data visualization tutoring">
+            </article>
+            <article class="service-item">
+                <h3>Market Analysis</h3>
+                <p>Analyze market trends to identify opportunities and threats, supporting strategic business decisions.</p>
+                <meta name="keywords" content="market analysis tutoring, business market research, strategic analysis support">
+            </article>
+            <article class="service-item">
+                <h3>Performance Metrics</h3>
+                <p>Establish and track key performance indicators (KPIs) to measure and enhance business outcomes.</p>
+                <meta name="keywords" content="performance metrics, KPI tutoring, business performance analysis">
+            </article>
+            <article class="service-item">
+                <h3>Data Warehousing</h3>
+                <p>Implement robust data warehousing solutions for efficient data storage and management.</p>
+                <meta name="keywords" content="data warehousing tutoring, data management, business analytics storage solutions">
+            </article>
+            <article class="service-item">
+                <h3>Business Intelligence</h3>
+                <p>Leverage business intelligence tools like Power BI and Tableau to make informed decisions and drive growth.</p>
+                <meta name="keywords" content="business intelligence tutoring, Power BI support, Tableau business intelligence">
+            </article>
+            <article class="service-item">
+                <h3>Workshops and Training</h3>
+                <p>Join our workshops to master business analytics tools and techniques for academic and professional growth.</p>
+                <meta name="keywords" content="business analytics workshops, data analytics training, StudySmart tutoring">
+            </article>
         </div>
     </section>
-    
+
     <!-- Resources Section -->
     <section id="analytics-resources">
         <h2 class="section-title">Available Resources</h2>
-        <p class="section-description">Access essential resources to support your business analytics journey.</p>
-
+        <p class="section-description">
+            Access curated resources, including guides, templates, and tutorials, to support your business analytics journey and enhance your skills.
+        </p>
         <div class="resources">
             {% for resource in documents %}
-            <div class="resources-item">
-                <h2>{{ resource.title }}</h2>
+            <article class="resources-item">
+                <h3>{{ resource.title }}</h3>
                 <p>{{ resource.description }}</p>
-                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
-            </div>
+                <a href="{{ resource.file.url }}" download class="cta-button" aria-label="Download {{ resource.title }} resource for business analytics">Download</a>
+            </article>
             {% empty %}
-            <p>No resources available at the moment. Please check back later.</p>
+            <article class="resources-item">
+                <p>No resources available currently. Contact us for personalized business analytics support or check back soon.</p>
+            </article>
             {% endfor %}
         </div>
+        <meta name="keywords" content="business analytics resources, data analysis guides, Power BI templates, Tableau tutorials">
     </section>
 
     <!-- Contact Section -->
     <section id="analytics-cta">
         <h2 class="section-title">Get Expert Business Analytics Support Today</h2>
         <p class="section-description">
-            Connect with us to explore our business analytics services and take your business to the next level.
+            Connect with StudySmart’s experts via WhatsApp to explore our business analytics tutoring and elevate your data-driven decision-making skills.
         </p>
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Business%20Analytics%20projects%3F" class="cta-button">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Business%20Analytics%20projects%3F" class="cta-button" aria-label="Contact StudySmart for business analytics tutoring">
             <i class="fab fa-whatsapp"></i>
             Chat With Our Experts
         </a>
+        <meta name="keywords" content="StudySmart contact, business analytics tutoring, WhatsApp support, data analytics help">
     </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert business analytics tutoring, including data analysis, predictive modeling, dashboard development, business intelligence, and more for academic and professional success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Business Analytics Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Analysis Tutoring",
+          "description": "Transform raw data into actionable insights using Power BI, Tableau, and Excel."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Predictive Modeling Tutoring",
+          "description": "Learn statistical techniques with Python and R to forecast trends and behaviors."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Dashboard Development Tutoring",
+          "description": "Create interactive dashboards with Power BI and Tableau for data visualization."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Market Analysis Tutoring",
+          "description": "Analyze market trends to identify opportunities and threats."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Performance Metrics Tutoring",
+          "description": "Establish and track KPIs to enhance business outcomes."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Warehousing Tutoring",
+          "description": "Implement data warehousing solutions for efficient data management."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Intelligence Tutoring",
+          "description": "Leverage Power BI and Tableau for informed decision-making and growth."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Workshops and Training",
+          "description": "Join workshops to master business analytics tools and techniques."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

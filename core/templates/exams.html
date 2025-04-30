@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Exam Preparation Services
+{% block title %}StudySmart Exam Preparation Tutoring | Academic Success{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert exam preparation tutoring with mock exams, study guides, exam strategies, and personal tutoring for academic success.">
+  <meta name="keywords" content="StudySmart exam preparation tutoring, mock exams, study guides, exam strategies, personal tutoring, SAT preparation">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/exam-preparation/">
 {% endblock %}
 
 {% block content %}
@@ -20,7 +26,7 @@ body {
     max-width: 1100px; /* Compact width */
     margin: 30px auto;
     padding: 30px 15px;
-    background: #000000; /* Black background */
+    background: #1a1a1a; /* Dark gray for contrast */
     border-radius: 12px;
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     text-align: center;
@@ -56,7 +62,7 @@ body {
 }
 
 .service-item, .resources-item {
-    background: #1a1a1a; /* Dark gray card */
+    background: #2a2a2a; /* Slightly lighter gray card */
     border-radius: 10px;
     padding: 20px;
     transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -68,7 +74,7 @@ body {
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
 
-.service-item h2, .resources-item h2 {
+.service-item h3, .resources-item h3 {
     font-size: 1.4em; /* Reduced from 1.8em */
     color: #1E90FF; /* Blue for emphasis */
     margin-bottom: 10px;
@@ -98,7 +104,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #4682B4; /* Blue on hover */
+    background-color: #007bff; /* Blue on hover, standardized */
     transform: translateY(-2px);
 }
 
@@ -117,7 +123,7 @@ body {
 }
 
 #exam-cta {
-    background: #1a1a1a; /* Dark gray card */
+    background: #2a2a2a; /* Slightly lighter gray for CTA */
     border-radius: 10px;
 }
 
@@ -151,73 +157,159 @@ body {
     <section id="exam-intro">
         <h1 class="section-title">Comprehensive Exam Preparation Services</h1>
         <p class="section-description">
-            Our exam preparation services offer tailored support and resources to help you succeed in your academic assessments.
+            Excel in your exams with StudySmart’s tailored tutoring for SAT, GRE, finals, and more. Our mock exams, study guides, and personal tutoring ensure academic success across subjects like math, science, and humanities.
         </p>
+        <meta name="keywords" content="StudySmart exam preparation tutoring, SAT tutoring, GRE preparation, academic exam success">
     </section>
 
     <!-- Services Section -->
     <section id="exam-services">
-        <h2 class="section-title">Our Exam Services</h2>
-        
+        <h2 class="section-title">Our Exam Preparation Services</h2>
         <div class="services">
-            <!-- Service Cards -->
-            <div class="service-item">
-                <h2>Mock Exams</h2>
-                <p>Participate in realistic mock exams to evaluate your knowledge and improve your exam techniques.</p>
-            </div>
-            <div class="service-item">
-                <h2>Study Guides</h2>
-                <p>Access comprehensive study guides that summarize key concepts and provide practice questions.</p>
-            </div>
-            <div class="service-item">
-                <h2>Exam Strategies</h2>
-                <p>Learn effective exam strategies to manage time and maximize performance on test day.</p>
-            </div>
-            <div class="service-item">
-                <h2>Personal Tutoring</h2>
-                <p>Receive one-on-one tutoring from experienced educators who can address your specific needs.</p>
-            </div>
-            <div class="service-item">
-                <h2>Resource Materials</h2>
-                <p>Get access to a wide range of resources including textbooks, articles, and online materials.</p>
-            </div>
-            <div class="service-item">
-                <h2>Performance Analysis</h2>
-                <p>Benefit from detailed performance analysis and feedback after mock exams to identify areas for improvement.</p>
-            </div>
+            <article class="service-item">
+                <h3>Mock Exams</h3>
+                <p>Practice with realistic mock exams for SAT, GRE, or finals to build confidence and improve techniques.</p>
+                <meta name="keywords" content="mock exams tutoring, SAT practice tests, GRE mock exams">
+            </article>
+            <article class="service-item">
+                <h3>Study Guides</h3>
+                <p>Access concise study guides with key concepts and practice questions for subjects like math and science.</p>
+                <meta name="keywords" content="study guides tutoring, exam study materials, academic study resources">
+            </article>
+            <article class="service-item">
+                <h3>Exam Strategies</h3>
+                <p>Learn time management and test-taking strategies to maximize performance on exam day.</p>
+                <meta name="keywords" content="exam strategies tutoring, test-taking skills, time management for exams">
+            </article>
+            <article class="service-item">
+                <h3>Personal Tutoring</h3>
+                <p>Receive one-on-one tutoring tailored to your needs in subjects like humanities or STEM.</p>
+                <meta name="keywords" content="personal tutoring, one-on-one exam prep, STEM tutoring">
+            </article>
+            <article class="service-item">
+                <h3>Resource Materials</h3>
+                <p>Explore textbooks, articles, and online resources to support your exam preparation.</p>
+                <meta name="keywords" content="exam resource materials, academic textbooks, online study tools">
+            </article>
+            <article class="service-item">
+                <h3>Performance Analysis</h3>
+                <p>Get detailed feedback and performance analysis after mock exams to target improvement areas.</p>
+                <meta name="keywords" content="exam performance analysis, mock exam feedback, academic improvement">
+            </article>
         </div>
     </section>
 
     <!-- Resources Section -->
     <section id="exam-resources">
         <h2 class="section-title">Available Exam Resources</h2>
-        <p class="section-description">Explore our collection of resources designed to enhance your exam preparation.</p>
-
+        <p class="section-description">
+            Access curated study guides, practice tests, and resources to boost your exam preparation across various subjects.
+        </p>
         <div class="resources">
             {% for resource in documents %}
-            <div class="resources-item">
-                <h2>{{ resource.title }}</h2>
+            <article class="resources-item">
+                <h3>{{ resource.title }}</h3>
                 <p>{{ resource.description }}</p>
-                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
-            </div>
+                <a href="{{ resource.file.url }}" download class="cta-button" aria-label="Download {{ resource.title }} resource for exam preparation">Download</a>
+            </article>
             {% empty %}
-            <div class="resources-item">
-                <p>No resources available at the moment. Please check back later.</p>
-            </div>
+            <article class="resources-item">
+                <p>No exam preparation resources available currently. Contact us for personalized support or check back soon.</p>
+            </article>
             {% endfor %}
         </div>
+        <meta name="keywords" content="exam preparation resources, SAT practice tests, GRE study guides, StudySmart resources">
     </section>
 
     <!-- Contact Section -->
     <section id="exam-cta">
         <h2 class="section-title">Get Expert Exam Preparation Support Today</h2>
         <p class="section-description">
-            Connect with us to explore our exam preparation services and enhance your academic performance.
+            Connect with StudySmart’s exam preparation experts via WhatsApp to explore our tutoring and resources for academic success.
         </p>
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Exams%3F" class="cta-button">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Exam%20Preparation%20or%20tutoring%3F" class="cta-button" aria-label="Contact StudySmart for exam preparation tutoring">
             <i class="fab fa-whatsapp"></i>
-            Chat With Experts
+            Chat with Experts
         </a>
+        <meta name="keywords" content="StudySmart exam preparation contact, exam tutoring, WhatsApp exam support, academic exam help">
     </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert exam preparation tutoring with mock exams, study guides, exam strategies, personal tutoring, and resources for academic success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Exam Preparation Tutoring Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Mock Exams Tutoring",
+          "description": "Practice with realistic mock exams for SAT, GRE, or finals to build confidence."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Study Guides Tutoring",
+          "description": "Access concise study guides with key concepts and practice questions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Exam Strategies Tutoring",
+          "description": "Learn time management and test-taking strategies for exam day."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Personal Tutoring",
+          "description": "Receive one-on-one tutoring tailored to your needs in various subjects."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Exam Resource Materials",
+          "description": "Explore textbooks, articles, and online resources for exam preparation."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Performance Analysis Tutoring",
+          "description": "Get detailed feedback after mock exams to target improvement areas."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

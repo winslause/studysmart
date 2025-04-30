@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Academic Excellence in Economics
+{% block title %}StudySmart Economics Tutoring | Academic Excellence{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert economics tutoring with case studies, resources, and support in microeconomics, macroeconomics, and real-world applications for academic success.">
+  <meta name="keywords" content="StudySmart economics tutoring, economics case studies, microeconomics support, macroeconomics tutoring, academic economics resources">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/economics/">
 {% endblock %}
 
 {% block content %}
@@ -11,17 +17,17 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #000000; /* Changed to black */
-    color: #ffffff; /* Changed to white */
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
 }
 
 /* Container Styles */
 .economics-container {
-    background: #000000; /* Changed to black */
+    background: #000000; /* Black background */
     padding: 60px 20px;
     text-align: center;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Adjusted shadow for contrast */
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     margin: 40px auto;
     max-width: 1100px;
 }
@@ -29,7 +35,7 @@ body {
 /* Section Title and Description */
 .section-title {
     font-size: 2.5em;
-    color: #ffffff; /* Changed to white */
+    color: #ffffff; /* White text */
     margin-bottom: 20px;
     font-weight: 700;
 }
@@ -52,28 +58,29 @@ body {
 .resources-item {
     background: #1a1a1a; /* Dark gray for contrast */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Adjusted shadow */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle shadow */
     padding: 20px;
     flex: 1;
     min-width: 300px;
     max-width: 500px;
 }
 
-.resources-item h2 {
+.resources-item h3 {
     font-size: 1.8em;
-    color: #1E90FF; /* Kept blue for emphasis */
+    color: #1E90FF; /* Blue for emphasis */
     margin-bottom: 15px;
 }
 
 .resources-item p {
     font-size: 1.1em;
-    color: #ffffff; /* Changed to white */
+    color: #ffffff; /* White text */
+    line-height: 1.5;
 }
 
 /* Call-to-Action Button */
 .cta-button {
-    background-color: #28a745; /* Kept green for visibility */
-    color: #ffffff; /* Already white */
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
     padding: 15px 30px;
     border-radius: 30px;
     text-decoration: none;
@@ -84,7 +91,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #4682B4; /* Kept hover color for consistency */
+    background-color: #4682B4; /* Blue on hover */
     transform: translateY(-3px);
 }
 
@@ -110,74 +117,149 @@ body {
 
 <div class="economics-container">
     <!-- Introduction Section -->
-    <section id="露台">
-        <h1 class="section-title">Achieve Excellence</h1>
+    <section id="economics-intro">
+        <h1 class="section-title">Achieve Excellence in Economics</h1>
         <p class="section-description">
-            Explore our collection of case studies showcasing real-world applications and insights across various fields, offering valuable lessons to enhance your understanding.
+            Master microeconomics, macroeconomics, and real-world applications with StudySmart’s expert tutoring. Explore our economics case studies and resources to enhance your academic journey.
         </p>
+        <meta name="keywords" content="StudySmart economics tutoring, microeconomics tutoring, macroeconomics support, academic economics excellence">
     </section>
 
     <!-- Case Studies Section -->
     <section id="case-studies">
-        <h2 class="section-title">Explore Our Case Studies</h2>
-        <p class="section-description">Our case studies include a variety of topics, but are not limited to...</p>
-        
+        <h2 class="section-title">Explore Our Economics Case Studies</h2>
+        <p class="section-description">
+            Our case studies cover economics and related fields, offering insights into practical applications and strategies.
+        </p>
         <div class="resources">
-            <div class="resources-item">
-                <h2>Business Case Studies</h2>
-                <p>Explore real-world business challenges and strategies implemented for success.</p>
-            </div>
-            <div class="resources-item">
-                <h2>Management Case Studies</h2>
-                <p>Analyze effective management practices and their impact on organizational success.</p>
-            </div>
-            <div class="resources-item">
-                <h2>Marketing Case Studies</h2>
-                <p>Discover innovative marketing strategies that have transformed brands and markets.</p>
-            </div>
-            <div class="resources-item">
-                <h2>Economics Case Studies</h2>
-                <p>Understand economic theories and their practical applications in various scenarios.</p>
-            </div>
-            <div class="resources-item">
-                <h2>Technology Case Studies</h2>
-                <p>Investigate how technology is shaping industries and driving innovation.</p>
-            </div>
-            <div class="resources-item">
-                <h2>Environmental Case Studies</h2>
-                <p>Learn about sustainable practices and their implications for the environment.</p>
-            </div>
+            <article class="resources-item">
+                <h3>Business Case Studies</h3>
+                <p>Analyze business strategies through an economic lens to understand market dynamics and decision-making.</p>
+                <meta name="keywords" content="business case studies, economics business analysis, market dynamics tutoring">
+            </article>
+            <article class="resources-item">
+                <h3>Management Case Studies</h3>
+                <p>Explore how economic principles shape effective management practices and organizational success.</p>
+                <meta name="keywords" content="management case studies, economics management tutoring, organizational economics">
+            </article>
+            <article class="resources-item">
+                <h3>Marketing Case Studies</h3>
+                <p>Discover how economic theories drive innovative marketing strategies and brand transformations.</p>
+                <meta name="keywords" content="marketing case studies, economics marketing tutoring, market strategy analysis">
+            </article>
+            <article class="resources-item">
+                <h3>Economics Case Studies</h3>
+                <p>Apply microeconomics and macroeconomics to real-world scenarios, from policy to trade.</p>
+                <meta name="keywords" content="economics case studies, microeconomics applications, macroeconomics tutoring">
+            </article>
+            <article class="resources-item">
+                <h3>Technology Case Studies</h3>
+                <p>Investigate the economic impact of technology on industries and innovation.</p>
+                <meta name="keywords" content="technology case studies, economics of technology, innovation economics tutoring">
+            </article>
+            <article class="resources-item">
+                <h3>Environmental Case Studies</h3>
+                <p>Learn how economics informs sustainable practices and environmental policy decisions.</p>
+                <meta name="keywords" content="environmental case studies, environmental economics tutoring, sustainability economics">
+            </article>
         </div>
     </section>
 
     <!-- Resources Section -->
     <section id="eco-resources">
-        <h2 class="section-title">Available Projects</h2>
-        <p class="section-description">Access important resources and materials to assist with your economics journey.</p>
-
+        <h2 class="section-title">Available Economics Resources</h2>
+        <p class="section-description">
+            Access curated resources, including guides, templates, and case studies, to support your economics studies and projects.
+        </p>
         <div class="resources">
             {% for resource in documents %}
-            <div class="resources-item">
-                <h2>{{ resource.title }}</h2>
+            <article class="resources-item">
+                <h3>{{ resource.title }}</h3>
                 <p>{{ resource.description }}</p>
-                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
-            </div>
+                <a href="{{ resource.file.url }}" download class="cta-button" aria-label="Download {{ resource.title }} resource for economics studies">Download</a>
+            </article>
             {% empty %}
-            <p>No resources available at the moment. Please check back later.</p>
+            <article class="resources-item">
+                <p>No resources available currently. Contact us for personalized economics support or check back soon.</p>
+            </article>
             {% endfor %}
         </div>
+        <meta name="keywords" content="economics resources, microeconomics guides, macroeconomics templates, StudySmart economics resources">
     </section>
 
     <!-- Contact Section -->
     <section id="eco-cta">
-        <h2 class="section-title">Get Expert Support Today</h2>
+        <h2 class="section-title">Get Expert Economics Support Today</h2>
         <p class="section-description">
-            Connect with us to explore our resources and take your academic and research projects to the next level.
+            Connect with StudySmart’s economics experts via WhatsApp to explore our tutoring, case studies, and resources for academic success.
         </p>
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Case%20studies%3F" class="cta-button">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Economics%20case%20studies%20or%20tutoring%3F" class="cta-button" aria-label="Contact StudySmart for economics tutoring">
             <i class="fab fa-whatsapp"></i>
             Message Us
         </a>
+        <meta name="keywords" content="StudySmart economics contact, economics tutoring, WhatsApp economics support, academic economics help">
     </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert economics tutoring, case studies, and resources in microeconomics, macroeconomics, and real-world applications for academic success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Economics Tutoring and Resources",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Economics Case Studies Tutoring",
+          "description": "Explore case studies in economics and related fields to understand practical applications."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Microeconomics Tutoring",
+          "description": "Master microeconomic principles and their applications in real-world scenarios."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Macroeconomics Tutoring",
+          "description": "Learn macroeconomic theories and their impact on policy and trade."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Economics Resources",
+          "description": "Access guides, templates, and case studies to support economics studies."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

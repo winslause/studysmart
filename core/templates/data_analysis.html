@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Academic Excellence in Data Analysis
+{% block title %}StudySmart Data Analysis Tutoring | Academic Excellence{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert data analysis tutoring in SPSS, STATA, R, Python, Jamovi, SAS, and data visualization for academic and research success.">
+  <meta name="keywords" content="StudySmart data analysis tutoring, SPSS tutoring, Python data analysis, STATA support, data visualization tutoring, R programming">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/data-analysis/">
 {% endblock %}
 
 {% block content %}
@@ -11,17 +17,17 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: #333;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text for readability */
 }
 
 /* Container Styles */
 .data-analysis-container {
-    background:transparent;
+    background: #1a1a1a; /* Dark gray for contrast */
     padding: 60px 20px;
     text-align: center;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     margin: 40px auto;
     max-width: 1100px;
 }
@@ -29,19 +35,19 @@ body {
 /* Section Title and Description */
 .section-title {
     font-size: 2.5em;
-    color: #333;
+    color: #ffffff; /* White text for visibility */
     margin-bottom: 20px;
     font-weight: 700;
 }
 
 .section-description {
     font-size: 1.2em;
-    color: #555;
+    color: #cccccc; /* Light gray for contrast */
     line-height: 1.6;
     margin-bottom: 40px;
 }
 
-/* Services Section */
+/* Services and Resources Sections */
 .services, .resources {
     display: flex;
     flex-wrap: wrap;
@@ -50,38 +56,32 @@ body {
 }
 
 .service-item, .resources-item {
-    background: transparent;
+    background: #2a2a2a; /* Slightly lighter gray for cards */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     padding: 20px;
     flex: 1;
-    color: white;
+    color: #ffffff; /* White text for readability */
     min-width: 300px;
     max-width: 500px;
 }
 
-.service-item h2, .resources-item h2 {
+.service-item h3, .resources-item h3 {
     font-size: 1.8em;
-    color: #1E90FF;
+    color: #1E90FF; /* Blue for emphasis */
     margin-bottom: 15px;
 }
 
-.service-item ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.service-item p, .resources-item p {
     font-size: 1.1em;
-    color: #333;
-}
-
-.service-item li {
-    margin-bottom: 10px;
+    color: #ffffff; /* White text */
+    line-height: 1.5;
 }
 
 /* Call-to-Action Button */
 .cta-button {
-    background-color: #28a745;
-    color: #ffffff;
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
     padding: 15px 30px;
     border-radius: 8px;
     text-decoration: none;
@@ -92,7 +92,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #007bff;
+    background-color: #007bff; /* Blue on hover */
     transform: translateY(-3px);
 }
 
@@ -121,84 +121,199 @@ body {
     <section id="da-intro">
         <h1 class="section-title">Achieve Excellence in Data Analysis</h1>
         <p class="section-description">
-            Master the art of data analysis with our comprehensive services and expert support. We provide a range of tools and techniques to elevate your academic and research projects.
+            Master data analysis with StudySmart’s expert tutoring in SPSS, STATA, R, Python, Jamovi, SAS, and data visualization. Elevate your academic and research projects with advanced tools and techniques.
         </p>
+        <meta name="keywords" content="StudySmart data analysis tutoring, academic data analysis, research project support, data analysis tools">
     </section>
 
     <!-- Services Section -->
     <section id="da-services">
         <h2 class="section-title">Our Data Analysis Services</h2>
-        
         <div class="services">
             <!-- Service Cards -->
-            <div class="service-item">
-                <h2>SPSS</h2>
-                <p>Utilize SPSS for statistical analysis and data management, enhancing your research capabilities.</p>
-            </div>
-            <div class="service-item">
-                <h2>STATA</h2>
-                <p>Use STATA for advanced statistical analysis and data visualization.</p>
-            </div>
-            <div class="service-item">
-                <h2>R</h2>
-                <p>Leverage R for comprehensive statistical analysis and data visualization.</p>
-            </div>
-            <div class="service-item">
-                <h2>Python</h2>
-                <p>Employ Python for robust data analysis and machine learning projects.</p>
-            </div>
-            <div class="service-item">
-                <h2>Jamovi</h2>
-                <p>Explore Jamovi for easy-to-use statistical analysis and visualization.</p>
-            </div>
-            <div class="service-item">
-                <h2>Data Visualization</h2>
-                <p>Create compelling data visualizations to present your analysis effectively.</p>
-            </div>
-            <div class="service-item">
-                <h2>SAS</h2>
-                <p>Explore SAS for powerful statistical analysis and visualization tools for data insights.</p>
-            </div>
-            <div class="service-item">
-                <h2>Reports</h2>
-                <p>Generate detailed reports to summarize your data analysis findings.</p>
-            </div>
-            <div class="service-item">
-                <h2>Research Reviews</h2>
-                <p>Get expert reviews and feedback on your data analysis research.</p>
-            </div>
+            <article class="service-item">
+                <h3>SPSS</h3>
+                <p>Master SPSS for statistical analysis, data management, and research with expert tutoring.</p>
+                <meta name="keywords" content="SPSS tutoring, statistical analysis support, SPSS research help">
+            </article>
+            <article class="service-item">
+                <h3>STATA</h3>
+                <p>Use STATA for advanced statistical analysis, regression models, and data visualization.</p>
+                <meta name="keywords" content="STATA tutoring, statistical modeling, data visualization support">
+            </article>
+            <article class="service-item">
+                <h3>R</h3>
+                <p>Leverage R with packages like ggplot2 and dplyr for statistical analysis and visualization.</p>
+                <meta name="keywords" content="R programming tutoring, R data analysis, ggplot2 support">
+            </article>
+            <article class="service-item">
+                <h3>Python</h3>
+                <p>Employ Python with Pandas, NumPy, and Matplotlib for robust data analysis and machine learning.</p>
+                <meta name="keywords" content="Python data analysis, Pandas tutoring, machine learning support">
+            </article>
+            <article class="service-item">
+                <h3>Jamovi</h3>
+                <p>Explore Jamovi for user-friendly statistical analysis and dynamic visualizations.</p>
+                <meta name="keywords" content="Jamovi tutoring, statistical analysis tools, data visualization help">
+            </article>
+            <article class="service-item">
+                <h3>Data Visualization</h3>
+                <p>Create compelling visualizations with Tableau, Power BI, or Python for impactful presentations.</p>
+                <meta name="keywords" content="data visualization tutoring, Tableau support, Power BI tutoring">
+            </article>
+            <article class="service-item">
+                <h3>SAS</h3>
+                <p>Master SAS for advanced statistical analysis, data mining, and reporting tools.</p>
+                <meta name="keywords" content="SAS tutoring, data mining support, statistical reporting help">
+            </article>
+            <article class="service-item">
+                <h3>Reports</h3>
+                <p>Generate detailed data analysis reports with expert guidance for academic and research success.</p>
+                <meta name="keywords" content="data analysis reports, academic report writing, research report support">
+            </article>
+            <article class="service-item">
+                <h3>Research Reviews</h3>
+                <p>Receive expert feedback and reviews to refine your data analysis research projects.</p>
+                <meta name="keywords" content="research reviews tutoring, data analysis feedback, academic research support">
+            </article>
         </div>
     </section>
-    
+
     <!-- Resources Section -->
     <section id="da-resources">
-        <!-- <h2 class="section-title">Available Projects</h2> -->
-        <!-- <p class="section-description">Access important resources and materials to assist with your data analysis journey.</p> -->
-
+        <h2 class="section-title">Available Data Analysis Resources</h2>
+        <p class="section-description">
+            Access curated resources, including tutorials, templates, and datasets, to enhance your data analysis skills and academic projects.
+        </p>
         <div class="resources">
             {% for resource in documents %}
-            <div class="resources-item">
-                <h2>{{ resource.title }}</h2>
+            <article class="resources-item">
+                <h3>{{ resource.title }}</h3>
                 <p>{{ resource.description }}</p>
-                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
-            </div>
+                <a href="{{ resource.file.url }}" download class="cta-button" aria-label="Download {{ resource.title }} resource for data analysis">Download</a>
+            </article>
             {% empty %}
-            <p>No resources available at the moment. Please check back later.</p>
+            <article class="resources-item">
+                <p>No data analysis resources available currently. Contact us for personalized support or check back soon.</p>
+            </article>
             {% endfor %}
         </div>
+        <meta name="keywords" content="data analysis resources, SPSS tutorials, Python datasets, StudySmart resources">
     </section>
 
     <!-- Contact Section -->
     <section id="da-cta">
         <h2 class="section-title">Get Expert Data Analysis Support Today</h2>
         <p class="section-description">
-            Connect with us to explore our data analysis services and take your academic and research projects to the next level.
+            Connect with StudySmart’s data analysis experts via WhatsApp to explore our tutoring and resources for academic and research success.
         </p>
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Data%20analysis%3F" class="cta-button">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Data%20Analysis%20projects%20or%20tutoring%3F" class="cta-button" aria-label="Contact StudySmart for data analysis tutoring">
             <i class="fab fa-whatsapp"></i>
             Chat With Us
         </a>
-
+        <meta name="keywords" content="StudySmart data analysis contact, data analysis tutoring, WhatsApp data analysis support, academic research help">
     </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert data analysis tutoring in SPSS, STATA, R, Python, Jamovi, SAS, data visualization, and research support for academic success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Data Analysis Tutoring Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SPSS Tutoring",
+          "description": "Master SPSS for statistical analysis, data management, and research."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "STATA Tutoring",
+          "description": "Use STATA for advanced statistical analysis and data visualization."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "R Tutoring",
+          "description": "Leverage R with packages like ggplot2 and dplyr for statistical analysis."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Python Data Analysis Tutoring",
+          "description": "Employ Python with Pandas, NumPy, and Matplotlib for data analysis."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Jamovi Tutoring",
+          "description": "Explore Jamovi for user-friendly statistical analysis and visualizations."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Visualization Tutoring",
+          "description": "Create visualizations with Tableau, Power BI, or Python for presentations."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "SAS Tutoring",
+          "description": "Master SAS for advanced statistical analysis and data mining."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Analysis Reports Tutoring",
+          "description": "Generate detailed reports for academic and research success."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Research Reviews Tutoring",
+          "description": "Receive expert feedback to refine data analysis research projects."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

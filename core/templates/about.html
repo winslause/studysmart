@@ -1,10 +1,18 @@
 {% extends 'base.html' %}
-
 {% load static %}
+
+{% block title %}About StudySmart | Expert Academic Tutoring{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="Learn about StudySmart’s high-quality academic tutoring in Computer Science, Economics, Data Analysis, Finance, and more. Personalized support for students and professionals.">
+  <meta name="keywords" content="StudySmart, academic tutoring, personalized tutoring, Computer Science tutoring, Economics support, Data Analysis help, educational services">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/about/">
+{% endblock %}
 
 {% block content %}
 <!-- About Start -->
-<div class="container-fluid py-5 my-5">
+<section class="container-fluid py-5 my-5 about-section">
   <div class="container pt-5">
     <div class="row g-5">
       <div class="col-lg-5 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".3s">
@@ -12,41 +20,63 @@
           <img
             src="{% static 'images/about-2.jpg' %}"
             class="img-fluid w-75 rounded"
-            alt=""
+            alt="StudySmart academic tutoring team"
             style="margin-bottom: 25%"
           />
           <div class="position-absolute w-75" style="top: 35%; left: 25%">
             <img
               src="{% static 'images/about-3.jpg' %}"
               class="img-fluid w-100 rounded"
-              alt=""
+              alt="StudySmart educational support"
             />
           </div>
         </div>
       </div>
       <div class="col-lg-7 col-md-6 col-sm-12 wow fadeIn" data-wow-delay=".5s">
-        <h5 class="text-primary">About Us</h5>
-        <h1 class="mb-4">
-          <!-- About StudySmart and Its Expert Solutions -->
-        </h1>
-        <p>
-            StudySmart is dedicated to providing high-quality academic assistance to students at all levels. Whether you're struggling with complex topics, need help with assignments, or looking to excel in your studies, we're here to support you. Our services span a wide range of subjects, including Economics, Finance, Data Analysis, Business Analytics, Computer Science, and more. Our team of experts is committed to your academic success, offering personalized tutoring, comprehensive study materials, and insightful guides. Join us at StudySmart and take the first step towards achieving your academic goals. Explore our subjects below to get started.
-        </p>
-
+        <h2 class="text-primary">About Us</h2>
+        <!-- <h1 class="mb-4">About StudySmart and Its Expert Solutions</h1> -->
         <p class="mb-4">
-          Whether you're a student striving for academic excellence, a researcher seeking insights, or a professional advancing your knowledge, Study Smart is dedicated to supporting your educational journey. We’re here to help you achieve your academic goals.
+          StudySmart is dedicated to providing high-quality academic assistance in Computer Science, Economics, Data Analysis, Finance, Business Analytics, and more. Whether you’re struggling with assignments, research, or exam preparation, our expert tutoring and personalized study materials ensure academic excellence.
         </p>
-
+        <p class="mb-4">
+          From students aiming for top grades to professionals advancing their knowledge, StudySmart supports your educational journey with comprehensive resources and tailored guidance. Join us to achieve your academic goals.
+        </p>
+        <meta name="keywords" content="StudySmart academic assistance, personalized tutoring, educational support, academic excellence">
         <div class="text-center">
           <a
             href="/about/"
             class="btn btn-secondary rounded-pill px-5 py-3 text-white"
-            >More Details</a
-          >
+            aria-label="Learn more about StudySmart’s tutoring services"
+          >More Details</a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>
 <!-- About End -->
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert academic tutoring and personalized support in Computer Science, Economics, Data Analysis, Finance, and more for students and professionals.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  }
+}
+</script>
+
+<!-- CSS and JS -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 {% endblock %}

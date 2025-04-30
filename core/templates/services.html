@@ -4,10 +4,10 @@
 {% block title %}StudySmart Academic Services | Expert Tutoring & Support{% endblock %}
 
 {% block meta %}
-  <meta name="description" content="Explore StudySmart's expert academic services, including tutoring in Computer Science, Machine Learning, Data Analysis, Economics, and more. Achieve academic excellence with personalized support.">
-  <meta name="keywords" content="academic services, tutoring, computer science help, machine learning tutoring, data analysis services, economics tutoring, study support">
+  <meta name="description" content="Discover StudySmart's expert tutoring in Computer Science, Machine Learning, Data Analysis, Economics, Finance, and more. Personalized academic support for success.">
+  <meta name="keywords" content="academic tutoring, computer science tutoring, machine learning help, data analysis support, economics tutoring, finance tutoring, business analytics, study resources">
   <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://www.yourwebsite.com/services/">
+  <link rel="canonical" href="https://www.studysmart.com/services/">
 {% endblock %}
 
 {% block content %}
@@ -16,17 +16,18 @@
   <div class="container">
     <header class="text-center mx-auto pb-5 wow fadeIn" data-wow-delay=".3s" style="max-width: 600px">
       <h1>Expert Academic Services for Your Success</h1>
-      <p class="text-primary">Tailored tutoring and support in Computer Science, Data Analysis, Economics, and more.</p>
+      <p class="text-primary">Tailored tutoring and support in Computer Science, Machine Learning, Data Analysis, Economics, and more.</p>
     </header>
     <div class="row g-5 services-inner">
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/computer_science.jpg' %}" alt="Computer Science tutoring and project support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/computer_science.jpg' %}" alt="Computer Science tutoring in Python, Java, C++" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Computer Science Tutoring</h2>
             <p class="mb-4">
-              Master programming languages like Python, Java, and C++ with our expert Computer Science tutoring. Get comprehensive support for software development, database management, and algorithm design to excel in your academic projects.
+              Master programming with expert Computer Science tutoring in Python, Java, C++, software development, database management, and algorithm design. Excel in your academic projects.
             </p>
+            <meta name="keywords" content="computer science tutoring, Python tutoring, Java programming, C++ help, algorithm design, software development support">
             <a href="{% url 'cs' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Computer Science tutoring">Read More</a>
           </div>
         </div>
@@ -35,11 +36,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/machine_learning1.jpg' %}" alt="Machine Learning tutoring and research support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/machine_learning1.jpg' %}" alt="Machine Learning tutoring with Python and R" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Machine Learning Support</h2>
             <p class="mb-4">
-              Elevate your academic journey with expert Machine Learning tutoring using Python and R. Enhance your data analysis skills and advance your research projects with personalized guidance.
+              Advance your Machine Learning skills with expert tutoring in Python and R. Get personalized support for data analysis and research projects to achieve academic success.
             </p>
+            <meta name="keywords" content="machine learning tutoring, Python machine learning, R programming, data analysis support, AI research help">
             <a href="{% url 'ml' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Machine Learning support">Read More</a>
           </div>
         </div>
@@ -48,11 +50,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/data_analysis.jpg' %}" alt="Data Analysis tutoring with SPSS, STATA, and Python" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/data_analysis.jpg' %}" alt="Data Analysis tutoring with SPSS, STATA, R, Python" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Data Analysis Services</h2>
             <p class="mb-4">
-              Achieve excellence in Data Analysis with tutoring in SPSS, STATA, R, and Python. Our services include data visualization, research reviews, and support with tools like Jamovi for academic success.
+              Excel in Data Analysis with tutoring in SPSS, STATA, R, Python, and Jamovi. Our services include data visualization, statistical analysis, and research support for academic success.
             </p>
+            <meta name="keywords" content="data analysis tutoring, SPSS help, STATA tutoring, R programming, Python data analysis, data visualization">
             <a href="{% url 'data_analysis' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Data Analysis services">Read More</a>
           </div>
         </div>
@@ -61,11 +64,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/economics.jpg' %}" alt="Economics tutoring and essay support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/economics.jpg' %}" alt="Economics tutoring in econometrics, macroeconomics, microeconomics" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Economics Tutoring</h2>
             <p class="mb-4">
-              Excel in Economics with expert tutoring in econometrics, macroeconomics, and microeconomics. We provide guidance in statistical analysis and crafting insightful essays and reports.
+              Succeed in Economics with expert tutoring in econometrics, macroeconomics, and microeconomics. Get support for statistical analysis, essays, and academic reports.
             </p>
+            <meta name="keywords" content="economics tutoring, econometrics help, macroeconomics tutoring, microeconomics support, statistical analysis">
             <a href="{% url 'economics' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Economics tutoring">Read More</a>
           </div>
         </div>
@@ -74,11 +78,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/data_mining.png' %}" alt="Data Mining tutoring with WEKA and Python" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/data_mining.png' %}" alt="Data Mining tutoring with WEKA, Orange, Python, R" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Data Mining Support</h2>
             <p class="mb-4">
-              Master Data Mining with expert tutoring using WEKA, Orange, Python, and R. Our services support your academic projects and research for impactful results.
+              Master Data Mining with tutoring in WEKA, Orange, Python, and R. Our expert support enhances your academic projects and research for impactful results.
             </p>
+            <meta name="keywords" content="data mining tutoring, WEKA help, Python data mining, R programming, Orange tool support">
             <a href="{% url 'data_mining' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Data Mining support">Read More</a>
           </div>
         </div>
@@ -87,11 +92,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/finance.jpg' %}" alt="Finance tutoring and financial modeling" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/finance.jpg' %}" alt="Finance tutoring in corporate finance and investment analysis" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Finance Tutoring</h2>
             <p class="mb-4">
-              Excel in Finance with tailored tutoring in corporate finance, investment analysis, and financial modeling. Our expert support includes reports and essays to boost your academic performance.
+              Excel in Finance with tutoring in corporate finance, investment analysis, and financial modeling. Our support includes reports and essays for academic success.
             </p>
+            <meta name="keywords" content="finance tutoring, corporate finance help, investment analysis, financial modeling, academic reports">
             <a href="{% url 'finance' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Finance tutoring">Read More</a>
           </div>
         </div>
@@ -100,11 +106,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/business_analytics.jpg' %}" alt="Business Analytics tutoring with Power BI and Tableau" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/business_analytics.jpg' %}" alt="Business Analytics tutoring with Power BI, Tableau" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Business Analytics Tutoring</h2>
             <p class="mb-4">
-              Drive success with Business Analytics tutoring in Business Intelligence and Predictive Analytics. Master tools like Power BI and Tableau for insightful reports and case studies.
+              Succeed in Business Analytics with tutoring in Business Intelligence and Predictive Analytics. Master Power BI, Tableau, and create insightful reports.
             </p>
+            <meta name="keywords" content="business analytics tutoring, Power BI help, Tableau tutoring, business intelligence, predictive analytics">
             <a href="{% url 'business_analytics' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Business Analytics tutoring">Read More</a>
           </div>
         </div>
@@ -113,11 +120,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/case_study.jpg' %}" alt="Case Studies in Business and Economics" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/case_study.jpg' %}" alt="Case Studies support in Business, Economics, Marketing" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Case Studies Support</h2>
             <p class="mb-4">
-              Explore our Case Studies in Business, Management, Marketing, and Economics. Our detailed reports provide valuable insights and practical solutions for academic success.
+              Excel in Case Studies for Business, Management, Marketing, and Economics. Our detailed reports offer insights and solutions for academic success.
             </p>
+            <meta name="keywords" content="case studies support, business case studies, economics case studies, marketing case studies, academic reports">
             <a href="{% url 'case_studies' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Case Studies support">Read More</a>
           </div>
         </div>
@@ -126,11 +134,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/reports.jpeg' %}" alt="Academic and business report writing" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/reports.jpeg' %}" alt="Academic and business report writing services" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Report Writing Services</h2>
             <p class="mb-4">
-              Enhance your success with expert report writing services for research, business, technical, and academic reports. We ensure clarity and precision tailored to your needs.
+              Succeed with expert report writing for research, business, technical, and academic reports. Our services ensure clarity and precision for your needs.
             </p>
+            <meta name="keywords" content="report writing services, academic reports, business reports, technical report help, research writing">
             <a href="{% url 'reports' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Report Writing services">Read More</a>
           </div>
         </div>
@@ -139,11 +148,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/business.jpg' %}" alt="Business Management and Strategy support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/business.jpg' %}" alt="Business Management and Strategy tutoring" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Business Tutoring</h2>
             <p class="mb-4">
-              Elevate your business with tutoring in Business Management, Entrepreneurship, and Strategy. We provide support for Operations Management, Business Plans, and reports.
+              Elevate your skills with Business Management, Entrepreneurship, and Strategy tutoring. Get support for Operations Management, Business Plans, and reports.
             </p>
+            <meta name="keywords" content="business tutoring, business management help, entrepreneurship tutoring, strategy support, operations management">
             <a href="{% url 'business' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Business tutoring">Read More</a>
           </div>
         </div>
@@ -152,11 +162,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/marketing.jpg' %}" alt="Marketing strategy and research support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/marketing.jpg' %}" alt="Marketing tutoring in digital marketing and market research" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Marketing Tutoring</h2>
             <p class="mb-4">
-              Elevate your brand with expert Marketing tutoring in strategic solutions, digital marketing, and market research. Analyze consumer behavior and case studies for success.
+              Boost your Marketing skills with tutoring in digital marketing, market research, and strategic solutions. Analyze consumer behavior and case studies.
             </p>
+            <meta name="keywords" content="marketing tutoring, digital marketing help, market research support, consumer behavior analysis, marketing strategy">
             <a href="{% url 'marketing' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Marketing tutoring">Read More</a>
           </div>
         </div>
@@ -165,11 +176,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/thesis.jpg' %}" alt="Thesis and dissertation support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/thesis.jpg' %}" alt="Thesis and dissertation research support" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Research Milestone Support</h2>
             <p class="mb-4">
-              Achieve academic excellence with support for theses, dissertations, and capstone projects. Get personalized guidance on research design, writing, and analysis.
+              Achieve excellence with support for theses, dissertations, and capstone projects. Get guidance on research design, writing, and data analysis.
             </p>
+            <meta name="keywords" content="thesis support, dissertation help, capstone project tutoring, research design, data analysis support">
             <a href="{% url 'research' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Research Milestone support">Read More</a>
           </div>
         </div>
@@ -178,11 +190,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/technical_writing.jpg' %}" alt="Technical writing for reports and manuals" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/technical_writing.jpg' %}" alt="Technical writing for reports and cybersecurity documentation" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Technical Writing Services</h2>
             <p class="mb-4">
-              Master Technical Writing with support for executive summaries, user manuals, and cybersecurity documentation. Achieve clarity in your technical projects.
+              Master Technical Writing with support for executive summaries, user manuals, and cybersecurity documentation. Achieve clarity in technical projects.
             </p>
+            <meta name="keywords" content="technical writing services, executive summaries, user manuals, cybersecurity documentation, technical reports">
             <a href="{% url 'technical_writing' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Technical Writing services">Read More</a>
           </div>
         </div>
@@ -191,11 +204,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/exams.jpg' %}" alt="Exam preparation and study support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/exams.jpg' %}" alt="Exam preparation and study techniques support" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Exam Preparation</h2>
             <p class="mb-4">
-              Excel in exams with comprehensive preparation support. Master study techniques, time management, and key concepts with practice from past papers.
+              Excel in exams with comprehensive preparation support. Master study techniques, time management, and key concepts with past paper practice.
             </p>
+            <meta name="keywords" content="exam preparation, study techniques, time management tutoring, past papers practice, academic success">
             <a href="{% url 'exams' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Exam Preparation">Read More</a>
           </div>
         </div>
@@ -204,11 +218,12 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/Assignment.jpg' %}" alt="Assignment writing and study support" class="img-fluid mb-4 service-img">
+            <img src="{% static 'images/Assignment.jpg' %}" alt="Assignment writing and research support" class="img-fluid mb-4 service-img">
             <h2 class="mb-3">Assignment Support</h2>
             <p class="mb-4">
-              Succeed in assignments with tailored support in research, writing, and study plans. Our comprehensive resources help you excel in your academic journey.
+              Succeed in assignments with tailored support in research, writing, and study plans. Our resources help you excel in your academic journey.
             </p>
+            <meta name="keywords" content="assignment support, academic writing help, research support, study plans, homework assistance">
             <a href="{% url 'assignment' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Assignment support">Read More</a>
           </div>
         </div>
@@ -227,9 +242,9 @@
   "provider": {
     "@type": "Organization",
     "name": "StudySmart",
-    "url": "https://www.yourwebsite.com"
+    "url": "https://www.studysmart.com"
   },
-  "description": "StudySmart offers expert academic services including tutoring in Computer Science, Machine Learning, Data Analysis, Economics, and more.",
+  "description": "StudySmart provides expert tutoring in Computer Science, Machine Learning, Data Analysis, Economics, Finance, Business Analytics, and more for academic success.",
   "areaServed": "Global",
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -240,7 +255,7 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Computer Science Tutoring",
-          "description": "Tutoring in Python, Java, C++, software development, and algorithms."
+          "description": "Expert tutoring in Python, Java, C++, software development, database management, and algorithm design for academic projects."
         }
       },
       {
@@ -248,7 +263,7 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Machine Learning Support",
-          "description": "Guidance in Machine Learning with Python and R for academic projects."
+          "description": "Personalized tutoring in Machine Learning using Python and R for data analysis and research projects."
         }
       },
       {
@@ -256,7 +271,95 @@
         "itemOffered": {
           "@type": "Service",
           "name": "Data Analysis Services",
-          "description": "Support in SPSS, STATA, R, Python, and data visualization."
+          "description": "Tutoring in SPSS, STATA, R, Python, and Jamovi for data visualization, statistical analysis, and research support."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Economics Tutoring",
+          "description": "Support in econometrics, macroeconomics, microeconomics, statistical analysis, and academic essays."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Finance Tutoring",
+          "description": "Tutoring in corporate finance, investment analysis, financial modeling, and academic reports."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Analytics Tutoring",
+          "description": "Support in Business Intelligence, Predictive Analytics, Power BI, and Tableau for reports and case studies."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Case Studies Support",
+          "description": "Detailed reports and insights for Business, Management, Marketing, and Economics case studies."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Report Writing Services",
+          "description": "Expert writing for research, business, technical, and academic reports with clarity and precision."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Business Tutoring",
+          "description": "Tutoring in Business Management, Entrepreneurship, Strategy, and Operations Management."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Marketing Tutoring",
+          "description": "Support in digital marketing, market research, consumer behavior analysis, and strategic solutions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Research Milestone Support",
+          "description": "Guidance for theses, dissertations, and capstone projects with research design and analysis."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Technical Writing Services",
+          "description": "Support for executive summaries, user manuals, and cybersecurity documentation."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Exam Preparation",
+          "description": "Comprehensive support for exam preparation with study techniques and past paper practice."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Assignment Support",
+          "description": "Tailored support for assignment research, writing, and study plans for academic success."
         }
       }
     ]

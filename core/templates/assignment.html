@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Assignment and More Services
+{% block title %}StudySmart Assignment Support | Academic Success{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart provides expert assignment support with research assistance, structured writing, personalized study plans, and project guidance to achieve academic success.">
+  <meta name="keywords" content="StudySmart assignment support, academic writing help, research assistance, personalized study plans, project guidance, editing services, time management">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/assignment/">
 {% endblock %}
 
 {% block content %}
@@ -68,7 +74,7 @@ body {
     box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
 }
 
-.service-item h2, .resources-item h2 {
+.service-item h3, .resources-item h3 {
     font-size: 1.4em; /* Reduced from 1.8em */
     color: #1E90FF; /* Blue for emphasis */
     margin-bottom: 10px;
@@ -151,73 +157,160 @@ body {
     <section id="assignment-intro">
         <h1 class="section-title">Tailored Assignment Support Services</h1>
         <p class="section-description">
-            Achieve success in your assignments and beyond with our tailored support. From research and structured writing to personalized study plans and project guidance, we provide comprehensive resources to help you excel in all areas of your academic journey.
+            Excel in your academic journey with StudySmart’s expert assignment support. From research assistance and structured writing to personalized study plans and project guidance, our services ensure academic success.
         </p>
+        <meta name="keywords" content="StudySmart assignment support, academic writing, research assistance, personalized study plans, academic excellence">
     </section>
 
     <!-- Services Section -->
     <section id="assignment-services">
         <h2 class="section-title">Our Assignment Services</h2>
-        
         <div class="services">
             <!-- Service Cards -->
-            <div class="service-item">
-                <h2>Research Assistance</h2>
-                <p>Get help with conducting thorough research to support your assignments and projects.</p>
-            </div>
-            <div class="service-item">
-                <h2>Structured Writing</h2>
-                <p>Learn effective writing techniques to structure your assignments for clarity and impact.</p>
-            </div>
-            <div class="service-item">
-                <h2>Personalized Study Plans</h2>
-                <p>Receive tailored study plans designed to optimize your learning and preparation.</p>
-            </div>
-            <div class="service-item">
-                <h2>Project Guidance</h2>
-                <p>Get step-by-step guidance on your projects to ensure successful completion.</p>
-            </div>
-            <div class="service-item">
-                <h2>Editing and Proofreading</h2>
-                <p>Benefit from professional editing and proofreading services to enhance your final submissions.</p>
-            </div>
-            <div class="service-item">
-                <h2>Time Management Strategies</h2>
-                <p>Learn strategies to effectively manage your time and meet assignment deadlines.</p>
-            </div>
+            <article class="service-item">
+                <h3>Research Assistance</h3>
+                <p>Receive expert guidance for thorough research to strengthen your assignments and projects, ensuring high-quality results.</p>
+                <meta name="keywords" content="research assistance, academic research help, assignment research support">
+            </article>
+            <article class="service-item">
+                <h3>Structured Writing</h3>
+                <p>Master effective writing techniques to create clear, coherent, and impactful assignments for academic success.</p>
+                <meta name="keywords" content="structured writing, academic writing help, assignment writing techniques">
+            </article>
+            <article class="service-item">
+                <h3>Personalized Study Plans</h3>
+                <p>Get tailored study plans to optimize your learning, enhance preparation, and boost academic performance.</p>
+                <meta name="keywords" content="personalized study plans, academic study plans, tutoring support">
+            </article>
+            <article class="service-item">
+                <h3>Project Guidance</h3>
+                <p>Benefit from step-by-step guidance on academic projects to achieve successful completion and top grades.</p>
+                <meta name="keywords" content="project guidance, academic project support, assignment project help">
+            </article>
+            <article class="service-item">
+                <h3>Editing and Proofreading</h3>
+                <p>Polish your assignments with professional editing and proofreading services for flawless submissions.</p>
+                <meta name="keywords" content="editing services, proofreading help, academic editing support">
+            </article>
+            <article class="service-item">
+                <h3>Time Management Strategies</h3>
+                <p>Learn proven strategies to manage time effectively, meet deadlines, and reduce academic stress.</p>
+                <meta name="keywords" content="time management strategies, academic time management, study skills support">
+            </article>
         </div>
     </section>
 
     <!-- Resources Section -->
     <section id="assignment-resources">
         <h2 class="section-title">Available Resources</h2>
-        <p class="section-description">Explore our collection of resources designed to enhance your assignment preparation.</p>
-
+        <p class="section-description">
+            Discover our curated resources, including study guides, templates, and tools, to enhance your assignment preparation and academic performance.
+        </p>
         <div class="resources">
             {% for resource in documents %}
-            <div class="resources-item">
-                <h2>{{ resource.title }}</h2>
+            <article class="resources-item">
+                <h3>{{ resource.title }}</h3>
                 <p>{{ resource.description }}</p>
-                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
-            </div>
+                <a href="{{ resource.file.url }}" download class="cta-button" aria-label="Download {{ resource.title }} resource for assignment support">Download</a>
+            </article>
             {% empty %}
-            <div class="resources-item">
-                <p>No resources available at the moment. Please check back later.</p>
-            </div>
+            <article class="resources-item">
+                <p>No resources available currently. Contact us for personalized assignment support or check back soon.</p>
+            </article>
             {% endfor %}
         </div>
+        <meta name="keywords" content="academic resources, assignment study guides, academic templates, StudySmart resources">
     </section>
 
     <!-- Contact Section -->
     <section id="assignment-cta">
         <h2 class="section-title">Get Expert Assignment Support Today</h2>
         <p class="section-description">
-            Connect with us to explore our assignment support services and enhance your academic performance.
+            Contact StudySmart’s experts via WhatsApp to explore our assignment support services and elevate your academic performance.
         </p>
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Assignment%20projects%3F" class="cta-button">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Assignment%20projects%3F" class="cta-button" aria-label="Contact StudySmart for expert assignment support">
             <i class="fab fa-whatsapp"></i>
             Chat with Us
         </a>
+        <meta name="keywords" content="StudySmart contact, assignment help, WhatsApp tutoring, academic support">
     </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart offers expert assignment support services, including research assistance, structured writing, personalized study plans, project guidance, editing, and time management strategies for academic success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Assignment Support Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Research Assistance",
+          "description": "Expert guidance for conducting thorough research to support assignments and projects."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Structured Writing",
+          "description": "Master effective writing techniques for clear, coherent, and impactful assignments."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Personalized Study Plans",
+          "description": "Tailored study plans to optimize learning and academic performance."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Project Guidance",
+          "description": "Step-by-step guidance on academic projects for successful completion."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Editing and Proofreading",
+          "description": "Professional editing and proofreading to enhance assignment submissions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Time Management Strategies",
+          "description": "Proven strategies to manage time effectively and meet assignment deadlines."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

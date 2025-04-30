@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Academic Excellence in Economics
+{% block title %}StudySmart Economics Tutoring | Academic Excellence{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert economics tutoring in economic analysis, statistical modeling, market research, and financial modeling for academic and research success.">
+  <meta name="keywords" content="StudySmart economics tutoring, economic analysis support, market research tutoring, financial modeling, microeconomics tutoring">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/economics/">
 {% endblock %}
 
 {% block content %}
@@ -11,80 +17,71 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: white;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text for readability */
 }
 
 /* Container Styles */
 .economics-container {
-    background: black;
+    background: #1a1a1a; /* Dark gray for contrast */
     padding: 60px 20px;
     text-align: center;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     margin: 40px auto;
-    color: white;
     max-width: 1100px;
 }
 
 /* Section Title and Description */
 .section-title {
     font-size: 2.5em;
-    
-    color: white;
+    color: #ffffff; /* White text for visibility */
     margin-bottom: 20px;
     font-weight: 700;
 }
 
 .section-description {
     font-size: 1.2em;
-    color: #555;
+    color: #cccccc; /* Light gray for contrast */
     line-height: 1.6;
     margin-bottom: 40px;
 }
 
-/* Services Section */
+/* Services and Resources Sections */
 .services, .resources {
     display: flex;
-    background: transparent;
     flex-wrap: wrap;
     gap: 20px;
     justify-content: center;
 }
 
 .service-item, .resources-item {
-    background: transparent;
+    background: #2a2a2a; /* Slightly lighter gray for cards */
     border-radius: 8px;
-    color: white;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     padding: 20px;
     flex: 1;
+    color: #ffffff; /* White text for readability */
     min-width: 300px;
     max-width: 500px;
 }
 
-.service-item h2, .resources-item h2 {
+.service-item h3, .resources-item h3 {
     font-size: 1.8em;
-    color: #1E90FF;
+    color: #1E90FF; /* Blue for emphasis */
     margin-bottom: 15px;
 }
 
-.service-item ul {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
+.service-item p, .resources-item p {
     font-size: 1.1em;
-    color: #333;
-}
-
-.service-item li {
-    margin-bottom: 10px;
+    color: #ffffff; /* White text */
+    line-height: 1.5;
 }
 
 /* Call-to-Action Button */
 .cta-button {
-    background-color: #28a745;
-    color: #ffffff;
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
     padding: 15px 30px;
     border-radius: 8px;
     text-decoration: none;
@@ -95,7 +92,7 @@ body {
 }
 
 .cta-button:hover {
-    background-color: #007bff;
+    background-color: #007bff; /* Blue on hover */
     transform: translateY(-3px);
 }
 
@@ -124,79 +121,185 @@ body {
     <section id="eco-intro">
         <h1 class="section-title">Achieve Excellence in Economics</h1>
         <p class="section-description">
-            Master the principles of economics with our comprehensive services and expert support. We provide a range of tools and techniques to elevate your academic and research projects.
+            Master microeconomics, macroeconomics, and applied economics with StudySmart’s expert tutoring. Elevate your academic and research projects with tools like Stata, Excel, and advanced economic analysis.
         </p>
+        <meta name="keywords" content="StudySmart economics tutoring, microeconomics tutoring, macroeconomics support, academic economics excellence">
     </section>
 
     <!-- Services Section -->
     <section id="eco-services">
         <h2 class="section-title">Our Economics Services</h2>
-        
         <div class="services">
-            <!-- Service Cards -->
-            <div class="service-item">
-                <h2>Economic Analysis</h2>
-                <p>Conduct thorough economic analysis to understand market trends and inform decision-making.</p>
-            </div>
-            <div class="service-item">
-                <h2>Statistical Modeling</h2>
-                <p>Utilize statistical models to predict economic outcomes and assess risks.</p>
-            </div>
-            <div class="service-item">
-                <h2>Market Research</h2>
-                <p>Perform in-depth market research to identify opportunities and challenges in various sectors.</p>
-            </div>
-            <div class="service-item">
-                <h2>Data Visualization</h2>
-                <p>Create impactful visualizations to effectively communicate economic data and findings.</p>
-            </div>
-            <div class="service-item">
-                <h2>Policy Analysis</h2>
-                <p>Analyze the impact of economic policies on different demographics and sectors.</p>
-            </div>
-            <div class="service-item">
-                <h2>Financial Modeling</h2>
-                <p>Develop financial models to assist in budget forecasting and financial planning.</p>
-            </div>
-            <div class="service-item">
-                <h2>Reports and Publications</h2>
-                <p>Generate comprehensive reports and publications on economic research and findings.</p>
-            </div>
-            <div class="service-item">
-                <h2>Workshops and Training</h2>
-                <p>Attend workshops and training sessions to enhance your understanding of economics.</p>
-            </div>
+            <article class="service-item">
+                <h3>Economic Analysis</h3>
+                <p>Conduct in-depth economic analysis to understand market trends and inform strategic decisions.</p>
+                <meta name="keywords" content="economic analysis tutoring, market trends analysis, economics decision-making">
+            </article>
+            <article class="service-item">
+                <h3>Statistical Modeling</h3>
+                <p>Use statistical tools like Stata and R for predictive modeling and economic risk assessment.</p>
+                <meta name="keywords" content="statistical modeling tutoring, Stata economics, economic risk analysis">
+            </article>
+            <article class="service-item">
+                <h3>Market Research</h3>
+                <p>Perform comprehensive market research to identify opportunities in various economic sectors.</p>
+                <meta name="keywords" content="market research tutoring, economic sector analysis, market opportunities">
+            </article>
+            <article class="service-item">
+                <h3>Data Visualization</h3>
+                <p>Create impactful visualizations using Excel or Tableau to communicate economic insights.</p>
+                <meta name="keywords" content="data visualization tutoring, Tableau economics, Excel visualization support">
+            </article>
+            <article class="service-item">
+                <h3>Policy Analysis</h3>
+                <p>Analyze economic policies and their impacts on demographics and industries with expert guidance.</p>
+                <meta name="keywords" content="policy analysis tutoring, economic policy impact, industry analysis">
+            </article>
+            <article class="service-item">
+                <h3>Financial Modeling</h3>
+                <p>Develop financial models in Excel for budgeting, forecasting, and financial planning.</p>
+                <meta name="keywords" content="financial modeling tutoring, Excel financial planning, economic forecasting">
+            </article>
+            <article class="service-item">
+                <h3>Reports and Publications</h3>
+                <p>Generate detailed economics reports and publications for academic and professional success.</p>
+                <meta name="keywords" content="economics reports tutoring, academic report writing, economic publications">
+            </article>
+            <article class="service-item">
+                <h3>Workshops and Training</h3>
+                <p>Attend tailored workshops to deepen your understanding of economics concepts and tools.</p>
+                <meta name="keywords" content="economics workshops, economics training, academic economics tutoring">
+            </article>
         </div>
     </section>
-    
+
     <!-- Resources Section -->
     <section id="eco-resources">
-        <!-- <h2 class="section-title">Available Projects</h2> -->
-        <!-- <p class="section-description">Access important resources and materials to assist with your economics journey.</p> -->
-
+        <h2 class="section-title">Available Economics Resources</h2>
+        <p class="section-description">
+            Access curated resources, including case studies, datasets, and templates, to enhance your economics studies and research projects.
+        </p>
         <div class="resources">
             {% for resource in documents %}
-            <div class="resources-item">
-                <h2>{{ resource.title }}</h2>
+            <article class="resources-item">
+                <h3>{{ resource.title }}</h3>
                 <p>{{ resource.description }}</p>
-                <a href="{{ resource.file.url }}" download class="cta-button">Download</a>
-            </div>
+                <a href="{{ resource.file.url }}" download class="cta-button" aria-label="Download {{ resource.title }} resource for economics studies">Download</a>
+            </article>
             {% empty %}
-            <p>No resources available at the moment. Please check back later.</p>
+            <article class="resources-item">
+                <p>No economics resources available currently. Contact us for personalized support or check back soon.</p>
+            </article>
             {% endfor %}
         </div>
+        <meta name="keywords" content="economics resources, microeconomics case studies, macroeconomics datasets, StudySmart resources">
     </section>
 
     <!-- Contact Section -->
     <section id="eco-cta">
         <h2 class="section-title">Get Expert Economics Support Today</h2>
         <p class="section-description">
-            Connect with us to explore our economics services and take your academic and research projects to the next level.
+            Connect with StudySmart’s economics experts via WhatsApp to explore our tutoring and resources for academic and research success.
         </p>
-        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Economics%3F" class="cta-button">
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Economics%20projects%20or%20tutoring%3F" class="cta-button" aria-label="Contact StudySmart for economics tutoring">
             <i class="fab fa-whatsapp"></i>
-            Chat with our Economics Expert
+            Chat with Our Economics Expert
         </a>
+        <meta name="keywords" content="StudySmart economics contact, economics tutoring, WhatsApp economics support, academic economics help">
     </section>
 </div>
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert economics tutoring in economic analysis, statistical modeling, market research, financial modeling, and more for academic and research success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Economics Tutoring Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Economic Analysis Tutoring",
+          "description": "Conduct in-depth economic analysis to understand market trends and inform decisions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Statistical Modeling Tutoring",
+          "description": "Use statistical tools like Stata and R for predictive modeling and risk assessment."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Market Research Tutoring",
+          "description": "Perform comprehensive market research to identify opportunities in economic sectors."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Data Visualization Tutoring",
+          "description": "Create visualizations using Excel or Tableau to communicate economic insights."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Policy Analysis Tutoring",
+          "description": "Analyze economic policies and their impacts on demographics and industries."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Financial Modeling Tutoring",
+          "description": "Develop financial models in Excel for budgeting and forecasting."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Economics Reports Tutoring",
+          "description": "Generate detailed reports and publications for academic success."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Economics Workshops Tutoring",
+          "description": "Attend tailored workshops to deepen understanding of economics concepts."
+        }
+      }
+    ]
+  }
+}
+</script>
+
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}

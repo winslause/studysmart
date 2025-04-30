@@ -1,7 +1,13 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}
-    Academic Excellence in Finance
+{% block title %}StudySmart Finance Tutoring | Academic Excellence{% endblock %}
+
+{% block meta %}
+  <meta name="description" content="StudySmart offers expert finance tutoring in corporate finance, investment analysis, financial modeling, and risk management for academic and professional success.">
+  <meta name="keywords" content="StudySmart finance tutoring, corporate finance support, financial modeling tutoring, investment analysis, risk management tutoring">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://www.studysmart.com/finance/">
 {% endblock %}
 
 {% block content %}
@@ -11,25 +17,25 @@ body {
     font-family: 'Arial', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: black;
-    color: white;
+    background-color: #000000; /* Black background */
+    color: #ffffff; /* White text */
 }
 
 /* Container Styles */
 .finance-content-container {
-    background: black;
+    background: #1a1a1a; /* Dark gray for contrast */
     padding: 60px 20px;
     text-align: center;
     border-radius: 12px;
-    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 10px 20px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     margin: 40px auto;
     max-width: 1200px;
 }
 
 /* Finance Background Section */
 .finance-background-section {
-    background: #1E90FF;
-    color: #ffffff;
+    background: #1E90FF; /* Blue background */
+    color: #ffffff; /* White text */
     padding: 40px 20px;
     border-radius: 12px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -38,7 +44,7 @@ body {
 
 .finance-background-title {
     font-size: 2.5em;
-    color: white;
+    color: #ffffff; /* White text */
     margin-bottom: 20px;
     font-weight: 700;
 }
@@ -46,6 +52,7 @@ body {
 .finance-background-description {
     font-size: 1.2em;
     line-height: 1.6;
+    color: #ffffff; /* White text */
 }
 
 /* Finance Services Section */
@@ -55,7 +62,7 @@ body {
 
 .finance-services-title {
     font-size: 2.2em;
-    color: #333;
+    color: #ffffff; /* White text */
     margin-bottom: 20px;
     font-weight: 700;
 }
@@ -68,11 +75,11 @@ body {
 }
 
 .finance-services-item {
-    background: black;
+    background: #2a2a2a; /* Slightly lighter gray */
     border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1); /* Subtle white shadow */
     padding: 20px;
-    color: white;
+    color: #ffffff; /* White text */
     flex: 1;
     min-width: 300px;
     max-width: 400px;
@@ -80,34 +87,34 @@ body {
 
 .finance-services-item-title {
     font-size: 1.8em;
-    color: #1E90FF;
+    color: #1E90FF; /* Blue for emphasis */
     margin-bottom: 15px;
 }
 
 .finance-services-item-description {
     font-size: 1.1em;
-    color: white;
+    color: #ffffff; /* White text */
 }
 
 /* Finance Resources Section */
 .finance-resources-section {
-    background: #f9f9f9;
+    background: #2a2a2a; /* Dark gray for consistency */
     padding: 40px 20px;
     border-radius: 8px;
-    color: black;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    color: #ffffff; /* White text */
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
 }
 
 .finance-resources-title {
     font-size: 2.2em;
-    color: #333;
+    color: #ffffff; /* White text */
     margin-bottom: 15px;
     font-weight: 700;
 }
 
 .finance-resources-description {
     font-size: 1.2em;
-    color: #555;
+    color: #cccccc; /* Light gray for contrast */
     line-height: 1.6;
 }
 
@@ -116,19 +123,19 @@ body {
 }
 
 .finance-resource-item {
-    background: #f0f0f0;
+    background: #333333; /* Slightly darker gray */
     padding: 15px;
     margin-bottom: 10px;
     border-radius: 8px;
     text-align: left;
-    color: black;
+    color: #ffffff; /* White text */
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
 .finance-resource-item a {
-    color: #1E90FF;
+    color: #1E90FF; /* Blue links */
     text-decoration: none;
     font-size: 1.1em;
     font-weight: 600;
@@ -141,8 +148,8 @@ body {
 /* Download Button Styles */
 .download-btn {
     padding: 8px 16px;
-    background-color: #ffffff;;
-    color: black;
+    background-color: #ffffff; /* White button */
+    color: #000000; /* Black text */
     border: none;
     border-radius: 4px;
     font-size: 1em;
@@ -151,7 +158,32 @@ body {
 }
 
 .download-btn:hover {
-    background-color: #1c7ed6;
+    background-color: #007bff; /* Blue on hover, standardized */
+}
+
+/* CTA Button Styles */
+.cta-button {
+    background-color: #28a745; /* Green button */
+    color: #ffffff; /* White text */
+    padding: 10px 20px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-size: 1em;
+    font-weight: 500;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 20px;
+}
+
+.cta-button:hover {
+    background-color: #007bff; /* Blue on hover */
+    transform: translateY(-2px);
+}
+
+.cta-button i {
+    font-size: 1.2em;
 }
 
 /* Responsive Design */
@@ -180,8 +212,9 @@ body {
         <div class="finance-background-content">
             <h1 class="finance-background-title">Master Finance with Expert Guidance</h1>
             <p class="finance-background-description">
-                Unlock your potential in corporate finance, investment analysis, financial markets, and more. Let us support your academic journey with expert insights and tailored resources.
+                Excel in corporate finance, investment analysis, financial markets, and more with StudySmart’s expert tutoring. Leverage tools like Excel, Python, and advanced valuation techniques for academic and professional success.
             </p>
+            <meta name="keywords" content="StudySmart finance tutoring, corporate finance tutoring, financial markets support, academic finance excellence">
         </div>
     </section>
 
@@ -189,60 +222,149 @@ body {
     <section class="finance-services-section">
         <h2 class="finance-services-title">Our Finance Services</h2>
         <div class="finance-services-items">
-            <div class="finance-services-item">
-                <h4 class="finance-services-item-title">Corporate Finance</h4>
-                <p class="finance-services-item-description">Expertise in managing corporate finances and making strategic financial decisions.</p>
-            </div>
-            <div class="finance-services-item">
-                <h4 class="finance-services-item-title">Investment Analysis</h4>
-                <p class="finance-services-item-description">Analyze investments and build a strong portfolio with our guidance.</p>
-            </div>
-            <div class="finance-services-item">
-                <h4 class="finance-services-item-title">Financial Markets</h4>
-                <p class="finance-services-item-description">Understand and navigate the complexities of financial markets.</p>
-            </div>
-            <div class="finance-services-item">
-                <h4 class="finance-services-item-title">Managerial Accounting</h4>
-                <p class="finance-services-item-description">Master the principles of managerial accounting to enhance business decision-making.</p>
-            </div>
-            <div class="finance-services-item">
-                <h4 class="finance-services-item-title">Financial Modeling</h4>
-                <p class="finance-services-item-description">Develop advanced financial models to support your academic and professional goals.</p>
-            </div>
-            <div class="finance-services-item">
-                <h4 class="finance-services-item-title">Risk Management</h4>
-                <p class="finance-services-item-description">Identify and mitigate financial risks in various scenarios.</p>
-            </div>
+            <article class="finance-services-item">
+                <h3 class="finance-services-item-title">Corporate Finance</h3>
+                <p class="finance-services-item-description">Master capital budgeting, valuation, and strategic financial decisions with expert guidance.</p>
+                <meta name="keywords" content="corporate finance tutoring, capital budgeting, financial decision-making">
+            </article>
+            <article class="finance-services-item">
+                <h3 class="finance-services-item-title">Investment Analysis</h3>
+                <p class="finance-services-item-description">Learn portfolio management and investment strategies using Excel and Python.</p>
+                <meta name="keywords" content="investment analysis tutoring, portfolio management, Excel finance support">
+            </article>
+            <article class="finance-services-item">
+                <h3 class="finance-services-item-title">Financial Markets</h3>
+                <p class="finance-services-item-description">Navigate stocks, bonds, and derivatives in global financial markets with confidence.</p>
+                <meta name="keywords" content="financial markets tutoring, derivatives trading, stock market analysis">
+            </article>
+            <article class="finance-services-item">
+                <h3 class="finance-services-item-title">Managerial Accounting</h3>
+                <p class="finance-services-item-description">Apply cost analysis and budgeting techniques to enhance business decisions.</p>
+                <meta name="keywords" content="managerial accounting tutoring, cost analysis, business budgeting">
+            </article>
+            <article class="finance-services-item">
+                <h3 class="finance-services-item-title">Financial Modeling</h3>
+                <p class="finance-services-item-description">Build advanced financial models in Excel for forecasting and valuation.</p>
+                <meta name="keywords" content="financial modeling tutoring, Excel financial modeling, valuation techniques">
+            </article>
+            <article class="finance-services-item">
+                <h3 class="finance-services-item-title">Risk Management</h3>
+                <p class="finance-services-item-description">Identify and mitigate financial risks using quantitative and qualitative methods.</p>
+                <meta name="keywords" content="risk management tutoring, financial risk analysis, quantitative finance">
+            </article>
         </div>
     </section>
 
     <!-- Finance Resources Section -->
     <section class="finance-resources-section">
-        <h2 class="finance-resources-title" style="color: black !important;">Resources</h2>
+        <h2 class="finance-resources-title">Finance Resources</h2>
         <p class="finance-resources-description">
-            Explore our extensive library of study materials, guides, and articles to excel in finance and managerial accounting.
+            Access curated study materials, financial models, and guides to excel in finance and managerial accounting.
         </p>
-
-        <!-- Dynamic list of downloadable resources with download button -->
         <div class="finance-resources-list">
             {% for resource in documents %}
-                <div class="finance-resource-item">
+                <article class="finance-resource-item">
                     <span>{{ resource.title }}</span>
-                    <a href="{{ resource.file.url }}" class="download-btn" download>Download</a>
-                </div>
+                    <a href="{{ resource.file.url }}" class="download-btn" download aria-label="Download {{ resource.title }} resource for finance studies">Download</a>
+                </article>
             {% empty %}
-                <p>No resources available at the moment.</p>
+                <article class="finance-resource-item">
+                    <p>No finance resources available currently. Contact us for personalized support or check back soon.</p>
+                </article>
             {% endfor %}
         </div>
+        <meta name="keywords" content="finance resources, financial modeling templates, managerial accounting guides, StudySmart resources">
+    </section>
+
+    <!-- Contact Section -->
+    <section id="finance-cta-section">
+        <h2 class="finance-services-title">Get Expert Finance Support Today</h2>
+        <p class="finance-resources-description">
+            Connect with StudySmart’s finance experts via WhatsApp to explore our tutoring and resources for academic and professional success.
+        </p>
+        <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Finance%20projects%20or%20tutoring%3F" class="cta-button" aria-label="Contact StudySmart for finance tutoring">
+            <i class="fab fa-whatsapp"></i>
+            Contact Finance Experts
+        </a>
+        <meta name="keywords" content="StudySmart finance contact, finance tutoring, WhatsApp finance support, academic finance help">
     </section>
 </div>
 
-<div id="data-mining-cta-section">
-    <a href="https://api.whatsapp.com/send?phone=18438437046&text=Hello%20StudySmart%20Experts%20%F0%9F%91%8B%0AAre%20you%20available%20to%20assist%20me%20with%20Finance%3F" class="cta-button">
-        <i class="fab fa-whatsapp"></i>
-        Contact Finance Experts
-    </a>
-</div>
-<br>
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "StudySmart",
+  "url": "https://www.studysmart.com",
+  "description": "StudySmart provides expert finance tutoring in corporate finance, investment analysis, financial modeling, risk management, and more for academic and professional success.",
+  "address": {
+    "@type": "PostalAddress",
+    "addressCountry": "Global"
+  },
+  "contactPoint": {
+    "@type": "ContactPoint",
+    "contactType": "Customer Support",
+    "telephone": "+18438437046",
+    "url": "https://api.whatsapp.com/send?phone=18438437046"
+  },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Finance Tutoring Services",
+    "itemListElement": [
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Corporate Finance Tutoring",
+          "description": "Master capital budgeting, valuation, and strategic financial decisions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Investment Analysis Tutoring",
+          "description": "Learn portfolio management and investment strategies using Excel and Python."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Financial Markets Tutoring",
+          "description": "Navigate stocks, bonds, and derivatives in global financial markets."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Managerial Accounting Tutoring",
+          "description": "Apply cost analysis and budgeting techniques to enhance business decisions."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Financial Modeling Tutoring",
+          "description": "Build advanced financial models in Excel for forecasting and valuation."
+        }
+      },
+      {
+        "@type": "Offer",
+        "itemOffered": {
+          "@type": "Service",
+          "name": "Risk Management Tutoring",
+          "description": "Identify and mitigate financial risks using quantitative methods."
+        }
+      }
+    ]
+  }
+}
+</script>
 
+<!-- External Resources -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 {% endblock %}
