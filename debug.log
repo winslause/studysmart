@@ -676,3 +676,225 @@ INFO 2025-04-29 20:53:32,507 autoreload Watching for file changes with StatReloa
 INFO 2025-04-29 20:57:13,815 autoreload Watching for file changes with StatReloader
 DEBUG 2025-04-29 21:28:39,222 views POST action received: post_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['9BZ4laX449FNGaanQ3lWBzlYM0rllyaodJf7VoQSYzjBRqiSLBxDplJj1OGm3DQv'], 'action': ['post_question'], 'title': ['test'], 'description': ['test1']}>
 INFO 2025-04-30 11:47:51,446 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 14:57:59,755 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:01:14,783 autoreload C:\Users\wenbu\Documents\studysmart\core\models.py changed, reloading.
+INFO 2025-05-02 15:01:34,245 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:01:58,182 autoreload C:\Users\wenbu\Documents\studysmart\core\urls.py changed, reloading.
+INFO 2025-05-02 15:02:21,879 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:08:06,752 autoreload C:\Users\wenbu\Documents\studysmart\core\views.py changed, reloading.
+INFO 2025-05-02 15:08:12,998 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:08:25,393 autoreload C:\Users\wenbu\Documents\studysmart\core\sitemaps.py changed, reloading.
+INFO 2025-05-02 15:08:31,092 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:12:17,588 autoreload C:\Users\wenbu\Documents\studysmart\core\models.py changed, reloading.
+INFO 2025-05-02 15:12:23,456 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:13:11,778 autoreload C:\Users\wenbu\Documents\studysmart\core\urls.py changed, reloading.
+INFO 2025-05-02 15:13:15,644 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:13:19,040 autoreload C:\Users\wenbu\Documents\studysmart\core\urls.py changed, reloading.
+INFO 2025-05-02 15:13:22,037 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:13:38,300 autoreload C:\Users\wenbu\Documents\studysmart\core\views.py changed, reloading.
+INFO 2025-05-02 15:13:42,151 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 15:13:46,841 autoreload C:\Users\wenbu\Documents\studysmart\core\views.py changed, reloading.
+INFO 2025-05-02 15:13:50,994 autoreload Watching for file changes with StatReloader
+ERROR 2025-05-02 15:59:09,541 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\Documents\studysmart\core\views.py", line 18, in index
+    return render(request, 'index.html', {'documents': documents})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 1008, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 228, in do_block
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+WARNING 2025-05-02 15:59:10,414 log Not Found: /favicon.ico
+ERROR 2025-05-02 16:05:48,365 log Internal Server Error: /
+Traceback (most recent call last):
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\Documents\studysmart\core\views.py", line 18, in index
+    return render(request, 'index.html', {'documents': documents})
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 1008, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 1008, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 969, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 134, in render
+    compiled_parent = self.get_parent(context)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 131, in get_parent
+    return self.find_template(parent, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 109, in find_template
+    template, origin = context.template.engine.find_template(
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loaders\cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loaders\base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 196, in compile_nodelist
+    nodelist = parser.parse()
+               ^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 518, in parse
+    raise self.error(token, e)
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\base.py", line 516, in parse
+    compiled_result = compile_func(self, token)
+                      ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\wenbu\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\template\loader_tags.py", line 228, in do_block
+    raise TemplateSyntaxError(
+django.template.exceptions.TemplateSyntaxError: 'block' tag with name 'title' appears more than once
+INFO 2025-05-02 16:20:52,323 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 16:48:41,867 autoreload C:\Users\wenbu\Documents\studysmart\core\models.py changed, reloading.
+INFO 2025-05-02 16:48:48,047 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 16:52:09,322 autoreload C:\Users\wenbu\Documents\studysmart\core\views.py changed, reloading.
+INFO 2025-05-02 16:53:09,601 autoreload Watching for file changes with StatReloader
+DEBUG 2025-05-02 17:03:08,404 views POST action received in admin_portal: post_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['JEDP4nWueUsXblzabwGUtKrW59lH9aGy3wsAC8nw34ZgLICtZOxfCGDFWgNlWd8E'], 'action': ['post_question'], 'title': ['test6'], 'description': ['testing question']}>
+INFO 2025-05-02 17:03:08,849 views Question posted by admin: test6
+INFO 2025-05-02 17:31:50,970 autoreload Watching for file changes with StatReloader
+DEBUG 2025-05-02 17:45:30,235 views POST action received in past_solutions: post_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['qGL1yEUKndx6idT7l6VMb1Kuyv0Cw2QxA1jNMe1QA8Vo2N8frlNAx5A2yqpMgUWK'], 'action': ['post_question'], 'title': ['test9'], 'description': ['yetedc cvfkd'], 'page': ['past_solutions']}>
+INFO 2025-05-02 17:45:30,556 views Question posted by shioso: test9
+DEBUG 2025-05-02 17:53:04,203 views POST action received in admin_portal: delete_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['wl1jhWz0NSh6GLQMFKzcW2YZXmVlVB1bB3rpYEY4xfONJFVGTWyNq8pRO02J8xy9'], 'action': ['delete_question'], 'question_id': ['11']}>
+DEBUG 2025-05-02 17:53:04,226 views Attempting to delete question ID: 11
+INFO 2025-05-02 17:53:04,341 views Question ID 11 deleted by admin
+DEBUG 2025-05-02 17:53:16,229 views POST action received in admin_portal: delete_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['qQhlGU6Lt2B9PeU7J9Pb3wm70GJIaVHKvyHrnCvPdp8QS8Z1XlOMxCNZRkQ6nReI'], 'action': ['delete_question'], 'question_id': ['10']}>
+DEBUG 2025-05-02 17:53:16,230 views Attempting to delete question ID: 10
+INFO 2025-05-02 17:53:16,260 views Question ID 10 deleted by admin
+DEBUG 2025-05-02 17:56:54,924 views POST action received in admin_portal: delete_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['HIJl0PNmSGhmoLTn2wF4nuYVPX1BCeQPMq9rHxcqC3O3rFYhgIEFRApNGB8ZPanN'], 'action': ['delete_question'], 'question_id': ['8']}>
+DEBUG 2025-05-02 17:56:54,925 views Attempting to delete question ID: 8
+INFO 2025-05-02 17:56:54,950 views Question ID 8 deleted by admin
+DEBUG 2025-05-02 17:56:59,052 views POST action received in admin_portal: delete_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['SpDIczCTq1NsE2yzysjcOPlEQh6UrbFBX73OTh1Xaok9HWDtMEiNiVMwHVdiE7cz'], 'action': ['delete_question'], 'question_id': ['6']}>
+DEBUG 2025-05-02 17:56:59,055 views Attempting to delete question ID: 6
+INFO 2025-05-02 17:56:59,085 views Question ID 6 deleted by admin
+INFO 2025-05-02 18:00:26,255 autoreload C:\Users\wenbu\Documents\studysmart\core\views.py changed, reloading.
+INFO 2025-05-02 18:00:29,601 autoreload Watching for file changes with StatReloader
+DEBUG 2025-05-02 18:00:30,849 views Admin portal rendered with 3 questions
+DEBUG 2025-05-02 18:00:38,248 views POST action received in admin_portal: delete_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['MUSwmuJ3XVgXwHsBxAC8ub3pHeCQItmYRCiC3c87HiNEzBxvLMBJYhuhySJeVpTW'], 'action': ['delete_question'], 'question_id': ['12']}>
+DEBUG 2025-05-02 18:00:38,250 views Attempting to delete question ID: 12
+INFO 2025-05-02 18:00:38,326 views Question ID 12 deleted by admin
+DEBUG 2025-05-02 18:00:38,440 views Admin portal rendered with 2 questions
+DEBUG 2025-05-02 18:01:26,591 views POST action received in admin_portal: post_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['YZNFKgiw5hhQFFfATzAxWLZPHGKbTX7z3HdLrYHAPEOxIzku7Lz8qRqHykRz6TEx'], 'action': ['post_question'], 'title': ['test 10'], 'description': ['heeeycycd']}>
+INFO 2025-05-02 18:01:26,792 views Question posted by admin: ID=13, Title=test 10, Page=past_solutions
+DEBUG 2025-05-02 18:01:26,915 views Admin portal rendered with 3 questions
+INFO 2025-05-02 18:01:38,309 views User logged out: admin
+INFO 2025-05-02 18:01:44,331 views User logged in: shioso
+DEBUG 2025-05-02 18:01:44,369 views Index page rendered with 0 documents
+DEBUG 2025-05-02 18:01:48,568 views Past solutions rendered with 2 questions
+DEBUG 2025-05-02 18:02:20,677 views POST action received in past_solutions: post_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['aTZC0Bq9nL7YiFS1vXBcBbY7dQietUV3JAW5jth2AAtUuclnR3roBKPJ72foxjf7'], 'action': ['post_question'], 'title': ['test user'], 'description': ['dc djc vffvf']}>
+WARNING 2025-05-02 18:02:20,688 views Missing required fields for posting question
+DEBUG 2025-05-02 18:02:20,913 views Past solutions rendered with 2 questions
+INFO 2025-05-02 18:06:54,938 views User logged out: shioso
+DEBUG 2025-05-02 18:06:58,018 views Index page rendered with 0 documents
+INFO 2025-05-02 18:10:44,505 autoreload C:\Users\wenbu\Documents\studysmart\Study\urls.py changed, reloading.
+INFO 2025-05-02 18:10:48,026 autoreload Watching for file changes with StatReloader
+INFO 2025-05-02 18:11:33,394 autoreload C:\Users\wenbu\Documents\studysmart\Study\urls.py changed, reloading.
+INFO 2025-05-02 18:11:35,783 autoreload Watching for file changes with StatReloader
+DEBUG 2025-05-02 18:14:39,457 views Index page rendered with 0 documents
+WARNING 2025-05-02 18:14:42,182 log Not Found: /accounts/login/
+INFO 2025-05-02 18:18:56,574 autoreload C:\Users\wenbu\Documents\studysmart\core\views.py changed, reloading.
+INFO 2025-05-02 18:19:00,123 autoreload Watching for file changes with StatReloader
+WARNING 2025-05-02 18:19:01,666 log Not Found: /accounts/login/
+DEBUG 2025-05-02 18:19:04,047 views Index page rendered with 0 documents
+DEBUG 2025-05-02 18:19:08,719 views Past solutions rendered with 2 questions
+DEBUG 2025-05-02 18:19:19,086 views Index page rendered with 0 documents
+DEBUG 2025-05-02 18:19:21,551 views Past solutions rendered with 2 questions
+INFO 2025-05-02 18:19:31,278 views User logged in: shioso
+DEBUG 2025-05-02 18:19:31,317 views Index page rendered with 0 documents
+DEBUG 2025-05-02 18:19:34,627 views Past solutions rendered with 2 questions
+DEBUG 2025-05-02 18:19:45,244 views POST action received in past_solutions: post_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['qZO8gp5ZffJExVxgx6JNOVWUdVSo7l4ehUsnISYdS4WmjqCUYPI9mf5jrS6feg4w'], 'action': ['post_question'], 'page': ['past_solutions'], 'title': ['test'], 'description': ['eeee'], 'document': [''], 'image': ['']}>
+INFO 2025-05-02 18:19:45,330 views Question posted by shioso: ID=14, Title=test, Page=past_solutions
+DEBUG 2025-05-02 18:19:45,456 views Past solutions rendered with 3 questions
+INFO 2025-05-02 18:19:56,324 views User logged out: shioso
+INFO 2025-05-02 18:20:04,295 views User logged in: admin
+DEBUG 2025-05-02 18:20:04,405 views Index page rendered with 0 documents
+DEBUG 2025-05-02 18:20:10,237 views Admin portal rendered with 4 questions
+DEBUG 2025-05-02 18:20:18,496 views POST action received in admin_portal: delete_question, POST data: <QueryDict: {'csrfmiddlewaretoken': ['s0IWCnCIi2eo9QzlAw00M6xOb6YSMx8zEg7PZX3GFRdSB2x5PpGatF7gYqunUgpR'], 'action': ['delete_question'], 'question_id': ['14']}>
+DEBUG 2025-05-02 18:20:18,497 views Attempting to delete question ID: 14
+INFO 2025-05-02 18:20:18,531 views Question ID 14 deleted by admin
+DEBUG 2025-05-02 18:20:18,666 views Admin portal rendered with 3 questions

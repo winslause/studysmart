@@ -22,13 +22,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/computer_science.jpg' %}" alt="Computer Science tutoring in Python, Java, C++" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/computer_science.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Computer Science tutoring in Python, Java, C++" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Computer Science Tutoring</h2>
             <p class="mb-4">
               Master programming with expert Computer Science tutoring in Python, Java, C++, software development, database management, and algorithm design. Excel in your academic projects.
             </p>
             <meta name="keywords" content="computer science tutoring, Python tutoring, Java programming, C++ help, algorithm design, software development support">
-            <a href="{% url 'cs' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Computer Science tutoring">Read More</a>
+            <a href="{% url 'computer_science' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Computer Science tutoring">Read More about our Computer Science Tutoring</a>
           </div>
         </div>
       </article>
@@ -36,13 +40,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/machine_learning1.jpg' %}" alt="Machine Learning tutoring with Python and R" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/machine_learning1.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Machine Learning tutoring with Python and R" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Machine Learning Support</h2>
             <p class="mb-4">
               Advance your Machine Learning skills with expert tutoring in Python and R. Get personalized support for data analysis and research projects to achieve academic success.
             </p>
             <meta name="keywords" content="machine learning tutoring, Python machine learning, R programming, data analysis support, AI research help">
-            <a href="{% url 'ml' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Machine Learning support">Read More</a>
+            <a href="{% url 'machine_learning' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Machine Learning support">Read More about our Machine Learning Support</a>
           </div>
         </div>
       </article>
@@ -50,13 +58,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".5s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/data_analysis.jpg' %}" alt="Data Analysis tutoring with SPSS, STATA, R, Python" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/data_analysis.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Data Analysis tutoring with SPSS, STATA, R, Python" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Data Analysis Services</h2>
             <p class="mb-4">
               Excel in Data Analysis with tutoring in SPSS, STATA, R, Python, and Jamovi. Our services include data visualization, statistical analysis, and research support for academic success.
             </p>
             <meta name="keywords" content="data analysis tutoring, SPSS help, STATA tutoring, R programming, Python data analysis, data visualization">
-            <a href="{% url 'data_analysis' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Data Analysis services">Read More</a>
+            <a href="{% url 'data_analysis' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Data Analysis services">Read More about our Data Analysis Services</a>
           </div>
         </div>
       </article>
@@ -64,13 +76,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/economics.jpg' %}" alt="Economics tutoring in econometrics, macroeconomics, microeconomics" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/economics.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Economics tutoring in econometrics, macroeconomics, microeconomics" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Economics Tutoring</h2>
             <p class="mb-4">
               Succeed in Economics with expert tutoring in econometrics, macroeconomics, and microeconomics. Get support for statistical analysis, essays, and academic reports.
             </p>
             <meta name="keywords" content="economics tutoring, econometrics help, macroeconomics tutoring, microeconomics support, statistical analysis">
-            <a href="{% url 'economics' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Economics tutoring">Read More</a>
+            <a href="{% url 'economics' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Economics tutoring">Read More about our Economics Tutoring</a>
           </div>
         </div>
       </article>
@@ -78,13 +94,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/data_mining.png' %}" alt="Data Mining tutoring with WEKA, Orange, Python, R" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/data_mining.png' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Data Mining tutoring with WEKA, Orange, Python, R" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Data Mining Support</h2>
             <p class="mb-4">
               Master Data Mining with tutoring in WEKA, Orange, Python, and R. Our expert support enhances your academic projects and research for impactful results.
             </p>
             <meta name="keywords" content="data mining tutoring, WEKA help, Python data mining, R programming, Orange tool support">
-            <a href="{% url 'data_mining' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Data Mining support">Read More</a>
+            <a href="{% url 'data_mining' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Data Mining support">Read More about our Data Mining Support</a>
           </div>
         </div>
       </article>
@@ -92,13 +112,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/finance.jpg' %}" alt="Finance tutoring in corporate finance and investment analysis" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/finance.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Finance tutoring in corporate finance and investment analysis" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Finance Tutoring</h2>
             <p class="mb-4">
               Excel in Finance with tutoring in corporate finance, investment analysis, and financial modeling. Our support includes reports and essays for academic success.
             </p>
             <meta name="keywords" content="finance tutoring, corporate finance help, investment analysis, financial modeling, academic reports">
-            <a href="{% url 'finance' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Finance tutoring">Read More</a>
+            <a href="{% url 'finance' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Finance tutoring">Read More about our Finance Tutoring</a>
           </div>
         </div>
       </article>
@@ -106,13 +130,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/business_analytics.jpg' %}" alt="Business Analytics tutoring with Power BI, Tableau" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/business_analytics.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Business Analytics tutoring with Power BI, Tableau" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Business Analytics Tutoring</h2>
             <p class="mb-4">
               Succeed in Business Analytics with tutoring in Business Intelligence and Predictive Analytics. Master Power BI, Tableau, and create insightful reports.
             </p>
             <meta name="keywords" content="business analytics tutoring, Power BI help, Tableau tutoring, business intelligence, predictive analytics">
-            <a href="{% url 'business_analytics' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Business Analytics tutoring">Read More</a>
+            <a href="{% url 'business_analytics' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Business Analytics tutoring">Read More about our Business Analytics Tutoring</a>
           </div>
         </div>
       </article>
@@ -120,13 +148,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/case_study.jpg' %}" alt="Case Studies support in Business, Economics, Marketing" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/case_study.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Case Studies support in Business, Economics, Marketing" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Case Studies Support</h2>
             <p class="mb-4">
               Excel in Case Studies for Business, Management, Marketing, and Economics. Our detailed reports offer insights and solutions for academic success.
             </p>
             <meta name="keywords" content="case studies support, business case studies, economics case studies, marketing case studies, academic reports">
-            <a href="{% url 'case_studies' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Case Studies support">Read More</a>
+            <a href="{% url 'case_studies' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Case Studies support">Read More about our Case Studies Support</a>
           </div>
         </div>
       </article>
@@ -134,13 +166,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/reports.jpeg' %}" alt="Academic and business report writing services" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/reports.jpeg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Academic and business report writing services" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Report Writing Services</h2>
             <p class="mb-4">
               Succeed with expert report writing for research, business, technical, and academic reports. Our services ensure clarity and precision for your needs.
             </p>
             <meta name="keywords" content="report writing services, academic reports, business reports, technical report help, research writing">
-            <a href="{% url 'reports' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Report Writing services">Read More</a>
+            <a href="{% url 'reports' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Report Writing services">Read More about our Report Writing Services</a>
           </div>
         </div>
       </article>
@@ -148,13 +184,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/business.jpg' %}" alt="Business Management and Strategy tutoring" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/business.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Business Management and Strategy tutoring" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Business Tutoring</h2>
             <p class="mb-4">
               Elevate your skills with Business Management, Entrepreneurship, and Strategy tutoring. Get support for Operations Management, Business Plans, and reports.
             </p>
             <meta name="keywords" content="business tutoring, business management help, entrepreneurship tutoring, strategy support, operations management">
-            <a href="{% url 'business' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Business tutoring">Read More</a>
+            <a href="{% url 'business' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Business tutoring">Read More about our Business tutoring</a>
           </div>
         </div>
       </article>
@@ -162,13 +202,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/marketing.jpg' %}" alt="Marketing tutoring in digital marketing and market research" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/marketing.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Marketing tutoring in digital marketing and market research" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Marketing Tutoring</h2>
             <p class="mb-4">
               Boost your Marketing skills with tutoring in digital marketing, market research, and strategic solutions. Analyze consumer behavior and case studies.
             </p>
             <meta name="keywords" content="marketing tutoring, digital marketing help, market research support, consumer behavior analysis, marketing strategy">
-            <a href="{% url 'marketing' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Marketing tutoring">Read More</a>
+            <a href="{% url 'marketing' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Marketing tutoring">Read More about our Marketing tutoring</a>
           </div>
         </div>
       </article>
@@ -176,13 +220,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".7s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/thesis.jpg' %}" alt="Thesis and dissertation research support" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/thesis.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Thesis and dissertation research support" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Research Milestone Support</h2>
             <p class="mb-4">
               Achieve excellence with support for theses, dissertations, and capstone projects. Get guidance on research design, writing, and data analysis.
             </p>
             <meta name="keywords" content="thesis support, dissertation help, capstone project tutoring, research design, data analysis support">
-            <a href="{% url 'research' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Research Milestone support">Read More</a>
+            <a href="{% url 'research' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Research Milestone support">Read More about our Research Milestone Support</a>
           </div>
         </div>
       </article>
@@ -190,13 +238,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/technical_writing.jpg' %}" alt="Technical writing for reports and cybersecurity documentation" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/technical_writing.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Technical writing for reports and cybersecurity documentation" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Technical Writing Services</h2>
             <p class="mb-4">
               Master Technical Writing with support for executive summaries, user manuals, and cybersecurity documentation. Achieve clarity in technical projects.
             </p>
             <meta name="keywords" content="technical writing services, executive summaries, user manuals, cybersecurity documentation, technical reports">
-            <a href="{% url 'technical_writing' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Technical Writing services">Read More</a>
+            <a href="{% url 'technical_writing' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Technical Writing services">Read More about our Technical Writing Services</a>
           </div>
         </div>
       </article>
@@ -204,13 +256,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/exams.jpg' %}" alt="Exam preparation and study techniques support" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/exams.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Exam preparation and study techniques support" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Exam Preparation</h2>
             <p class="mb-4">
               Excel in exams with comprehensive preparation support. Master study techniques, time management, and key concepts with past paper practice.
             </p>
             <meta name="keywords" content="exam preparation, study techniques, time management tutoring, past papers practice, academic success">
-            <a href="{% url 'exams' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Exam Preparation">Read More</a>
+            <a href="{% url 'exams' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Exam Preparation">Read More about our Exam Preparation</a>
           </div>
         </div>
       </article>
@@ -218,13 +274,17 @@
       <article class="col-md-6 col-lg-4 wow fadeIn" data-wow-delay=".3s">
         <div class="services-card glass-card">
           <div class="p-4 text-center services-content">
-            <img src="{% static 'images/Assignment.jpg' %}" alt="Assignment writing and research support" class="img-fluid mb-4 service-img">
+            <img data-src="{% static 'images/Assignment.jpg' %}" 
+                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw==" 
+                 alt="Assignment writing and research support" 
+                 class="img-fluid mb-4 service-img lazyload" 
+                 loading="lazy">
             <h2 class="mb-3">Assignment Support</h2>
             <p class="mb-4">
               Succeed in assignments with tailored support in research, writing, and study plans. Our resources help you excel in your academic journey.
             </p>
             <meta name="keywords" content="assignment support, academic writing help, research support, study plans, homework assistance">
-            <a href="{% url 'assignment' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Assignment support">Read More</a>
+            <a href="{% url 'assignment' %}" class="btn btn-wens text-white px-5 py-3 rounded-pill" aria-label="Learn more about Assignment support">Read More about our Assignment Support</a>
           </div>
         </div>
       </article>
@@ -234,7 +294,7 @@
 <!-- Services End -->
 
 <!-- Schema Markup -->
-<script type="application/ld+json">
+<script  defer type="application/ld+json">
 {
   "@context": "https://schema.org",
   "@type": "Service",
@@ -370,6 +430,7 @@
 <!-- CSS and JS -->
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" integrity="sha512-1ycn6IcaQQ40/MKBW2W4Rhis/DbILU74C1vSrLJxCq57o941Ym01SwNsOMqvEBFlcgUa6xLiPY/NS5R+E6ztJQ==" crossorigin="anonymous" referrerpolicy="no-referrer">
 <link href="{% static 'css/services.css' %}" rel="stylesheet">
-<script src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-<script src="{% static 'js/services.js' %}"></script>
+<script  defer  src="https://cdnjs.cloudflare.com/ajax/libs/wow/1.1.2/wow.min.js" integrity="sha512-Eak/29OTpb36LLo2r47IpVzPBLXnAMPAVypbSZiZ4Qkf8p/7S/XRG5xp7OKWPPYfJT6metI+IORkR5G8F900+g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+<script  defer src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.3.2/lazysizes.min.js" async></script>
+<script  defer src="{% static 'js/services.js' %}"></script>
 {% endblock %}

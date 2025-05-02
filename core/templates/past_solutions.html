@@ -1,41 +1,228 @@
+<!-- past_solutions.html -->
 {% extends 'base.html' %}
-{% load static %}
+{% load static i18n %}
 
 {% block meta %}
-  <title>Past Solutions - Student Questions & Answers</title>
-  <meta name="description" content="Explore past student questions and solutions. Search for academic problems and get answers via WhatsApp.">
-  <meta name="keywords" content="past solutions, student questions, academic help, study resources, homework answers">
+  <title>{% trans "Past Solutions - Student Questions & Answers" %}</title>
+  <meta name="description" content="{% trans 'Explore past student questions and solutions in academics. Post your question and get answers via WhatsApp.' %}">
+  <meta name="keywords" content="past solutions, student questions, academic help, study resources, homework answers{% for question in questions %}, {{ question.title|lower }}{% endfor %}">
+  <meta name="robots" content="index, follow">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="canonical" href="https://yourdomain.com/past-solutions/">
 {% endblock %}
 
 {% block content %}
 <section class="past-solutions py-5">
-  <link href="{% static 'css/admin.css' %}" rel="stylesheet">
+  <link href="{% static 'css/admin.css' %}?v=8" rel="stylesheet">
+  <style>
+    #postQuestionModalPast {
+      z-index: 10000 !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: auto !important;
+      background: transparent !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #postQuestionModalPast .modal-dialog {
+      z-index: 10001 !important;
+      position: relative !important;
+      margin: 1.75rem auto !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #postQuestionModalPast .modal-content {
+      z-index: 10002 !important;
+      background-color: #ffffff !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5) !important;
+      position: relative !important;
+      border: 1px solid #000000 !important;
+    }
+    #postQuestionModalPast .modal-header,
+    #postQuestionModalPast .modal-body,
+    #postQuestionModalPast .modal-footer {
+      z-index: 10003 !important;
+      background: transparent !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #postQuestionModalPast .form-control,
+    #postQuestionModalPast input,
+    #postQuestionModalPast textarea,
+    #postQuestionModalPast select,
+    #postQuestionModalPast button:not(.btn-close) {
+      z-index: 10004 !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      background-color: #ffffff !important;
+      color: #333333 !important;
+      cursor: auto !important;
+      position: relative !important;
+      border: 1px solid #cccccc !important;
+    }
+    #postQuestionModalPast input[type="text"],
+    #postQuestionModalPast textarea,
+    #postQuestionModalPast select {
+      cursor: text !important;
+    }
+    #postQuestionModalPast input[type="file"] {
+      cursor: pointer !important;
+    }
+    #postQuestionModalPast button:not(.btn-close) {
+      cursor: pointer !important;
+      background-color: #007bff !important;
+      color: #ffffff !important;
+    }
+    #postQuestionModalPast::before,
+    #postQuestionModalPast::after,
+    #postQuestionModalPast .modal-dialog::before,
+    #postQuestionModalPast .modal-dialog::after,
+    #postQuestionModalPast .modal-content::before,
+    #postQuestionModalPast .modal-content::after,
+    #postQuestionModalPast .modal-body::before,
+    #postQuestionModalPast .modal-body::after {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+      z-index: -1 !important;
+    }
+    .modal-backdrop {
+      z-index: 9999 !important;
+      opacity: 0.5 !important;
+      background-color: #000000 !important;
+      pointer-events: none !important;
+    }
+    .modal-backdrop.show + .modal-backdrop {
+      display: none !important;
+    }
+    .modal,
+    .modal.fade,
+    .modal.fade.show,
+    .modal-dialog,
+    .modal-content,
+    .modal-body,
+    .form-control,
+    input,
+    textarea,
+    select,
+    button {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      z-index: 10000 !important;
+      background: transparent !important;
+    }
+    input:hover,
+    textarea:hover,
+    select:hover {
+      cursor: text !important;
+    }
+    input[type="file"]:hover,
+    button:not(.btn-close):hover {
+      cursor: pointer !important;
+    }
+    /* SEO Enhancements */
+    .question-card {
+      margin-bottom: 1.5rem;
+      padding: 1rem;
+      border: 1px solid #ddd;
+      border-radius: 0.25rem;
+    }
+    .question-card h2 {
+      font-size: 1.5rem;
+      margin-bottom: 0.5rem;
+    }
+    .question-card p {
+      margin-bottom: 0.5rem;
+    }
+  </style>
   <div class="container">
-    <h1 class="text-center mb-4" style="color: var(--wens-blue);">Past Solutions</h1>
+    <div class="d-flex justify-content-between align-items-center mb-4">
+      <h1 style="color: var(--wens-blue);">{% trans "Past Solutions" %}</h1>
+      {% if user.is_authenticated %}
+        <button class="btn btn-wens" data-bs-toggle="modal" data-bs-target="#postQuestionModalPast">
+          <i class="fas fa-plus"></i> {% trans "Post Question" %}
+        </button>
+      {% endif %}
+    </div>
     <div class="row g-4">
       {% for question in questions %}
       <div class="col-md-6">
-        <article class="question-card">
-          <h2>{{ question.title }}</h2>
-          <p>{{ question.description|linebreaks }}</p>
-          <!-- Hidden keywords for searchability -->
-          <meta name="keywords" content="{{ question.title }}, {{ question.description|truncatewords:10 }}, academic solution, student question">
+        <article class="question-card" itemscope itemtype="https://schema.org/Question">
+          <h2 itemprop="name">{{ question.title }}</h2>
+          <p itemprop="text">{{ question.description|linebreaks }}</p>
+          <p><strong>{% trans "Posted By" %}: <span itemprop="author" itemscope itemtype="https://schema.org/Person"><span itemprop="name">{{ question.posted_by.username|default:"Unknown" }}</span></span></strong></p>
+          <meta itemprop="datePublished" content="{{ question.created_at|date:'c' }}">
+          {% if question.image %}
+            <img src="{{ question.image.url }}" alt="{{ question.title|escape }}" class="img-fluid mt-2" loading="lazy" itemprop="image">
+          {% endif %}
+          {% if question.document %}
+            <a href="{{ question.document.file.url }}" class="btn btn-outline-secondary btn-sm mt-2" download>
+              {% trans "Download Document" %}
+            </a>
+          {% endif %}
+          <meta name="keywords" content="{{ question.title|lower }}, {{ question.description|truncatewords:10|lower }}, academic solution, student question">
           <a href="https://wa.me/+18438437046?text=Requesting%20solution:%20{{ question.description|urlencode }}"
-             target="_blank" class="btn btn-wens">
-            Solution <i class="fab fa-whatsapp ms-1"></i>
+             target="_blank" class="btn btn-wens mt-2">
+            {% trans "Solution" %} <i class="fab fa-whatsapp ms-1"></i>
           </a>
         </article>
       </div>
       {% empty %}
       <div class="col-12 text-center">
-        <p>No questions available yet.</p>
+        <p>{% trans "No questions available yet." %}</p>
       </div>
       {% endfor %}
     </div>
   </div>
 
+  <!-- Post Question Modal for Logged-in Users -->
+  {% if user.is_authenticated %}
+  <div class="modal fade" id="postQuestionModalPast" tabindex="-1" aria-labelledby="postQuestionModalPastLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="postQuestionModalPastLabel">{% trans "Post New Question" %}</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <form method="POST" action="{% url 'past_solutions' %}" enctype="multipart/form-data">
+          {% csrf_token %}
+          <input type="hidden" name="action" value="post_question">
+          <input type="hidden" name="page" value="past_solutions">
+          <div class="modal-body">
+            <div class="mb-3">
+              <label for="title" class="form-label" style="color: #333;">{% trans "Title" %}</label>
+              <input type="text" class="form-control" id="title" name="title" required>
+            </div>
+            <div class="mb-3">
+              <label for="description" class="form-label" style="color: #333;">{% trans "Description" %}</label>
+              <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="document" class="form-label" style="color: #333;">{% trans "Document (Optional)" %}</label>
+              <input type="file" class="form-control" id="document" name="document" accept=".pdf,.doc,.docx">
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label" style="color: #333;">{% trans "Image (Optional)" %}</label>
+              <input type="file" class="form-control" id="image" name="image" accept="image/*">
+            </div>
+          </div>
+          <div class="modal-footer">
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">{% trans "Close" %}</button>
+            <button type="submit" class="btn btn-wens">{% trans "Post Question" %}</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endif %}
+
   <!-- Schema Markup for FAQ -->
-  <script type="application/ld+json">
+  <script defer type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "FAQPage",
@@ -44,16 +231,143 @@
       {
         "@type": "Question",
         "name": "{{ question.title|escapejs }}",
+        "text": "{{ question.description|truncatewords:50|escapejs }}",
+        "datePublished": "{{ question.created_at|date:'c' }}",
+        "author": {
+          "@type": "Person",
+          "name": "{{ question.posted_by.username|default:'Unknown'|escapejs }}"
+        },
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "{{ question.description|truncatewords:50|escapejs }}"
+          "text": "Contact us via WhatsApp for a detailed solution to this question."
         }
       }{% if not forloop.last %},{% endif %}
       {% endfor %}
     ]
   }
   </script>
-</section>
 
-<script src="{% static 'js/past_solutions.js' %}"></script>
+  <!-- JavaScript to Ensure Interactivity and Debug -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const postQuestionModal = document.getElementById('postQuestionModalPast');
+      if (postQuestionModal) {
+        postQuestionModal.addEventListener('show.bs.modal', () => {
+          const existingBackdrops = document.querySelectorAll('.modal-backdrop');
+          console.log('Backdrops found:', existingBackdrops.length);
+          if (existingBackdrops.length > 1) {
+            for (let i = 1; i < existingBackdrops.length; i++) {
+              existingBackdrops[i].remove();
+              console.log('Removed extra backdrop:', i);
+            }
+          }
+          postQuestionModal.style.zIndex = '10000';
+          postQuestionModal.style.opacity = '1';
+          postQuestionModal.style.pointerEvents = 'auto';
+          postQuestionModal.style.background = 'transparent';
+        });
+
+        postQuestionModal.addEventListener('shown.bs.modal', () => {
+          const modalDialog = postQuestionModal.querySelector('.modal-dialog');
+          const modalContent = postQuestionModal.querySelector('.modal-content');
+          const modalBody = postQuestionModal.querySelector('.modal-body');
+          const backdrop = document.querySelector('.modal-backdrop');
+          const inputs = postQuestionModal.querySelectorAll('input, textarea');
+          const buttons = postQuestionModal.querySelectorAll('button:not(.btn-close)');
+
+          if (modalDialog) {
+            modalDialog.style.zIndex = '10001';
+            modalDialog.style.opacity = '1';
+            modalDialog.style.pointerEvents = 'auto';
+          }
+          if (modalContent) {
+            modalContent.style.zIndex = '10002';
+            modalContent.style.opacity = '1';
+            modalContent.style.pointerEvents = 'auto';
+            modalContent.style.backgroundColor = '#ffffff';
+          }
+          if (modalBody) {
+            modalBody.style.zIndex = '10003';
+            modalBody.style.opacity = '1';
+            modalBody.style.pointerEvents = 'auto';
+          }
+
+          console.log('Modal z-index:', getComputedStyle(postQuestionModal).zIndex);
+          console.log('Modal opacity:', getComputedStyle(postQuestionModal).opacity);
+          console.log('Modal pointer-events:', getComputedStyle(postQuestionModal).pointerEvents);
+          console.log('Dialog z-index:', modalDialog ? getComputedStyle(modalDialog).zIndex : 'None');
+          console.log('Content z-index:', modalContent ? getComputedStyle(modalContent).zIndex : 'None');
+          console.log('Body z-index:', modalBody ? getComputedStyle(modalBody).zIndex : 'None');
+          console.log('Backdrop z-index:', backdrop ? getComputedStyle(backdrop).zIndex : 'None');
+
+          console.log('Inputs found:', inputs.length);
+          inputs.forEach((input, index) => {
+            const computedStyle = getComputedStyle(input);
+            console.log(`Input ${index}: ID=${input.id}, Type=${input.type}, Disabled=${input.disabled}, Opacity=${computedStyle.opacity}, PointerEvents=${computedStyle.pointerEvents}`);
+            input.disabled = false;
+            input.removeAttribute('disabled');
+            input.style.zIndex = '10004';
+            input.style.opacity = '1';
+            input.style.pointerEvents = 'auto';
+            input.style.backgroundColor = '#ffffff';
+            input.style.color = '#333333';
+          });
+
+          console.log('Buttons found:', buttons.length);
+          buttons.forEach((button, index) => {
+            const computedStyle = getComputedStyle(button);
+            console.log(`Button ${index}: Class=${button.className}, Disabled=${button.disabled}, Opacity=${computedStyle.opacity}, PointerEvents=${computedStyle.pointerEvents}`);
+            button.disabled = false;
+            button.removeAttribute('disabled');
+            button.style.zIndex = '10004';
+            button.style.opacity = '1';
+            button.style.pointerEvents = 'auto';
+            button.style.backgroundColor = '#007bff';
+            button.style.color = '#ffffff';
+          });
+
+          const titleInput = postQuestionModal.querySelector('#title');
+          if (titleInput) {
+            titleInput.focus();
+            console.log('Focused on title input');
+          } else {
+            console.error('Title input not found');
+          }
+        });
+
+        postQuestionModal.addEventListener('hidden.bs.modal', () => {
+          const inputs = postQuestionModal.querySelectorAll('input, textarea');
+          inputs.forEach(input => {
+            input.disabled = false;
+            input.removeAttribute('disabled');
+            input.value = '';
+            input.style.opacity = '1';
+            input.style.pointerEvents = 'auto';
+          });
+          const buttons = postQuestionModal.querySelectorAll('button:not(.btn-close)');
+          buttons.forEach(button => {
+            button.disabled = false;
+            button.removeAttribute('disabled');
+            button.style.opacity = '1';
+            button.style.pointerEvents = 'auto';
+          });
+          const backdrops = document.querySelectorAll('.modal-backdrop');
+          if (backdrops.length > 1) {
+            for (let i = 1; i < backdrops.length; i++) {
+              backdrops[i].remove();
+              console.log('Removed extra backdrop on hide:', i);
+            }
+          }
+          console.log('Modal hidden, inputs cleared, backdrops cleaned');
+        });
+      } else {
+        console.error('Post Question Modal not found. Expected ID: postQuestionModalPast');
+      }
+
+      // Debug: Log questions rendered
+      const questionCards = document.querySelectorAll('.question-card');
+      console.log(`Questions rendered in past solutions: ${questionCards.length}`);
+    });
+  </script>
+</section>
 {% endblock %}

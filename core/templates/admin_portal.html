@@ -1,9 +1,101 @@
+<!-- admin_portal.html -->
 {% extends 'base.html' %}
 {% load static i18n %}
 
+{% block meta %}
+  <title>Admin Portal - Manage Questions</title>
+  <meta name="description" content="Admin portal for managing student questions and solutions.">
+  <meta name="keywords" content="admin portal, manage questions, academic solutions, student questions">
+{% endblock %}
+
 {% block content %}
 <section class="admin-portal py-5">
-  <link href="{% static 'css/admin.css' %}?v=6" rel="stylesheet">
+  <link href="{% static 'css/admin.css' %}?v=8" rel="stylesheet">
+  <!-- Inline CSS to Ensure Delete Modal Visibility -->
+  <style>
+    #deleteQuestionModal {
+      z-index: 10000 !important;
+      position: fixed !important;
+      top: 0 !important;
+      left: 0 !important;
+      width: 100% !important;
+      height: 100% !important;
+      overflow: auto !important;
+      background: transparent !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #deleteQuestionModal .modal-dialog {
+      z-index: 10001 !important;
+      position: relative !important;
+      margin: 1.75rem auto !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #deleteQuestionModal .modal-content {
+      z-index: 10002 !important;
+      background-color: #ffffff !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.5) !important;
+      border: 1px solid #000000 !important;
+    }
+    #deleteQuestionModal .modal-header,
+    #deleteQuestionModal .modal-body,
+    #deleteQuestionModal .modal-footer {
+      z-index: 10003 !important;
+      background: transparent !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+    }
+    #deleteQuestionModal .form-control,
+    #deleteQuestionModal input,
+    #deleteQuestionModal button:not(.btn-close) {
+      z-index: 10004 !important;
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      background-color: #ffffff !important;
+      color: #333333 !important;
+      cursor: auto !important;
+    }
+    #deleteQuestionModal button:not(.btn-close) {
+      cursor: pointer !important;
+    }
+    #deleteQuestionModal::before,
+    #deleteQuestionModal::after,
+    #deleteQuestionModal .modal-dialog::before,
+    #deleteQuestionModal .modal-dialog::after,
+    #deleteQuestionModal .modal-content::before,
+    #deleteQuestionModal .modal-content::after {
+      display: none !important;
+      content: none !important;
+      background: none !important;
+      z-index: -1 !important;
+    }
+    .modal-backdrop {
+      z-index: 9999 !important;
+      opacity: 0.5 !important;
+      background-color: #000000 !important;
+      pointer-events: none !important;
+    }
+    .modal-backdrop.show + .modal-backdrop {
+      display: none !important;
+    }
+    .modal,
+    .modal.fade,
+    .modal.fade.show,
+    .modal-dialog,
+    .modal-content,
+    .modal-body,
+    .form-control,
+    input,
+    button {
+      opacity: 1 !important;
+      pointer-events: auto !important;
+      z-index: 10000 !important;
+    }
+  </style>
+
   <!-- Sidebar Toggler Button -->
   <button class="sidebar-toggler" id="sidebar-toggler" aria-label="Toggle Sidebar">
     <i class="fas fa-bars"></i>
@@ -67,6 +159,7 @@
                     <th>{% trans "Title" %}</th>
                     <th>{% trans "Description" %}</th>
                     <th>{% trans "Posted By" %}</th>
+                    <th>{% trans "Attachments" %}</th>
                     <th>{% trans "Actions" %}</th>
                   </tr>
                 </thead>
@@ -75,7 +168,15 @@
                   <tr>
                     <td>{{ question.title }}</td>
                     <td>{{ question.description|truncatewords:20 }}</td>
-                    <td>{{ question.posted_by.username }}</td>
+                    <td>{{ question.posted_by.username|default:"Unknown" }}</td>
+                    <td>
+                      {% if question.document %}
+                        <a href="{{ question.document.file.url }}" class="btn btn-outline-secondary btn-sm" download>{% trans "Document" %}</a>
+                      {% endif %}
+                      {% if question.image %}
+                        <a href="{{ question.image.url }}" class="btn btn-outline-secondary btn-sm" target="_blank">{% trans "Image" %}</a>
+                      {% endif %}
+                    </td>
                     <td>
                       <button class="btn btn-danger btn-sm delete-question"
                               data-bs-toggle="modal"
@@ -88,7 +189,7 @@
                   </tr>
                   {% empty %}
                   <tr>
-                    <td colspan="4" class="text-center">{% trans "No questions posted yet." %}</td>
+                    <td colspan="5" class="text-center">{% trans "No questions posted yet." %}</td>
                   </tr>
                   {% endfor %}
                 </tbody>
@@ -126,7 +227,7 @@
           <h5 class="modal-title" id="postQuestionModalLabel">{% trans "Post New Question" %}</h5>
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
         </div>
-        <form method="POST" action="{% url 'admin_portal' %}">
+        <form method="POST" action="{% url 'admin_portal' %}" enctype="multipart/form-data">
           {% csrf_token %}
           <input type="hidden" name="action" value="post_question">
           <div class="modal-body">
@@ -137,6 +238,14 @@
             <div class="mb-3">
               <label for="description" class="form-label" style="color: #333;">{% trans "Description" %}</label>
               <textarea class="form-control" id="description" name="description" rows="4" required></textarea>
+            </div>
+            <div class="mb-3">
+              <label for="document" class="form-label" style="color: #333;">{% trans "Document (Optional)" %}</label>
+              <input type="file" class="form-control" id="document" name="document" accept=".pdf,.doc,.docx">
+            </div>
+            <div class="mb-3">
+              <label for="image" class="form-label" style="color: #333;">{% trans "Image (Optional)" %}</label>
+              <input type="file" class="form-control" id="image" name="image" accept="image/*">
             </div>
           </div>
           <div class="modal-footer">
@@ -205,116 +314,141 @@
       </div>
     </div>
   </div>
-</section>
 
-<!-- Embedded JavaScript for Sidebar Toggler, Delete Functionality, and Modal Fix -->
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    // Sidebar Toggler Logic
-    const sidebar = document.querySelector('.sidebar');
-    const toggler = document.querySelector('.sidebar-toggler');
-
-    if (toggler && sidebar) {
-      toggler.addEventListener('click', () => {
-        sidebar.classList.toggle('active');
-        toggler.classList.toggle('toggler-active'); // Toggle animation state
-      });
-
-      // Close sidebar when clicking outside
-      document.addEventListener('click', (event) => {
-        if (sidebar.classList.contains('active')) {
-          if (!sidebar.contains(event.target) && !toggler.contains(event.target)) {
-            sidebar.classList.remove('active');
-            toggler.classList.remove('toggler-active'); // Reset animation
+  <!-- Embedded JavaScript for Sidebar Toggler, Delete Functionality, and Modal Fix -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Sidebar Toggler Logic
+      const sidebar = document.querySelector('.sidebar');
+      const toggler = document.querySelector('.sidebar-toggler');
+      if (toggler && sidebar) {
+        toggler.addEventListener('click', () => {
+          sidebar.classList.toggle('active');
+          toggler.classList.toggle('toggler-active');
+          console.log('Sidebar toggled:', sidebar.classList.contains('active') ? 'Active' : 'Inactive');
+        });
+        document.addEventListener('click', (event) => {
+          if (sidebar.classList.contains('active')) {
+            if (!sidebar.contains(event.target) && !toggler.contains(event.target)) {
+              sidebar.classList.remove('active');
+              toggler.classList.remove('toggler-active');
+              console.log('Sidebar closed due to outside click');
+            }
           }
+        });
+        document.querySelectorAll('.modal').forEach(modal => {
+          modal.addEventListener('show.bs.modal', () => {
+            if (sidebar.classList.contains('active')) {
+              sidebar.classList.remove('active');
+              toggler.classList.remove('toggler-active');
+              console.log('Sidebar closed due to modal open');
+            }
+          });
+        });
+      } else {
+        console.error('Sidebar or toggler not found');
+      }
+
+      // Ensure modal inputs are enabled
+      const modals = ['postQuestionModal', 'deleteQuestionModal', 'changePasswordModal'];
+      modals.forEach(modalId => {
+        const modal = document.getElementById(modalId);
+        if (modal) {
+          modal.addEventListener('shown.bs.modal', () => {
+            const inputs = modal.querySelectorAll('input, textarea, button');
+            inputs.forEach(input => {
+              input.disabled = false;
+              input.style.pointerEvents = 'auto';
+              input.style.opacity = '1';
+            });
+            console.log(`Modal ${modalId} shown, inputs enabled`);
+          });
+        } else {
+          console.error(`Modal not found: ${modalId}`);
         }
       });
 
-      // Close sidebar when modal is opened
-      document.querySelectorAll('.modal').forEach(modal => {
-        modal.addEventListener('show.bs.modal', () => {
-          if (sidebar.classList.contains('active')) {
-            sidebar.classList.remove('active');
-            toggler.classList.remove('toggler-active'); // Reset animation
-          }
-        });
-      });
-    } else {
-      console.error('Sidebar or toggler not found');
-    }
+      // Debug: Log questions rendered
+      const questionRows = document.querySelectorAll('tbody tr:not(.text-center)');
+      console.log(`Questions rendered in table: ${questionRows.length}`);
 
-    // Ensure modal inputs are enabled
-    const postQuestionModal = document.getElementById('postQuestionModal');
-    if (postQuestionModal) {
-      postQuestionModal.addEventListener('shown.bs.modal', () => {
-        const inputs = postQuestionModal.querySelectorAll('input, textarea, button');
-        inputs.forEach(input => {
-          input.disabled = false; // Ensure inputs are not disabled
-          input.style.pointerEvents = 'auto'; // Ensure interactivity
-          input.style.opacity = '1'; // Ensure visibility
-        });
-      });
-    }
+      // Delete Button Functionality
+      const deleteButtons = document.querySelectorAll('.delete-question');
+      console.log(`Found ${deleteButtons.length} delete buttons`);
 
-    // Delete Button Functionality
-    const deleteButtons = document.querySelectorAll('.delete-question');
-    console.log(`Found ${deleteButtons.length} delete buttons`);
-
-    if (deleteButtons.length === 0) {
-      console.warn('No delete buttons found. Check if questions are rendered and buttons have .delete-question class.');
-    }
-
-    deleteButtons.forEach((button, index) => {
-      const questionId = button.getAttribute('data-question-id');
-      const questionTitle = button.getAttribute('data-question-title');
-
-      console.log(`Button ${index + 1}: ID=${questionId}, Title=${questionTitle}`);
-
-      if (!questionId || !questionTitle) {
-        console.error(`Button ${index + 1} has invalid attributes: ID=${questionId}, Title=${questionTitle}`);
-        return;
+      if (deleteButtons.length === 0 && questionRows.length > 0) {
+        console.warn('Delete buttons missing but questions exist. Check .delete-question class.');
       }
 
-      button.addEventListener('click', () => {
-        console.log(`Delete button clicked: ID=${questionId}, Title=${questionTitle}`);
+      deleteButtons.forEach((button, index) => {
+        const questionId = button.getAttribute('data-question-id');
+        const questionTitle = button.getAttribute('data-question-title');
+        console.log(`Button ${index + 1}: ID=${questionId}, Title=${questionTitle}`);
 
-        const questionIdInput = document.getElementById('delete_question_id');
-        const questionTitleSpan = document.getElementById('delete_question_title');
-
-        if (!questionIdInput || !questionTitleSpan) {
-          console.error('Modal elements missing: delete_question_id or delete_question_title not found');
+        if (!questionId || !questionTitle) {
+          console.error(`Button ${index + 1} has invalid attributes: ID=${questionId}, Title=${questionTitle}`);
           return;
         }
 
-        questionIdInput.value = questionId;
-        questionTitleSpan.textContent = questionTitle;
-        console.log(`Modal populated: ID=${questionId}, Title=${questionTitle}`);
+        button.addEventListener('click', () => {
+          console.log(`Delete button clicked: ID=${questionId}, Title=${questionTitle}`);
+
+          const questionIdInput = document.getElementById('delete_question_id');
+          const questionTitleSpan = document.getElementById('delete_question_title');
+          const deleteModal = document.getElementById('deleteQuestionModal');
+
+          if (!questionIdInput || !questionTitleSpan || !deleteModal) {
+            console.error('Modal elements missing: delete_question_id, delete_question_title, or deleteQuestionModal not found');
+            return;
+          }
+
+          questionIdInput.value = questionId;
+          questionTitleSpan.textContent = questionTitle;
+          console.log(`Modal populated: ID=${questionId}, Title=${questionTitle}`);
+
+          try {
+            const bootstrapModal = new bootstrap.Modal(deleteModal);
+            bootstrapModal.show();
+            console.log('Delete modal shown programmatically');
+          } catch (error) {
+            console.error('Error showing delete modal:', error);
+          }
+        });
       });
+
+      // Delete Form Submission
+      const deleteForm = document.getElementById('deleteQuestionForm');
+      if (deleteForm) {
+        deleteForm.addEventListener('submit', (e) => {
+          const formData = new FormData(deleteForm);
+          const formEntries = Object.fromEntries(formData);
+          console.log('Delete form submitted with data:', formEntries);
+
+          if (!formEntries.question_id) {
+            console.error('Form submission failed: question_id is missing');
+            e.preventDefault();
+            alert('Error: Question ID is missing.');
+          }
+          if (!formEntries.action) {
+            console.error('Form submission failed: action is missing');
+            e.preventDefault();
+            alert('Error: Action is missing.');
+          }
+          if (!formEntries.csrfmiddlewaretoken) {
+            console.error('Form submission failed: csrfmiddlewaretoken is missing');
+            e.preventDefault();
+            alert('Error: CSRF token is missing.');
+          }
+        });
+      } else {
+        console.error('Delete form not found: #deleteQuestionForm');
+      }
+
+      // Global Error Handling
+      window.onerror = (message, source, lineno, colno, error) => {
+        console.error(`JavaScript error: ${message} at ${source}:${lineno}:${colno}`, error);
+      };
     });
-
-    const deleteForm = document.getElementById('deleteQuestionForm');
-    if (deleteForm) {
-      deleteForm.addEventListener('submit', (e) => {
-        const formData = new FormData(deleteForm);
-        const formEntries = Object.fromEntries(formData);
-        console.log('Delete form submitted with data:', formEntries);
-
-        if (!formEntries.question_id) {
-          console.error('Form submission failed: question_id is missing');
-          e.preventDefault();
-        }
-        if (!formEntries.action) {
-          console.error('Form submission failed: action is missing');
-          e.preventDefault();
-        }
-        if (!formEntries.csrfmiddlewaretoken) {
-          console.error('Form submission failed: csrfmiddlewaretoken is missing');
-          e.preventDefault();
-        }
-      });
-    } else {
-      console.error('Delete form not found: #deleteQuestionForm');
-    }
-  });
-</script>
+  </script>
+</section>
 {% endblock %}
